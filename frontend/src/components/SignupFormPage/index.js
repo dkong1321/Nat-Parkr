@@ -30,47 +30,43 @@ function SignupFormPage() {
 
   return (
       <div className="test2">
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="sign_up_form">
         <ul>
             {errors.map((error, idx) => <li key={idx}>{error}</li>)}
         </ul>
-        <label>
-            Email
-            <input
-            type="text"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            />
-        </label>
-        <label>
-            Username
-            <input
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-            />
-        </label>
-        <label>
-            Password
-            <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            />
-        </label>
-        <label>
-            Confirm Password
-            <input
-            type="password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            required
-            />
-        </label>
+
+        <div className="sign_up_header">Sign up for "blank"</div>
+          <input
+          type="text"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="Email"
+          required
+          />
+          <input
+          type="text"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          placeholder="Username"
+          required
+          />
+          <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          placeholder="Password"
+          required
+          />
+          <input
+          type="password"
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
+          placeholder="Conform Password"
+          required
+          />
+
         <button type="submit">Sign Up</button>
+        <button>Demo User</button>
         </form>
       </div>
 
