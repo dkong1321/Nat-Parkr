@@ -27,7 +27,7 @@ router.post(
         });
     })
 );
-
+// cLlvFRSY-jDd8Vb1tK5xgqZKzCl6fQq-MkZ0
 // Logout (not async)
 router.delete(
     '/',
@@ -35,6 +35,8 @@ router.delete(
         res.clearCookie('token');
         return res.json({message:'success'});
     }
-)
+);
+
+
 
 module.exports = router;
