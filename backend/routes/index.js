@@ -38,10 +38,9 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 
-
-if(process.env.NODE_ENV !== 'production') {
-  router.get('/api/csrf/restore', (req,res)=> {
-    res.cookie('XRSF-TOKEN', req.csrfToken());
+if (process.env.NODE_ENV !== 'production') {
+  router.get('/api/csrf/restore', (req, res) => {
+    res.cookie('XSRF-TOKEN', req.csrfToken());
     return res.json({});
   });
 }

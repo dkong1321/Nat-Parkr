@@ -8,11 +8,6 @@ router.use('/session', sessionRouter);
 
 router.use('/users', usersRouter);
 
-router.post('/test', (req, res) => {
-  res.json({ requestBody: req.body });
-});
-
-module.exports = router;
 
 //used for testing
 // router.post('/test', function(req, res) {
@@ -52,5 +47,9 @@ router.get(
     return res.json(req.user);
   }
 );
+
+router.post('/test', (req, res) => {
+  res.json({ requestBody: req.body });
+});
 
 module.exports = router;
