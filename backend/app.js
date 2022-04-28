@@ -21,13 +21,6 @@ if (!isProduction) {
   app.use(cors());
 }
 
-// helmet helps set a variety of headers to better secure your app
-app.use(
-  helmet.crossOriginResourcePolicy({
-    policy: "cross-origin"
-  })
-);
-
 // Set the _csrf token and create req.csrfToken method
 app.use(
   csurf({
@@ -38,6 +31,15 @@ app.use(
     }
   })
 );
+
+// helmet helps set a variety of headers to better secure your app
+app.use(
+  helmet.crossOriginResourcePolicy({
+    policy: "cross-origin"
+  })
+);
+
+
 
 // backend/app.js
 const routes = require('./routes');
