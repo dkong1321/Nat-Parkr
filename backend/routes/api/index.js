@@ -14,9 +14,10 @@ router.post('/test', (req, res) => {
 
 module.exports = router;
 
-router.post('/test', function(req, res) {
-  res.json({ requestBody: req.body });
-});
+//used for testing
+// router.post('/test', function(req, res) {
+//   res.json({ requestBody: req.body });
+// });
 
 // GET /api/set-token-cookie
 const asyncHandler = require('express-async-handler');
