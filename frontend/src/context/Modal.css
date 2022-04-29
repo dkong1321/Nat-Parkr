@@ -21,5 +21,29 @@
 
 #modal-content {
     position: absolute;
-    background-color: white;
+    background-color: #4b8f8c;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: center;
+    width: 250px;
+    height: 300px;
+    border-radius: 10px;
+
+}
+
+.login_form_container, .demo_form_container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login_form_container > input,
+.login_form_container>div {
+    margin-bottom: 10px;
+}
+
+.demo_form_container{
+    margin-top: 10px;
 }

@@ -1,13 +1,22 @@
-.test2 {
+
+
+.sign_up_form_container {
+    padding-bottom: 20px;
     display: flex;
+    background-color: #4b8f8c;
+    flex-direction: column;
     justify-content: center;
-    border: 5px black;
+    align-items: center;
+    row-gap: 8px;
+    width: 300px;
+    border-radius: 10px;
+    /* padding-top: 5px; */
+    /* margin: 5px; */
 }
 
 .sign_up_form {
-    padding-bottom: 20px;
     display: flex;
-    background-color: aqua;
+    background-color: #4b8f8c;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -17,6 +26,11 @@
     /* padding-top: 5px; */
     /* margin: 5px; */
 
+}
+
+.sign_up_page{
+    display: flex;
+    justify-content: center;
 }
 
 input {

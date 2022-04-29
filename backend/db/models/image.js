@@ -25,9 +25,12 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Image.associate = function(models) {
     // associations can be defined here
-    // Image.belongsTo(models.User, {foreighKey:"userId"});
 
+    // Image belongs to a single user
+    Image.belongsTo(models.User, {foreignKey:"userId"});
 
+    // Image belongs to an album
+    Image.belongsTo(models.Album, {foreignKey:"albumId"})
   };
   return Image;
 };

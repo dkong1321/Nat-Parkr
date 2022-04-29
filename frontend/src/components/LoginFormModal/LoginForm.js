@@ -10,6 +10,7 @@ function LoginForm() {
   const [errors, setErrors] = useState([]);
 
   const handleSubmit = (e) => {
+    console.log(e.target)
     e.preventDefault();
     setErrors([]);
     return dispatch(sessionActions.login({ credential, password })).catch(
@@ -20,33 +21,42 @@ function LoginForm() {
     );
   };
 
+  const demoSubmit = (e) =>{
+    e.preventDefault();
+    const credential = "PropanePrince"
+    const password = "password1"
+    return dispatch(sessionActions.login({credential,password}))
+  }
+
   return (
-    <form onSubmit={handleSubmit}>
-      <ul>
-        {errors.map((error, idx) => (
-          <li key={idx}>{error}</li>
-        ))}
-      </ul>
-      <label>
-        Username or Email
-        <input
-          type="text"
-          value={credential}
-          onChange={(e) => setCredential(e.target.value)}
-          required
-        />
-      </label>
-      <label>
-        Password
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-      </label>
-      <button type="submit">Log In</button>
-    </form>
+    <div>
+      <form onSubmit={handleSubmit} className="login_form_container">
+        <ul>
+          {errors.map((error, idx) => (
+            <li key={idx}>{error}</li>
+          ))}
+        </ul>
+        <div>Log in to See Your Photos</div>
+          <input
+            type="text"
+            value={credential}
+            onChange={(e) => setCredential(e.target.value)}
+            placeholder="Username or Email"
+            required
+          />
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="password"
+            required
+          />
+        <button type="submit">Log In</button>
+      </form>
+      <form onSubmit={demoSubmit} className="demo_form_container">
+        <button type="submit">Demo User</button>
+      </form>
+    </div>
   );
 }
 

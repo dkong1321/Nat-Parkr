@@ -29,6 +29,16 @@ function LoginFormPage() {
       });
   }
 
+  const demoSubmit = (e) =>{
+    e.preventDefault();
+    const credential = "PropanePrince"
+    const password = "password1"
+    return dispatch(sessionActions.login({credential,password}))
+      .catch(async(res)=>{
+        const data = await res.json()
+      })
+  }
+
   return (
     <div className='test'>
       <form onSubmit={handleSubmit}>
@@ -36,24 +46,27 @@ function LoginFormPage() {
           {errors.map((error, idx) => <li key={idx}>{error}</li>)}
         </ul>
         <label>
-          Username or Email
           <input
             type="text"
             value={credential}
             onChange={(e) => setCredential(e.target.value)}
+            placeholder="Username or Email"
             required
           />
         </label>
         <label>
-          Password
           <input
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            placeholder="password"
             required
           />
         </label>
         <button type="submit">Log In</button>
+      </form>
+      <form onSubmit={demoSubmit}>
+        <button type="submit">Demo User</button>
       </form>
     </div>
 
