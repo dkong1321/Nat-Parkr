@@ -9,7 +9,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       comment: {
-        type: Sequelize.TEXT(255)
+        type: Sequelize.TEXT
       },
       userId: {
         type: Sequelize.INTEGER,
@@ -19,7 +19,7 @@ module.exports = {
       imageId: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        references:{models:'Images'}
+        references:{model:'Images'}
       },
       createdAt: {
         allowNull: false,

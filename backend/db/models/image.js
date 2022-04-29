@@ -31,6 +31,9 @@ module.exports = (sequelize, DataTypes) => {
 
     // Image belongs to an album
     Image.belongsTo(models.Album, {foreignKey:"albumId"})
+
+    //image belongs to a location
+    Image.belongsTo(models.Location, {foreignKey:"locationId"})
   };
   return Image;
 };

@@ -29,7 +29,8 @@ module.exports = {
         references: {model:'Albums'}
       },
       locationId: {
-        type: Sequelize.STRING(50)
+        type: Sequelize.INTEGER,
+        references:{model:'Locations'}
       },
       createdAt: {
         allowNull: false,

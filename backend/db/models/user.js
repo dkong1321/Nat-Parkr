@@ -49,14 +49,14 @@ module.exports = (sequelize, DataTypes) => {
   });
   User.associate = function(models) {
 
-    // // User has many albums
-    // User.hasMany(models.Album, {foreignKey: "userId"});
+    // User has many albums
+    User.hasMany(models.Album, {foreignKey: "userId"});
 
-    // // User has many images
-    // User.hasMany(models.Image, {foreignKey: "userId"});
+    // User has many images
+    User.hasMany(models.Image, {foreignKey: "userId"});
 
-    // // User has many comments
-    // User.hasMany(models.Comments, {foreignKey: "userId"});
+    // User has many comments
+    User.hasMany(models.Comments, {foreignKey: "userId"});
 
   };
 
