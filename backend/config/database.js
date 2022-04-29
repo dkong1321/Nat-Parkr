@@ -1,6 +1,5 @@
 // backend/config/database.js
 const config = require('./index');
-console.log(config)
 const db = config.db;
 const username = db.username;
 const password = db.password;
