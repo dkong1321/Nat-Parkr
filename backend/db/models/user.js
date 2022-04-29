@@ -56,7 +56,7 @@ module.exports = (sequelize, DataTypes) => {
     User.hasMany(models.Image, {foreignKey: "userId"});
 
     // User has many comments
-    User.hasMany(models.Comments, {foreignKey: "userId"});
+    User.hasMany(models.Comment, {foreignKey: "userId"});
 
   };
 
