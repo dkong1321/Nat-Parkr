@@ -49,6 +49,7 @@ module.exports = (sequelize, DataTypes) => {
   });
   User.associate = function(models) {
     // associations can be defined here
+
   };
 
   // remember, this cannot be an arrow function
