@@ -14,7 +14,7 @@ module.exports = {
     */
          return queryInterface.bulkInsert('Images', [
            { title:'First time at Yellow Stone',
-             imageURL: 'https://lh3.googleusercontent.com/Ro82g9gI2Zwf6JoUgRjM8AZ2JPZHqSiF-iadqqr1_-k1IQ2kMrBGBNTfgehb9OkpxMFcr9h4db085gb8OuKL-I5y9SfuIWol-LrvBUS-RILMU6Ky4_hR9jgoxwlB3gxthlMsK7ApS_U8Jr_c8IlVrK9UnOZ0jFzafT5U_f6Zgcb_31xnVJ6nzdLIcX2BIf-WLgtSRXtpntZ2FY1Gd0GBlkMi6cRTubn8RXLRQiJ4Qzy-k5JrGIhkuH9CK3_vLAw-xr7l3jAXXzBLtQ2ia_canmqbM9eksLagt4PWgO5GF5jZWwYAUOau_zCZ9cCH9TI6D--44_BJvVqaUjjDphaWKrj7cvzBZ2HFl_lt7G41-1eJfzoVrZFDHDcncE7o6iQJpmLn7QylXY5VrKKiyOzuMlRGjT83AT3G0FBX_FevTLwxsL7bBD5v2a_96BoY89ouM_3kPuNHQ5-bjI-SEVWoz37dNibHVb1LcIVDiSWji1MrvSfkWDdWRAWfjapBRNoOdFj0_ZQHWSIrxyklNATJ9DsJ01ZMwrUBNVurTX7jJA_EqxvKftXW9bC9L3EVZYvTaJRLI63yKZoHeL8lkpWjzZ9h9IuUcZDznOcecXRQMB1b3tlXKZSWO_0ia7ONNjt-GkIKb8vo8Hc5hAAE9RX8OoaGpQHfDNvMrpl-Or1D3aNgT0moTPagvUo0YNE9b5b4DYlEFwlOx5WmmvUtQa5hZFCSnZ9XQp4bAqSNZaDbSRcbZ98mqb2qICkv1G1XZVM=w716-h480-no?authuser=0',
+             imageURL: 'yellowstone_1.jpg',
            description: 'Yellowstone Hot Springs',
            userId:2,
            albumId:null,

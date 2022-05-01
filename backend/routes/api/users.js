@@ -29,6 +29,7 @@ const validateSignup = [
   handleValidationErrors
 ]
 
+// sign up a user
 router.post(
     '/',
     validateSignup,
