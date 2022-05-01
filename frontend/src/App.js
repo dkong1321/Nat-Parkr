@@ -5,7 +5,9 @@ import { Route, Switch } from "react-router-dom";
 import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
-
+import Test from "./components/test";
+import HomePage from "./components/Home";
+import ImageBrowser from "./components/Images";
 
 
 function App() {
@@ -23,6 +25,16 @@ function App() {
           {/* <Route path="/login">
             <LoginFormPage />
           </Route> */}
+          <Route path="/" exact>
+            <HomePage/>
+          </Route>
+          <Route path="/images">
+            <ImageBrowser/>
+          </Route>
+          <Route path="/test">
+            <Test></Test>
+          </Route>
+
           <Route path="/signup">
             <SignupFormPage />
           </Route>

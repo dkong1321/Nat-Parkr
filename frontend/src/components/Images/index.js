@@ -5,10 +5,10 @@ const { getImages } = require("../../store/image");
 
 const ImageBrowser = ()=>{
 
-    const images = useSelector(state => state.images);
-    const imageKeys  = Object.keys(images.images)
-    const allImages = images.images
-
+    const images = Object.values(useSelector(state => state.images));
+    // console.log("my collection of images", state.images)
+    console.log("keys of images", images)
+    // const imageKeys  = Object.keys(images.images)
 
     const dispatch = useDispatch()
 
@@ -20,24 +20,19 @@ const ImageBrowser = ()=>{
         return null
     }
 
-    // console.log(Object.keys(images.images))
-    // const imageKeys  = Object.keys(images.images)
-    // console.log(imageKeys)
-    // const allImages = images.images
-    // console.log("========----",allImages[imageKeys[0]].title)
-
     return (
-        <main>
+        <div>
             <h1>Hello</h1>
-            {imageKeys.map(id=>{
-                return (
-                    <div>
-                        <div>{allImages[imageKeys[id]].title}</div>
-                        <img src={`/api/images/${allImages[imageKeys[id]].imageURL}`}></img>
-                    </div>
-                    )
-                })}
-        </main>
+            {images.map((image)=>{
+            return(
+                <div>
+                    <div>{image.title}</div>
+                    <img src={`/api/images/${image.imageURL}`}></img>
+                </div>
+                )
+            })
+        }
+        </div>
     )
 }
 

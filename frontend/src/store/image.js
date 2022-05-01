@@ -30,10 +30,12 @@ const imageReducer = (state = initialState, action) =>{
     switch(action.type) {
         case LOAD:
             newState = {};
-            // console.log(newState)
-            action.images.forEach(image=>{
+            console.log("=====my actionimages",action.images.images)
+            const imageArr = action.images
+            imageArr.images.forEach(image=>{
                 newState[image.id] = image
             })
+            console.log("my new state", newState)
             return newState;
         default:
             return state;
