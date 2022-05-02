@@ -14,8 +14,6 @@ function CreateImage(){
         event.preventDefault()
         const data = {image, description,userId,title}
         const result = await dispatch(postImage(data))
-        console.log(result)
-
     }
 
     const imageSelected = event => {

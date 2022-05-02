@@ -41,9 +41,9 @@ router.put('/editimage/:id', asyncHandler(async(req,res)=>{
             albumId,
             locationId
         });
-        res.json({
+        res.json(
             imageToUpdate
-        })
+        )
     })
 )
 
@@ -53,8 +53,11 @@ router.delete('/:id', asyncHandler(async(req,res)=>{
     console.log("from in the api route", imageId)
     const imageToDelete = await db.Image.findByPk(imageId);
     if(imageToDelete !==undefined){
-        await projectToDelete.destory();
+        await imageToDelete.destroy();
     }
+    res.json({
+        message:"successfully deleted"
+    })
 }))
 
 
