@@ -20,17 +20,12 @@ router.get('/', asyncHandler(async(req,res,next)=>{
     )
 }))
 
-//
-//added from s3
-// we dont need
-// const {uploadFile} = require("./s3")
-
-// s3 section
 
 require('dotenv').config()
 const S3 = require('aws-sdk/clients/s3')
 const fs = require('fs')
 const util = require("util")
+const { singleMulterUpload, singlePublicFileUpload } = require('../../awsS3')
 const unlinkFile = util.promisify(fs.unlink)
 
 const bucketName = process.env.AWS_BUCKET_NAME
@@ -79,18 +74,55 @@ router.get('/:key', (req,res)=>{
     readStream.pipe(res)
 });
 
-router.post('/', upload.single('image'),asyncHandler(async(req, res)=>{
-    const file = req.file
+router.post('/', singleMulterUpload('image'),asyncHandler(async(req, res)=>{
     const { title, description, userId, albumId, locationId} = req.body
-    const imageURL = file.filename
+    const imageURL = await singlePublicFileUpload(req.file)
     const newImage = { title, imageURL, description, userId, albumId, locationId}
     const image = await db.Image.build(newImage)
     await image.save();
+    res.json(image)
 
-    const result = await uploadFile(file)
-    await unlinkFile(file.path)
-    res.send({imagePath: `/images${result.Key}`})
+    // const result = await uploadFile(file)
+    // await unlinkFile(file.path)
+    // res.send({imagePath: `/images${result.Key}`})
 }));
+
+// router.post('/', upload.single('image'),asyncHandler(async(req, res)=>{
+//     const file = req.file
+//     const { title, description, userId, albumId, locationId} = req.body
+//     const imageURL = file.filename
+//     const newImage = { title, imageURL, description, userId, albumId, locationId}
+//     const image = await db.Image.build(newImage)
+//     await image.save();
+
+//     const result = await uploadFile(file)
+//     await unlinkFile(file.path)
+//     res.send({imagePath: `/images${result.Key}`})
+// }));
+
+router.put('/', asyncHandler(async(req,res)=>{
+        const {title, description, userId, albumId, locationId} = req.body
+        const imageId = 17
+        const imageToUpdate = await db.Image.findByPk(imageId);
+        await imageToUpdate.update({
+            title,
+            description,
+            albumId,
+            locationId
+        });
+        res.json({
+            imageToUpdate
+        })
+    })
+)
+
+router.delete('/', asyncHandler(async(req,res)=>{
+    const imageId =17
+    const imageToDelete = await db.Image.findByPk(imageId);
+    if(imageToDelete !==undefined){
+        await projectToDelete.destory();
+    }
+}))
 
 
 // downloads file from s3
