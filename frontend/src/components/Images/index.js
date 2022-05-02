@@ -6,15 +6,6 @@ const { getImages } = require("../../store/image");
 const ImageBrowser = ()=>{
 
     const images = Object.values(useSelector(state => state.images));
-    // console.log("my collection of images", state.images)
-    console.log("keys of images", images)
-    // const imageKeys  = Object.keys(images.images)
-
-    const dispatch = useDispatch()
-
-    useEffect(()=>{
-        dispatch(getImages())
-    }, [dispatch])
 
     if(!images){
         return null
@@ -27,11 +18,13 @@ const ImageBrowser = ()=>{
             return(
                 <div>
                     <div>{image.title}</div>
-                    <img src={`/api/images/${image.imageURL}`}></img>
+                    <div>{image.description}</div>
+                    <img src={`${image.imageURL}`}></img>
                 </div>
                 )
             })
-        }
+            }
+            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.hdwallpaper.nu%2Fwp-content%2Fuploads%2F2015%2F02%2FFunny-Cat-Hidden.jpg&f=1&nofb=1"></img>
         </div>
     )
 }
