@@ -5,11 +5,11 @@ import { Route, Switch } from "react-router-dom";
 import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
-import Test from "./components/test";
 import HomePage from "./components/Home";
-import ImageBrowser from "./components/Images";
+import ImageBrowser from "./components/ShowImages";
 import { getImages } from "./store/image";
-
+import CreateImage from "./components/CreateImage";
+import EditImage from "./components/EditImage";
 
 function App() {
   const dispatch = useDispatch();
@@ -35,9 +35,15 @@ function App() {
           <Route path="/images">
             <ImageBrowser/>
           </Route>
-          <Route path="/test">
-            <Test/>
+          <Route path="/createimage">
+            <CreateImage/>
           </Route>
+          <Route path="/editimage/:imageId">
+            <EditImage/>
+          </Route>
+          {/* <Route path={`/editimage/${id}`}>
+            <EditImage/>
+          </Route> */}
           <Route path="/signup">
             <SignupFormPage />
           </Route>

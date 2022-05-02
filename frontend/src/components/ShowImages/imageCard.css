@@ -1,0 +1,10 @@
+.imageShow {
+    width: 300px;
+    height: auto;
+    border: coral 5px solid;
+    /* border-radius: 50%; */
+}
+
+.test {
+    color: red;
+}
