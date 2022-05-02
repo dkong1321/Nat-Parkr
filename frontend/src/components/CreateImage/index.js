@@ -1,8 +1,8 @@
 import {useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { postImage } from '../store/image';
+import { postImage } from '..//../store/image';
 
-function Test(){
+function CreateImage(){
     const [image,setImage] = useState()
     const [description, setDescription] = useState("")
     const [title, setTitle] = useState("")
@@ -15,6 +15,7 @@ function Test(){
         const data = {image, description,userId,title}
         const result = await dispatch(postImage(data))
         console.log(result)
+
     }
 
     const imageSelected = event => {
@@ -35,4 +36,4 @@ function Test(){
     )
 }
 
-export default Test;
+export default CreateImage;

@@ -24,16 +24,19 @@ function Navigation({ isLoaded }){
 
     return (
         <ul>
-        <li>
-            <NavLink exact to="/">Home</NavLink>
-            {isLoaded && sessionLinks}
-        </li>
-        <li>
-            <NavLink to="/test">Form Upload</NavLink>
-        </li>
-        <li>
-            <NavLink to="/images">Images</NavLink>
-        </li>
+            <li>
+                <NavLink exact to="/">Home</NavLink>
+                {isLoaded && sessionLinks}
+            </li>
+            <li>
+                <NavLink to="/createimage">Add an Image</NavLink>
+            </li>
+            <li>
+                <NavLink to="/editimage">Edit Image</NavLink>
+            </li>
+            <li>
+                <NavLink to="/images">Images</NavLink>
+            </li>
         </ul>
     )
 }

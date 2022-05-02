@@ -4,6 +4,7 @@ const clone = rfdc();
 
 const LOAD = 'images/LOAD';
 const ADD = 'images/ADD';
+const DELETE = 'images/DELETE'
 
 // action creator
 export const load = images => {
@@ -20,6 +21,13 @@ export const addImage = image => {
     }
 }
 
+export const removeImage = id => {
+    return {
+        type:DELETE,
+        id
+    }
+}
+
 export const getImages = () => async dispatch => {
     console.log("got to getImages()")
     const response = await csrfFetch('/api/images');
@@ -28,9 +36,7 @@ export const getImages = () => async dispatch => {
         const images = await response.json();
         console.log(images.images)
         dispatch(load(images));
-        // return images
     }
-    // return response
 }
 
 export const postImage = (data) => async dispatch =>{
@@ -47,32 +53,56 @@ export const postImage = (data) => async dispatch =>{
 
     if(response.ok){
         const newImage = await response.json();
-        console.log(newImage)
         dispatch(addImage(newImage))
+        }
     }
-}
 
-const initialState = {
-    images:{}
-}
+export const editImage = (data) => async dispatch => {
+        console.log(data)
+        console.log(data.imageId)
+        console.log("hello from line 62")
+        const response = await csrfFetch(`/api/images/editimage/${data.imageId}`,{
+        method:"PUT",
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify(data)
+        })
+        if(response.ok){
+            const editedImage = await response.json();
+            dispatch(editImage(editedImage))
+        }
+    }
+
+export const deleteImage = (id) =>async dispatch =>{
+        const response = await csrfFetch(`/api/images/${id}`,{
+            method: 'DELETE'
+        });
+
+        if(response.ok){
+            dispatch(deleteImage(id))
+        }
+    }
+
+
+
+const initialState = {}
 
 const imageReducer = (state = initialState, action) =>{
-    let newState = clone(state)
+    const newState = clone(state)
     switch(action.type) {
         case LOAD:
-            newState = {};
-            console.log("=====my actionimages",action.images.images)
             const imageArr = action.images
             imageArr.images.forEach(image=>{
                 newState[image.id] = image
             })
-            console.log("my new state", newState)
             return newState;
         case ADD:
             newState[action.image.id]=action.image
             return newState
+        case DELETE:
+            delete (newState[action.id])
+            return newState
         default:
-            return state;
+            return newState;
     }
 }
 
