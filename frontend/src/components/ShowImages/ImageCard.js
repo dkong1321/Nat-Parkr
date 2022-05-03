@@ -21,7 +21,7 @@ function ImageCard({image}) {
     }
     return(
         <div>
-            <h1>{image.title}</h1>
+            <h3>{image.title}</h3>
             <div>{image.userId}</div>
             <div>{image.id}</div>
             <div className={style.test}>{image.description}</div>
