@@ -11,14 +11,12 @@ function ImageCard({image}) {
     const user = useSelector(state => state.session.user);
 
     const deleteImageCard = ()=>{
-        console.log("deleteimagecard running")
-
         dispatch(deleteImage(image.id))
     }
 
-    const redirectFunc = (e)=>{
-        history.push("/editimage")
-    }
+    // const redirectFunc = (e)=>{
+    //     history.push("/editimage")
+    // }
     return(
         <div>
             <h3>{image.title}</h3>

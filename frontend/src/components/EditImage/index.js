@@ -11,8 +11,6 @@ function EditImageCard(id){
     const user = useSelector(state => state.session.user);
     const albums = Object.values(useSelector(state => state.albums))
     const currentUserAlbums = albums.filter((album)=>album.userId === user.id)
-    console.log(currentUserAlbums)
-    console.log(albums)
     const [title, setTitle] = useState(image.title)
     const [description, setDescription] = useState(image.description)
     const [albumId, setAlbumId] = useState()
@@ -26,8 +24,6 @@ function EditImageCard(id){
         const data = {title,description,imageId,albumId,locationId}
         console.log(data)
         await dispatch(editImage(data)).then(()=> dispatch(getAlbums()))
-
-
     }
 
     return (
