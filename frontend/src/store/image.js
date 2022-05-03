@@ -36,20 +36,22 @@ export const removeImage = id => {
 }
 
 export const getImages = () => async dispatch => {
+    console.log("hello from getimages")
     const response = await csrfFetch('/api/images');
     if(response.ok) {
         const images = await response.json();
-        console.log(images.images)
         dispatch(load(images));
     }
 }
 
-export const postImage = (data) => async dispatch =>{
+export const postImage = (data) => async dispatch => {
     const formData = new FormData();
+    console.log(data)
     formData.append("image", data.image)
     formData.append("description", data.description)
     formData.append("userId", data.userId)
     formData.append("title", data.title)
+    console.log(formData)
     const response = await csrfFetch('/api/images',{
         method: 'POST',
         headers: {'Content-Type': 'multipart/form-data'},
@@ -63,7 +65,6 @@ export const postImage = (data) => async dispatch =>{
     }
 
 export const editImage = (data) => async dispatch => {
-        console.log("we are in editImage thunk",data)
         const response = await csrfFetch(`/api/images/editimage/${data.imageId}`,{
         method:"PUT",
         headers: {'Content-Type':'application/json'},
@@ -101,16 +102,15 @@ const imageReducer = (state = initialState, action) =>{
             })
             return newState;
         case ADD:
-            console.log("hello")
             newState[action.image.id]=action.image
-            return newState
-        case DELETE:
-            delete (newState[action.id])
-            return newState
+            return newState;
         case PUT:
             delete(newState[action.image.id])
             newState[action.image.id] = action.image
-            return newState
+            return newState;
+        case DELETE:
+            delete (newState[action.id])
+            return newState;
         default:
             return newState;
     }

@@ -4,10 +4,12 @@ const router = require('express').Router();
 const sessionRouter = require('./session.js');
 const usersRouter = require('./users.js');
 const imagesRouter = require('./images.js')
+const albumRouter = require('./albums.js')
 
 router.use('/session', sessionRouter);
 router.use('/images', imagesRouter)
 router.use('/users', usersRouter);
+router.use('/albums', albumRouter);
 
 
 //used for testing

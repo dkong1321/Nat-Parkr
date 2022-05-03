@@ -10,13 +10,19 @@ import ImageBrowser from "./components/ShowImages";
 import { getImages } from "./store/image";
 import CreateImage from "./components/CreateImage";
 import EditImage from "./components/EditImage";
+import { getAlbums } from "./store/album";
+import CreateAlbum from "./components/CreateAlbum";
+import AlbumBrowser from "./components/ShowAlbum";
+
+
 
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
     dispatch(sessionActions.restoreUser())
-    .then(() =>dispatch(getImages()))
+    .then(() => dispatch(getImages()))
+    .then(() => dispatch(getAlbums()))
     .then(() => setIsLoaded(true));
 
   }, [dispatch]);
@@ -26,9 +32,6 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
-          {/* <Route path="/login">
-            <LoginFormPage />
-          </Route> */}
           <Route path="/" exact>
             <HomePage/>
           </Route>
@@ -41,12 +44,16 @@ function App() {
           <Route path="/editimage/:imageId">
             <EditImage/>
           </Route>
-          {/* <Route path={`/editimage/${id}`}>
-            <EditImage/>
-          </Route> */}
           <Route path="/signup">
             <SignupFormPage />
           </Route>
+          <Route path="/albums">
+            <AlbumBrowser/>
+          </Route>
+          <Route path="/createalbum">
+            <CreateAlbum/>
+          </Route>
+
         </Switch>
       )}
     </>

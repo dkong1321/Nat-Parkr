@@ -1,25 +1,31 @@
 import {useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
+import { getAlbums } from '../../store/album';
 import { deleteImage, editImage } from '../../store/image';
 
 function EditImageCard(id){
-    console.log(useParams())
     const {imageId} = useParams()
 
     const image = useSelector(state=> state.images[imageId])
     const user = useSelector(state => state.session.user);
+    const albums = Object.values(useSelector(state => state.albums))
+    const currentUserAlbums = albums.filter((album)=>album.userId === user.id)
+    console.log(currentUserAlbums)
+    console.log(albums)
     const [title, setTitle] = useState(image.title)
     const [description, setDescription] = useState(image.description)
+    const [albumId, setAlbumId] = useState()
+
     const dispatch = useDispatch()
 
     const submitEdit = async(event)=>{
         event.preventDefault();
-        const albumId = 1
+        console.log(albumId)
         const locationId =1
         const data = {title,description,imageId,albumId,locationId}
         console.log(data)
-        await dispatch(editImage(data))
+        await dispatch(editImage(data)).then(()=> dispatch(getAlbums()))
 
 
     }
@@ -31,6 +37,12 @@ function EditImageCard(id){
             <form onSubmit = {submitEdit}>
                 <input value={title} onChange={e=> setTitle(e.target.value)} type="text" placeholder='title'></input>
                 <input value={description} onChange={e=> setDescription(e.target.value)} type="text" placeholder='description'></input>
+                <select onChange={e=> setAlbumId(e.target.value)}>
+                    <option value="">Add to Albums</option>
+                    {currentUserAlbums.map((album)=>{
+                        return(<option value={album.id}>{album.title}</option>)
+                    })}
+                </select>
                 <button type="submit">Edit</button>
             </form>
             <Link to={`/images`}><button>Cancel</button></Link>

@@ -29,13 +29,16 @@ function Navigation({ isLoaded }){
                 {isLoaded && sessionLinks}
             </li>
             <li>
-                <NavLink to="/createimage">Add an Image</NavLink>
-            </li>
-            <li>
-                <NavLink to="/editimage">Edit Image</NavLink>
+                <NavLink to="/createimage">New Image</NavLink>
             </li>
             <li>
                 <NavLink to="/images">Images</NavLink>
+            </li>
+            <li>
+                <NavLink to="/createalbum">Create Album</NavLink>
+            </li>
+            <li>
+                <NavLink to="/albums">Your Albums</NavLink>
             </li>
         </ul>
     )
