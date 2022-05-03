@@ -26,7 +26,6 @@ function ImageCard({image}) {
             <div>{image.id}</div>
             <div className={style.test}>{image.description}</div>
             <img className='imageShow' src={`${image.imageURL}`}></img>
-            {/* {user.id ===image.userId ? <button onClick={redirectFunc}>Edit</button>:<></>} */}
             { (user.id === image.userId) ? <Link to={`/editimage/${image.id}`}><button>Edit</button></Link> :<></>}
             { (user.id === image.userId) ? <button onClick={deleteImageCard}>Delete</button> : <></>}
         </div>

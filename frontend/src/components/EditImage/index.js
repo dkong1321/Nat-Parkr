@@ -1,6 +1,6 @@
 import {useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { deleteImage, editImage } from '../../store/image';
 
 function EditImageCard(id){
@@ -20,6 +20,8 @@ function EditImageCard(id){
         const data = {title,description,imageId,albumId,locationId}
         console.log(data)
         await dispatch(editImage(data))
+
+
     }
 
     return (
@@ -31,6 +33,9 @@ function EditImageCard(id){
                 <input value={description} onChange={e=> setDescription(e.target.value)} type="text" placeholder='description'></input>
                 <button type="submit">Edit</button>
             </form>
+            <Link to={`/images`}><button>Cancel</button></Link>
+
+
             {/* <button onClick={deleteImage}>Delete</button> */}
         </div>
     )

@@ -9,9 +9,7 @@ const db = require ('../../db/models')
 
 // -------------------get all images---------------------------//
 router.get('/', asyncHandler(async(req,res,next)=>{
-    // should we need a user to login to see photos
-    // const {userId} = req.session.auth
-    const userId = 3
+
     const images = await db.Image.findAll({});
 
     res.json(

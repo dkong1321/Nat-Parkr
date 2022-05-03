@@ -87,10 +87,7 @@ export const deleteImage = (id) =>async dispatch =>{
             dispatch(removeImage(id))
         }
         return response
-
     }
-
-
 
 const initialState = {}
 
@@ -111,8 +108,6 @@ const imageReducer = (state = initialState, action) =>{
             delete (newState[action.id])
             return newState
         case PUT:
-            console.log("hello from put")
-            console.log("this be my action", action.image)
             delete(newState[action.image.id])
             newState[action.image.id] = action.image
             return newState
