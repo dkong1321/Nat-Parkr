@@ -1,6 +1,6 @@
-import {useState} from 'react'
-import { useDispatch, useSelector } from 'react-redux';
-import { postImage } from '../store/image';
+// import {useState} from 'react'
+// import { useDispatch, useSelector } from 'react-redux';
+// import { postImage } from '../store/image';
 
 function Test(){
     const [image,setImage] = useState()
@@ -35,4 +35,4 @@ function Test(){
     )
 }
 
-export default Test;
+// export default Test;

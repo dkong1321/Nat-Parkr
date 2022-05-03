@@ -1,5 +1,6 @@
 import {useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { postImage } from '..//../store/image';
 
 function CreateImage(){
@@ -13,9 +14,12 @@ function CreateImage(){
     const submit = async(event) =>{
         event.preventDefault()
         const data = {image, description,userId,title}
-        const result = await dispatch(postImage(data))
-        console.log(result)
+        await dispatch(postImage(data))
 
+        // take out to mass seed
+        setDescription("")
+        setTitle("")
+        setImage()
     }
 
     const imageSelected = event => {
@@ -25,13 +29,16 @@ function CreateImage(){
 
     return (
         <div className="test">
+
             <div>add a new image</div>
             <form onSubmit ={submit}>
                 <input onChange={imageSelected} type="file" accept="image/*" name="image"></input>
                 <input value={title} onChange={e=> setTitle(e.target.value)} type="text" placeholder='title'></input>
                 <input value={description} onChange={e=> setDescription(e.target.value)} type="text" placeholder='description'></input>
+
                 <button type="submit">Submit</button>
             </form>
+            <Link to={`/images`}><button>Cancel</button></Link>
         </div>
     )
 }

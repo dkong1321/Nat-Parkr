@@ -9,9 +9,7 @@ const db = require ('../../db/models')
 
 // -------------------get all images---------------------------//
 router.get('/', asyncHandler(async(req,res,next)=>{
-    // should we need a user to login to see photos
-    // const {userId} = req.session.auth
-    const userId = 3
+
     const images = await db.Image.findAll({});
 
     res.json(
@@ -41,9 +39,9 @@ router.put('/editimage/:id', asyncHandler(async(req,res)=>{
             albumId,
             locationId
         });
-        res.json({
+        res.json(
             imageToUpdate
-        })
+        )
     })
 )
 
@@ -53,8 +51,11 @@ router.delete('/:id', asyncHandler(async(req,res)=>{
     console.log("from in the api route", imageId)
     const imageToDelete = await db.Image.findByPk(imageId);
     if(imageToDelete !==undefined){
-        await projectToDelete.destory();
+        await imageToDelete.destroy();
     }
+    res.json({
+        message:"successfully deleted"
+    })
 }))
 
 

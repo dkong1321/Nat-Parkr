@@ -1,10 +1,9 @@
 import {useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
-import { editImage } from '../../store/image';
+import { Link, useParams } from 'react-router-dom';
+import { deleteImage, editImage } from '../../store/image';
 
-
-function EditImage(id){
+function EditImageCard(id){
     console.log(useParams())
     const {imageId} = useParams()
 
@@ -19,14 +18,12 @@ function EditImage(id){
         const albumId = 1
         const locationId =1
         const data = {title,description,imageId,albumId,locationId}
-        const result = await dispatch(editImage(data))
-        console.log(result)
+        console.log(data)
+        await dispatch(editImage(data))
+
+
     }
 
-    const deleteImage = async()=>{
-    const imageId = 23
-    await dispatch(deleteImage(imageId))
-    }
     return (
         <div>
             <div>Edit Image</div>
@@ -36,9 +33,12 @@ function EditImage(id){
                 <input value={description} onChange={e=> setDescription(e.target.value)} type="text" placeholder='description'></input>
                 <button type="submit">Edit</button>
             </form>
-            <button onClick={deleteImage}>Delete</button>
+            <Link to={`/images`}><button>Cancel</button></Link>
+
+
+            {/* <button onClick={deleteImage}>Delete</button> */}
         </div>
     )
 }
 
-export default EditImage
+export default EditImageCard

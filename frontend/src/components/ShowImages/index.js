@@ -8,7 +8,6 @@ const { getImages } = require("../../store/image");
 
 const ImageBrowser = ()=>{
     const user = useSelector(state => state.session.user);
-    const userId = user.id
     const dispatch = useDispatch();
     const images = Object.values(useSelector(state => state.images));
 
@@ -23,7 +22,6 @@ const ImageBrowser = ()=>{
                     <ImageCard image={image}></ImageCard>
                     )
                 })
-
             }
         </div>
     )
