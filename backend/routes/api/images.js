@@ -28,7 +28,6 @@ router.post('/', singleMulterUpload('image'),asyncHandler(async(req, res)=>{
 }));
 
 router.put('/editimage/:id', asyncHandler(async(req,res)=>{
-        console.log("hello from edit route")
         const imageId = req.params.id
         const {title, description, userId, albumId, locationId} = req.body
         const imageToUpdate = await db.Image.findByPk(imageId);
@@ -46,7 +45,6 @@ router.put('/editimage/:id', asyncHandler(async(req,res)=>{
 )
 
 router.delete('/:id', asyncHandler(async(req,res)=>{
-    console.log("hello from the delete")
     const imageId = req.params.id;
     console.log("from in the api route", imageId)
     const imageToDelete = await db.Image.findByPk(imageId);

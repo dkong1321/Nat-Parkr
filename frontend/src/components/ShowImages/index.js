@@ -1,14 +1,12 @@
 import ImageCard from "./ImageCard";
 
-const { useEffect, useState } = require("react");
-const { useDispatch, useSelector } = require("react-redux");
-const { getImages } = require("../../store/image");
+const { useSelector } = require("react-redux");
+
 // add in
 
 
 const ImageBrowser = ()=>{
-    const user = useSelector(state => state.session.user);
-    const dispatch = useDispatch();
+
     const images = Object.values(useSelector(state => state.images));
 
     if(!images){

@@ -5,19 +5,25 @@ import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import './Navigation.css';
+import SignupFormModal from '../SignupFormModal';
+import CreateImageModal from '../Modals/CreateModal';
 
 function Navigation({ isLoaded }){
     const sessionUser = useSelector(state => state.session.user);
     let sessionLinks;
     if(sessionUser){
         sessionLinks = (
+            <>
             <ProfileButton user={sessionUser} />
+            <CreateImageModal user={sessionUser} />
+            </>
         );
     } else {
         sessionLinks = (
             <>
                 <LoginFormModal />
                 <NavLink to="/signup">Sign Up</NavLink>
+                <SignupFormModal/>
             </>
         );
     }

@@ -51,6 +51,7 @@ export const postImage = (data) => async dispatch => {
     formData.append("description", data.description)
     formData.append("userId", data.userId)
     formData.append("title", data.title)
+    formData.append("albumId", data.albumId)
     console.log(formData)
     const response = await csrfFetch('/api/images',{
         method: 'POST',
