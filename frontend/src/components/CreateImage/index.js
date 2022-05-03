@@ -1,6 +1,6 @@
 import {useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { getAlbums } from '../../store/album';
 import { load, postImage } from '..//../store/image';
 
@@ -9,18 +9,26 @@ function CreateImage(){
     const albums = Object.values(useSelector(state => state.albums))
     const currentUserAlbums = albums.filter((album) => album.userId === user.id)
 
+    const history = useHistory()
     const [image,setImage] = useState()
     const [description, setDescription] = useState("")
     const [title, setTitle] = useState("")
     const [albumId, setAlbumId] = useState()
     const userId = user.id
     const dispatch = useDispatch();
+
+    //for modal
+    const [showModal, setShowModal] = useState(false);
+
+
     const submit = async(event) =>{
         event.preventDefault()
-        console.log(albumId)
 
         const data = {image, description,userId,title, albumId}
-        await dispatch(postImage(data)).then(()=> dispatch(getAlbums()))
+        await dispatch(postImage(data))
+        .then(()=> dispatch(getAlbums()))
+        .then(()=> setShowModal(false))
+        .then(()=> history.push('/images'));
 
         // take out to mass seed
         setDescription("")
