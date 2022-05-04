@@ -28,9 +28,9 @@ module.exports = (sequelize, DataTypes) => {
 
     // Image Album join table
     const columnMapping = {
-      through:'AlbumImages',
+      through:'AlbumImage',
       otherKey:'albumId',
-      foreignKey:'imageId'
+      foreignKey:'imageId',
     }
 
     Image.belongsToMany(models.Album, columnMapping)

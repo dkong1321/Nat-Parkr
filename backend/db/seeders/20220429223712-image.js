@@ -27,7 +27,6 @@ module.exports = {
            userId:2,
            locationId:null,
            createdAt:new Date(),
-
            updatedAt: new Date()},
            { title:'Wild Flowers in Desert',
              imageURL: 'https://national-park-img.s3.amazonaws.com/1651692309345.jpg',

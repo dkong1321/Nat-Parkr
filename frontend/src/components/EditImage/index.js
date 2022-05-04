@@ -19,10 +19,8 @@ function EditImageCard(id){
 
     const submitEdit = async(event)=>{
         event.preventDefault();
-        console.log(albumId)
         const locationId =1
         const data = {title,description,imageId,albumId,locationId}
-        console.log(data)
         await dispatch(editImage(data)).then(()=> dispatch(getAlbums()))
     }
 

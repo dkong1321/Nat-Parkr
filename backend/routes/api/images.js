@@ -64,7 +64,15 @@ router.put('/editimage/:id', asyncHandler(async(req,res)=>{
 router.delete('/:id', asyncHandler(async(req,res)=>{
     const imageId = req.params.id;
     const imageToDelete = await db.Image.findByPk(imageId);
+    const albumImage =  await db.AlbumImage.findOne({
+            where:{
+                imageId
+            }
+        })
+    const albumImageToUpdate = await db.AlbumImage.findByPk(albumImage.id)
+    console.log(albumImageToUpdate)
     if(imageToDelete !==undefined){
+        await albumImageToUpdate.destroy()
         await imageToDelete.destroy();
     }
     res.json({
