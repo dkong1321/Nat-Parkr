@@ -1,4 +1,8 @@
 /* TODO Add site wide styles */
+*{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
 body {
-    background-image: aqua;
+    background-color: #69878f;
 }

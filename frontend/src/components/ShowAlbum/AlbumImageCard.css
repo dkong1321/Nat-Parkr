@@ -1,0 +1,29 @@
+.album_image_show {
+    width: auto;
+    height: 200px;
+    border-radius: 20px;
+}
+
+.album_image_container {
+    border: 4px black solid;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 25px;
+    margin: 5px;
+}
+
+.album_image_overlay {
+    display: flex;
+    left: 110px;
+    justify-content: right;
+    position: absolute;
+    opacity: .5;
+    transition: opacity 0.25s;
+}
+
+
+
+.album_image_overlay:hover{
+    opacity: 1;
+}

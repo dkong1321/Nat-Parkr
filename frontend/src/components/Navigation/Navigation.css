@@ -1,0 +1,12 @@
+.nav_bar {
+    background-color: #8C2B4F ;
+    display: flex;
+    justify-content: space-evenly;
+    height: 250px;
+}
+
+.nav_buttons {
+    color: aliceblue;
+    font-size: 20px;
+
+}
