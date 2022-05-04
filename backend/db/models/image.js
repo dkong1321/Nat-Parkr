@@ -16,9 +16,6 @@ module.exports = (sequelize, DataTypes) => {
       type:DataTypes.INTEGER,
       allowNull:false
     },
-    albumId: {
-      type:DataTypes.INTEGER,
-    },
     locationId: {
       type:DataTypes.INTEGER
     }

@@ -3,8 +3,10 @@ const router = express()
 const asyncHandler = require('express-async-handler')
 const db = require('../../db/models')
 
+
 router.get('/', asyncHandler(async(req,res,next)=>{
     const albums = await db.Album.findAll({include:db.Image});
+
     res.json({albums})
 
 }))
