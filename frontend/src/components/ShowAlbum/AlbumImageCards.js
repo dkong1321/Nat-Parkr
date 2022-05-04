@@ -23,6 +23,7 @@ function AlbumImageCards({image}) {
     }
 
     return(
+
         <div className='album_image_container'>
             <div className="album_image_overlay">
                 { (user.id === image.userId) ? <button className='album_image_button' onClick={edit}>Edit</button> :<></>}
