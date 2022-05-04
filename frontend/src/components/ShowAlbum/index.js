@@ -1,16 +1,14 @@
 import { useDispatch, useSelector } from "react-redux"
-import ImageCard from "../ShowImages/ImageCard"
+import AlbumImageCards from "./AlbumImageCards"
 
 const AlbumBrowser = () => {
     const albums = Object.values(useSelector(state => state.albums))
     const images = Object.values(useSelector(state => state.images))
     const user = useSelector(state => state.session.user)
     const currentUsersAlbums = albums.filter((album)=>album.userId === user.id)
-    console.log(images)
     return(
         <div>
-
-            <h1>hello from broswer</h1>
+            <h1>Albums</h1>
             {currentUsersAlbums.map(album=>{
                 return(
                     <div>
@@ -19,7 +17,7 @@ const AlbumBrowser = () => {
                             console.log(image)
                             return(
                                 <div>
-                                    <ImageCard image={image}></ImageCard>
+                                    <AlbumImageCards image={image}></AlbumImageCards>
                                 </div>
                             )
                         })}

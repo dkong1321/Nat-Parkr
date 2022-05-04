@@ -9,7 +9,7 @@ function CreateImageModal () {
             <button onClick={()=> setShowModal(true)}>Add Image</button>
             {showModal && (
                 <Modal onClose={()=> setShowModal(false)}>
-                    < CreateImage/>
+                    < CreateImage setShowModal={setShowModal}/>
                 </Modal>
             )}
         </>

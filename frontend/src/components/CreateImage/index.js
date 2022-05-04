@@ -4,7 +4,7 @@ import { Link, useHistory } from 'react-router-dom';
 import { getAlbums } from '../../store/album';
 import { load, postImage } from '..//../store/image';
 
-function CreateImage(){
+function CreateImage({setShowModal}){
     const user = useSelector(state => state.session.user);
     const albums = Object.values(useSelector(state => state.albums))
     const currentUserAlbums = albums.filter((album) => album.userId === user.id)
@@ -18,7 +18,6 @@ function CreateImage(){
     const dispatch = useDispatch();
 
     //for modal
-    const [showModal, setShowModal] = useState(false);
 
 
     const submit = async(event) =>{
@@ -50,14 +49,14 @@ function CreateImage(){
                 <input value={title} onChange={e=> setTitle(e.target.value)} type="text" placeholder='title'></input>
                 <input value={description} onChange={e=> setDescription(e.target.value)} type="text" placeholder='description'></input>
                 <select onChange={e=> setAlbumId(e.target.value)}>
-                    <option value="">Add to Albums</option>
+                    <option value={"default"}>Add to Albums</option>
                     {currentUserAlbums.map((album)=>{
                         return(<option value={album.id}>{album.title}</option>)
                     })}
                 </select>
                 <button type="submit">Submit</button>
             </form>
-            <Link to={`/images`}><button>Cancel</button></Link>
+            <button onClick={e => setShowModal(false)}>Cancel</button>
         </div>
     )
 }

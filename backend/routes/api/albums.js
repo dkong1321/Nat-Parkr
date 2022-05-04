@@ -17,4 +17,19 @@ router.post('/', asyncHandler(async(req,res)=>{
     res.json(album)
 }))
 
+router.put('/editalbum/:id', asyncHandler(async(req,res)=>{
+    const albumId = req.params.userId
+    const {title} =req.body;
+    const albumToUpdate = await db.Album.findByPk(albumId);
+
+    await albumToUpdate.update({
+        title
+    });
+
+    res.json(
+        albumToUpdate
+    )
+
+}))
+
 module.exports = router;

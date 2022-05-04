@@ -4,9 +4,9 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
-import './Navigation.css';
 import SignupFormModal from '../SignupFormModal';
 import CreateImageModal from '../Modals/CreateModal';
+import './Navigation.css';
 
 function Navigation({ isLoaded }){
     const sessionUser = useSelector(state => state.session.user);
@@ -29,24 +29,22 @@ function Navigation({ isLoaded }){
     }
 
     return (
-        <ul>
-            <li>
-                <NavLink exact to="/">Home</NavLink>
-                {isLoaded && sessionLinks}
-            </li>
-            <li>
-                <NavLink to="/createimage">New Image</NavLink>
-            </li>
-            <li>
-                <NavLink to="/images">Images</NavLink>
-            </li>
-            <li>
-                <NavLink to="/createalbum">Create Album</NavLink>
-            </li>
-            <li>
-                <NavLink to="/albums">Your Albums</NavLink>
-            </li>
-        </ul>
+        <div className='nav_bar'>
+                <div>
+                    <NavLink exact to="/" className="nav_buttons">Home</NavLink>
+                    {isLoaded && sessionLinks}
+                </div>
+                <div>
+                    <NavLink to="/images" className="nav_buttons">Discover</NavLink>
+                </div>
+                <div>
+                    <NavLink to="/createalbum" className="nav_buttons">Create Album</NavLink>
+                </div>
+                <div>
+                    <NavLink to="/albums" className="nav_buttons">Your Albums</NavLink>
+                </div>
+        </div>
+
     )
 }
 

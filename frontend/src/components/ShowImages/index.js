@@ -1,4 +1,5 @@
 import ImageCard from "./ImageCard";
+import './imageCard.css'
 
 const { useSelector } = require("react-redux");
 
@@ -14,13 +15,15 @@ const ImageBrowser = ()=>{
     }
 
     return (
-        <div>
-            {images.map((image)=>{
-                return(
-                    <ImageCard image={image}></ImageCard>
-                    )
-                })
-            }
+        <div className="masonary">
+            <div className="item__content">
+                {images.map((image)=>{
+                    return(
+                        <ImageCard image={image}></ImageCard>
+                        )
+                    })
+                }
+            </div>
         </div>
     )
 }
