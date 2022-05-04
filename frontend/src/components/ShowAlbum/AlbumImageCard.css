@@ -13,19 +13,19 @@
     margin: 5px;
 }
 
-.album_image_overlay {
+/* .album_image_overlay {
     left: 110px;
     justify-content: right;
     position: absolute;
     opacity: .5;
     transition: opacity 0.25s;
-}
+} */
 
 
 
-.album_image_overlay:hover{
+/* .album_image_overlay:hover{
     opacity: 1;
-}
+} */
 
 
 .album_card_container{
