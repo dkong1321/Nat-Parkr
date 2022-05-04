@@ -13,7 +13,7 @@ const AlbumBrowser = () => {
                 return(
                     <div className="album_card_container">
                         <h1>{album.title}</h1>
-                        {album.Images.map((image)=>{
+                        {album.Images?.map((image)=>{
                             return(
                                 <div>
                                     <AlbumImageCards image={image}></AlbumImageCards>

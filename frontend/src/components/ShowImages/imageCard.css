@@ -15,6 +15,25 @@
     justify-content: center;
 }
 
+
+.image_card_title {
+    color: white;
+    /* position: relative; */
+    font-size: 30px;
+    /* top: px; */
+    margin:0px;
+    top: -40px;
+    right: -30px;
+    opacity: 0;
+    transition: .3s;
+    padding: 0px;
+}
+
+.image_card_title:hover{
+    opacity: 1;
+}
+
+
 .item__content {
     /* display: -webkit-box; */
     display: flex;

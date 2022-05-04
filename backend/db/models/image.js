@@ -29,11 +29,24 @@ module.exports = (sequelize, DataTypes) => {
     // Image belongs to a single user
     Image.belongsTo(models.User, {foreignKey:"userId"});
 
-    // Image belongs to an album
-    Image.belongsTo(models.Album, {foreignKey:"albumId"})
+    // Image Album join table
+    const columnMapping = {
+      through:'AlbumImages',
+      otherKey:'albumId',
+      foreignKey:'imageId'
+    }
+
+    Image.belongsToMany(models.Album, columnMapping)
+
+    // Image had many comments
+    Image.hasMany(models.Comment, {foreignKey:"imageId"})
 
     //image belongs to a location
     Image.belongsTo(models.Location, {foreignKey:"locationId"})
+
+    // Image belongs to an album
+    // Image.belongsTo(models.Album, {foreignKey:"albumId"})
+
   };
   return Image;
 };

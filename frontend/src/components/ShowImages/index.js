@@ -19,7 +19,10 @@ const ImageBrowser = ()=>{
             <div className="item__content">
                 {images.map((image)=>{
                     return(
-                        <ImageCard image={image}></ImageCard>
+                        <div>
+                            <ImageCard image={image}></ImageCard>
+                            <div className='image_card_title'>{image.title}</div>
+                        </div>
                         )
                     })
                 }
