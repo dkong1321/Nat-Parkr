@@ -14,7 +14,6 @@
 }
 
 .album_image_overlay {
-    display: flex;
     left: 110px;
     justify-content: right;
     position: absolute;
@@ -26,4 +25,10 @@
 
 .album_image_overlay:hover{
     opacity: 1;
+}
+
+
+.album_card_container{
+    display: flex;
+    flex-direction: row;
 }
