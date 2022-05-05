@@ -5,6 +5,9 @@ const clone = rfdc();
 const LOAD = 'albums/LOAD';
 const ADD = 'albums/ADD';
 const DELETE = 'albums/DELETE'
+const ADDALBUMIMAGE = '/albums/ADDIMAGE'
+const DELETEALBUMIMAGE = '/albums/DELETEIMAGE'
+
 
 export const load = albums => {
     return {
@@ -20,6 +23,22 @@ export const addAlbum = album => {
     }
 }
 
+export const addAlbumImage = (albumImage, image) =>{
+    return {
+        type: ADDALBUMIMAGE,
+        albumImage,
+        image
+    }
+}
+
+export const removeAlbumImage = (albumImage, image) =>{
+    return {
+        type: DELETEALBUMIMAGE,
+        albumImage,
+        image
+    }
+}
+
 export const removeAlbum = id => {
     return {
         type:DELETE,
@@ -28,7 +47,6 @@ export const removeAlbum = id => {
 }
 
 export const getAlbums = () => async dispatch => {
-    console.log("hello from get Albums")
     const response = await csrfFetch('/api/albums');
     console.log(response)
     if(response.ok) {
@@ -39,11 +57,6 @@ export const getAlbums = () => async dispatch => {
 }
 
 export const postAlbums = (data) => async dispatch => {
-    // const formData = new FormData();
-    // console.log("my data is in postAlbums now", data)
-    // formData.append("title", data.title)
-    // formData.append("userId", data.userId)
-    // console.log(formData)
 
     const {title, userId } =data
     const newAlbum = {title,userId}
@@ -59,8 +72,36 @@ export const postAlbums = (data) => async dispatch => {
     }
 }
 
+export const postAlbumImage = (data) => async dispatch => {
+    const {albumId, imageId} = data
+    console.log(data)
+    const albumImage ={albumId,imageId}
+    const image = await csrfFetch(`/api/images/${imageId}`)
+    const response = await csrfFetch(`/api/albums/addimage/${albumId}`,{
+        method: 'POST',
+        headers:{'Content-Type': 'application/json'},
+        body: JSON.stringify(albumImage)
+    })
+    if(response.ok){
+        const newAlbumImage = await response.json();
+        dispatch(addAlbumImage(newAlbumImage,image))
+    }
+
+}
+
+export const deleteAlbumImage = (payload) => async dispatch => {
+    console.log("hello from thunk")
+    console.log(payload)
+    const {albumId, image} = payload
+    const response = await csrfFetch(`/api/albums/removeimage/${albumId}`,{
+        method: 'DELETE',
+        body: JSON.stringify(image)
+    })
+
+    return response
+}
+
 export const deleteAlbums = (id) => async dispatch => {
-    console.log("hello from delete album thunk")
 
     const response = await csrfFetch(`/api/albums/${id}`, {
         method: 'DELETE'
@@ -85,6 +126,9 @@ const albumReducer = (state = initialState, action) =>{
             return newState
         case ADD:
             newState[action.album.id] = action.album
+            return newState
+        case ADDALBUMIMAGE:
+            newState [action.albumImage.albumId].Images.push(action.song)
             return newState
         case DELETE:
             delete(newState[action.id])

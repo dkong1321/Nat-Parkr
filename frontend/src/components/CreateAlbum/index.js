@@ -11,7 +11,6 @@ function CreateAlbum(){
     const submit = async(event) => {
         event.preventDefault()
         const data = {title, userId}
-        console.log("data from the compnoent submit",data)
         await dispatch(postAlbums(data))
     }
     return (

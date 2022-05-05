@@ -20,7 +20,7 @@ router.post('/', asyncHandler(async(req,res)=>{
 
 // edit album name
 router.put('/editalbum/:id', asyncHandler(async(req,res)=>{
-    const albumId = req.params.userId
+    const albumId = req.params.id
     const {title} =req.body;
     const albumToUpdate = await db.Album.findByPk(albumId);
 
@@ -33,12 +33,47 @@ router.put('/editalbum/:id', asyncHandler(async(req,res)=>{
     )
 }))
 
+// add images to album (AlbumImage)
+router.post(`/addimage/:id`, asyncHandler(async(req,res)=>{
+    const albumId = req.params.id
+    const {imageId} = req.body
+    const albumImageRelation = await db.AlbumImage.build({albumId,imageId})
+    const oldRelation = await db.AlbumImage.findOne({
+        where:{albumId, imageId}
+    })
+    if(!oldRelation){
+        await albumImageRelation.save();
+        res.json(albumImageRelation)
+    }
+    res.json({
+        message:"image is already in album"
+    })
+
+}))
+
+//remove image from album
+router.delete('/removeimage/:id', asyncHandler(async(req,res)=>{
+    const albumId = req.params.id;
+    const {id} = req.body
+    const imageId = id
+    const albumImageRelation = await db.AlbumImage.findOne({where:{albumId,imageId}})
+    if(albumImageRelation) {
+       await albumImageRelation.destroy()
+    }
+
+    res.json({
+        message:"successfully deleted album"
+    })
+}) )
+
+
+//delete album
 router.delete('/:id', asyncHandler(async(req,res)=>{
-    console.log("hello from delete album route")
+    // console.log("hello from delete album route")
     const albumId = req.params.id;
     const albumToDelete = await db.Album.findByPk(albumId)
-    console.log("albumId", albumId)
-    console.log("album object to be deleted", albumToDelete)
+    // console.log("albumId", albumId)
+    // console.log("album object to be deleted", albumToDelete)
     const albumImageRelation = await db.AlbumImage.findAll({
         where:{
             albumId

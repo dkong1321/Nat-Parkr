@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Route, Switch } from "react-router-dom";
-// import SignupFormPage from "./components/SignupFormModal";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import HomePage from "./components/Home";
@@ -13,9 +12,8 @@ import EditImage from "./components/EditImage";
 import { getAlbums } from "./store/album";
 import CreateAlbum from "./components/CreateAlbum";
 import AlbumBrowser from "./components/ShowAlbum";
-import SignupForm from "./components/SignupFormModal/SignupForm";
 import EditAlbum from "./components/EditAlbum";
-
+import ShowImage from "./components/ShowImage"
 
 function App() {
   const dispatch = useDispatch();
@@ -36,8 +34,11 @@ function App() {
           <Route path="/" exact>
             <HomePage/>
           </Route>
-          <Route path="/images">
+          <Route path="/images" exact>
             <ImageBrowser/>
+          </Route>
+          <Route path="/images/:imageId">
+            <ShowImage/>
           </Route>
           <Route path="/createimage">
             <CreateImage/>
