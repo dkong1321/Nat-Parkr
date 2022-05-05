@@ -14,6 +14,7 @@ import CreateAlbum from "./components/CreateAlbum";
 import AlbumBrowser from "./components/ShowAlbum";
 import EditAlbum from "./components/EditAlbum";
 import ShowImage from "./components/ShowImage"
+import UserImages from "./components/UserImage";
 
 function App() {
   const dispatch = useDispatch();
@@ -49,8 +50,8 @@ function App() {
           <Route path="/albums">
             <AlbumBrowser/>
           </Route>
-          <Route path="/createalbum">
-            <CreateAlbum/>
+          <Route path="/myimages">
+            <UserImages/>
           </Route>
           <Route path="/editalbum/:albumId">
             <EditAlbum/>

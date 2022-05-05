@@ -1,31 +1,10 @@
 import './imageCard.css'
 import { Link } from "react-router-dom"
-import { deleteImage } from '../../store/image';
-import { getAlbums } from '../../store/album';
-
-const { useDispatch, useSelector } = require("react-redux");
 
 function ImageCard({image}) {
-
-    const dispatch = useDispatch()
-    const user = useSelector(state => state.session.user);
-
-    const deleteImageCard = ()=>{
-        dispatch(deleteImage(image.id))
-        .then(() => dispatch(getAlbums()))
-
-    }
-
     return(
         <div>
-            <div>{image.id}</div>
-            <Link to={`/images/${image.id}`}><img className='imageShow' src={`${image.imageURL}`}></img></Link>
-            {/* <img className='imageShow' src={`${image.imageURL}`}></img> */}
-
-            {/* <h3 className='image_card_title'>{image.title}</h3> */}
-            {/* <div className={style.test}>{image.description}</div> */}
-            { (user.id === image.userId) ? <Link to={`/editimage/${image.id}`}><button>Edit</button></Link> :<></>}
-            { (user.id === image.userId) ? <button onClick={deleteImageCard}>Delete</button> : <></>}
+            <Link to={`/images/${image.id}`}><img className='image_show' src={`${image.imageURL}`}></img></Link>
         </div>
     )
 }

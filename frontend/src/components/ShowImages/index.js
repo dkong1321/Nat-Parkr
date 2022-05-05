@@ -16,12 +16,14 @@ const ImageBrowser = ()=>{
 
     return (
         <div className="masonary">
-            <div className="item__content">
+            <div className="item_content">
                 {images.map((image)=>{
                     return(
-                        <div>
+                        <div className="image_container">
                             <ImageCard image={image}></ImageCard>
-                            <div className='image_card_title'>{image.title}</div>
+                            <div classsName='text_overlay'>
+                                <div className='image_card_title'>{image.title}</div>
+                            </div>
                         </div>
                         )
                     })
