@@ -5,17 +5,18 @@ import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
-import CreateImageModal from '../Modals/CreateModal';
+import CreateImageModal from '../Modals/CreateModalImage';
+import CreateAlbumModal from '../Modals/CreateModalAlbum';
 import './Navigation.css';
-
 function Navigation({ isLoaded }){
     const sessionUser = useSelector(state => state.session.user);
     let sessionLinks;
     if(sessionUser){
         sessionLinks = (
             <>
-            <ProfileButton user={sessionUser} />
-            <CreateImageModal user={sessionUser} />
+            <div>
+                <ProfileButton user={sessionUser} />
+            </div>
             </>
         );
     } else {
@@ -38,11 +39,10 @@ function Navigation({ isLoaded }){
                     <NavLink to="/images" className="nav_buttons">Discover</NavLink>
                 </div>
                 <div>
-                    <NavLink to="/createalbum" className="nav_buttons">Create Album</NavLink>
-                </div>
-                <div>
                     <NavLink to="/albums" className="nav_buttons">Your Albums</NavLink>
                 </div>
+                <CreateImageModal user={sessionUser} />
+                <CreateAlbumModal user={sessionUser} />
         </div>
 
     )

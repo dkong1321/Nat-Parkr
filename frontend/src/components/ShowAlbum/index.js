@@ -7,7 +7,7 @@ const AlbumBrowser = () => {
     const albums = Object.values(useSelector(state => state.albums))
     const images = Object.values(useSelector(state => state.images))
     const user = useSelector(state => state.session.user)
-    const currentUsersAlbums = albums.filter((album)=>album.userId === user.id)
+    const currentUsersAlbums = albums.filter((album)=> album.userId === user.id)
     const dispatch = useDispatch()
 
     // const deleteAlbumCard = (id) => {

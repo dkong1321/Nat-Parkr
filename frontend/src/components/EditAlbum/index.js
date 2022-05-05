@@ -8,6 +8,7 @@ function EditAlbum(){
     const history = useHistory()
     const albums = Object.values(useSelector(state => state.albums))
     const myAlbum = albums.filter((album)=> album.id === +albumId )[0]
+
     const deleteMyAlbum = () =>{
         dispatch(deleteAlbums(albumId))
         history.push('/albums')

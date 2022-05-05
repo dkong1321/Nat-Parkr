@@ -44,10 +44,12 @@ router.post(`/addimage/:id`, asyncHandler(async(req,res)=>{
     if(!oldRelation){
         await albumImageRelation.save();
         res.json(albumImageRelation)
+    } else {
+        res.json({
+            message:"image is already in album"
+        })
+
     }
-    res.json({
-        message:"image is already in album"
-    })
 
 }))
 

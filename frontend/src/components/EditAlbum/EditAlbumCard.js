@@ -38,4 +38,4 @@ function EditAlbumCard({image}){
     )
 }
 
-export default EditAlbum
+// export default EditAlbum

@@ -43,7 +43,7 @@ function CreateImage({setShowModal}){
     return (
         <div className="test">
 
-            <div>add a new image</div>
+            <h3>Add an Image</h3>
             <form onSubmit ={submit}>
                 <input onChange={imageSelected} type="file" accept="image/*" name="image"></input>
                 <input value={title} onChange={e=> setTitle(e.target.value)} type="text" placeholder='title'></input>
