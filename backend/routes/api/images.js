@@ -21,9 +21,16 @@ router.get('/', asyncHandler(async(req,res,next)=>{
 router.post('/', singleMulterUpload('image'),asyncHandler(async(req, res)=>{
     const { title, description, userId, albumId, locationId} = req.body
     const imageURL = await singlePublicFileUpload(req.file)
-    const newImage = { title, imageURL, description, userId, albumId, locationId}
+    const newImage = { title, imageURL, description, userId, locationId}
     const image = await db.Image.build(newImage)
-    await image.save();
+    const createdImage = await image.save();
+    if(albumId !=="null"){
+        const albumRelation = {imageId:createdImage.id, albumId}
+        const newAlbumImage = await db.AlbumImage.build(albumRelation)
+
+        await newAlbumImage.save();
+    }
+
     res.json(image)
 }));
 
@@ -32,12 +39,18 @@ router.put('/editimage/:id', asyncHandler(async(req,res)=>{
         const {title, description, userId, albumId, locationId} = req.body
         const imageToUpdate = await db.Image.findByPk(imageId);
 
+        const albumImage =  await db.AlbumImage.findOne({
+            where:{
+                imageId
+            }
+        })
+
         await imageToUpdate.update({
             title,
             description,
-            albumId,
             locationId
         });
+
         res.json(
             imageToUpdate
         )
@@ -46,14 +59,24 @@ router.put('/editimage/:id', asyncHandler(async(req,res)=>{
 
 router.delete('/:id', asyncHandler(async(req,res)=>{
     const imageId = req.params.id;
-    console.log("from in the api route", imageId)
     const imageToDelete = await db.Image.findByPk(imageId);
-    if(imageToDelete !==undefined){
+    const albumImageRelation =  await db.AlbumImage.findAll({
+            where:{
+                imageId
+            }
+        })
+
+    albumImageRelation.forEach((imageAssociation)=>{
+        imageAssociation.destroy()
+    })
+
+    if(imageToDelete !==undefined || imageToDelete !== null){
         await imageToDelete.destroy();
     }
     res.json({
-        message:"successfully deleted"
+        message:"successfully deleted image"
     })
+
 }))
 
 

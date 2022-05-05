@@ -14,7 +14,7 @@ import { getAlbums } from "./store/album";
 import CreateAlbum from "./components/CreateAlbum";
 import AlbumBrowser from "./components/ShowAlbum";
 import SignupForm from "./components/SignupFormModal/SignupForm";
-
+import EditAlbum from "./components/EditAlbum";
 
 
 function App() {
@@ -50,6 +50,9 @@ function App() {
           </Route>
           <Route path="/createalbum">
             <CreateAlbum/>
+          </Route>
+          <Route path="/editalbum/:albumId">
+            <EditAlbum/>
           </Route>
 
         </Switch>

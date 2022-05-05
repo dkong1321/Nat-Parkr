@@ -23,8 +23,8 @@ function ImageCard({image}) {
             <img className='imageShow' src={`${image.imageURL}`}></img>
             {/* <h3 className='image_card_title'>{image.title}</h3> */}
             {/* <div className={style.test}>{image.description}</div> */}
-            {/* { (user.id === image.userId) ? <Link to={`/editimage/${image.id}`}><button>Edit</button></Link> :<></>}
-            { (user.id === image.userId) ? <button onClick={deleteImageCard}>Delete</button> : <></>} */}
+            { (user.id === image.userId) ? <Link to={`/editimage/${image.id}`}><button>Edit</button></Link> :<></>}
+            { (user.id === image.userId) ? <button onClick={deleteImageCard}>Delete</button> : <></>}
         </div>
     )
 }

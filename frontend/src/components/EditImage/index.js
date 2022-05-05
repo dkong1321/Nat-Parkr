@@ -4,7 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 import { getAlbums } from '../../store/album';
 import { deleteImage, editImage } from '../../store/image';
 
-function EditImageCard(id){
+function EditImageCard(){
     const {imageId} = useParams()
 
     const image = useSelector(state=> state.images[imageId])
@@ -19,10 +19,8 @@ function EditImageCard(id){
 
     const submitEdit = async(event)=>{
         event.preventDefault();
-        console.log(albumId)
         const locationId =1
-        const data = {title,description,imageId,albumId,locationId}
-        console.log(data)
+        const data = {title,description,imageId,locationId}
         await dispatch(editImage(data)).then(()=> dispatch(getAlbums()))
     }
 
@@ -33,16 +31,9 @@ function EditImageCard(id){
             <form onSubmit = {submitEdit}>
                 <input value={title} onChange={e=> setTitle(e.target.value)} type="text" placeholder='title'></input>
                 <input value={description} onChange={e=> setDescription(e.target.value)} type="text" placeholder='description'></input>
-                <select onChange={e=> setAlbumId(e.target.value)}>
-                    <option value="">Add to Albums</option>
-                    {currentUserAlbums.map((album)=>{
-                        return(<option value={album.id}>{album.title}</option>)
-                    })}
-                </select>
                 <button type="submit">Edit</button>
             </form>
             <Link to={`/images`}><button>Cancel</button></Link>
-
 
             {/* <button onClick={deleteImage}>Delete</button> */}
         </div>

@@ -13,7 +13,7 @@ function CreateImage({setShowModal}){
     const [image,setImage] = useState()
     const [description, setDescription] = useState("")
     const [title, setTitle] = useState("")
-    const [albumId, setAlbumId] = useState()
+    const [albumId, setAlbumId] = useState(null)
     const userId = user.id
     const dispatch = useDispatch();
 
@@ -49,7 +49,7 @@ function CreateImage({setShowModal}){
                 <input value={title} onChange={e=> setTitle(e.target.value)} type="text" placeholder='title'></input>
                 <input value={description} onChange={e=> setDescription(e.target.value)} type="text" placeholder='description'></input>
                 <select onChange={e=> setAlbumId(e.target.value)}>
-                    <option value={"default"}>Add to Albums</option>
+                    <option value={null}>Add to Albums</option>
                     {currentUserAlbums.map((album)=>{
                         return(<option value={album.id}>{album.title}</option>)
                     })}

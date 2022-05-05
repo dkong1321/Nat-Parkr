@@ -80,7 +80,6 @@ export const editImage = (data) => async dispatch => {
     }
 
 export const deleteImage = (id) =>async dispatch =>{
-        console.log("working")
         const response = await csrfFetch(`/api/images/${id}`,{
             method: 'DELETE'
         });

@@ -15,8 +15,8 @@ function AlbumImageCards({image}) {
     const deleteImageCard = ()=>{
         dispatch(deleteImage(image.id))
         .then(() => dispatch(getAlbums()))
-
     }
+
 
     const edit = () => {
         history.push(`/editimage/${image.id}`)

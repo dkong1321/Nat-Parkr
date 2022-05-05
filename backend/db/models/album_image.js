@@ -1,6 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const AlbumImage = sequelize.define('Album_Image', {
+  const AlbumImage = sequelize.define('AlbumImage', {
     albumId: DataTypes.INTEGER,
     imageId: DataTypes.INTEGER
   }, {});

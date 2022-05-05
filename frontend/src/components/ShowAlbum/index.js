@@ -1,4 +1,6 @@
 import { useDispatch, useSelector } from "react-redux"
+import { Link } from "react-router-dom"
+import { deleteAlbums } from "../../store/album"
 import AlbumImageCards from "./AlbumImageCards"
 
 const AlbumBrowser = () => {
@@ -6,6 +8,12 @@ const AlbumBrowser = () => {
     const images = Object.values(useSelector(state => state.images))
     const user = useSelector(state => state.session.user)
     const currentUsersAlbums = albums.filter((album)=>album.userId === user.id)
+    const dispatch = useDispatch()
+
+    // const deleteAlbumCard = (id) => {
+    //     dispatch(deleteAlbums(id))
+    // }
+
     return(
         <div>
             <h1>Albums</h1>
@@ -20,7 +28,11 @@ const AlbumBrowser = () => {
                                 </div>
                             )
                         })}
+                    <Link to={`/editalbum/${album.id}`}><button>Edit</button></Link>
+
+                     {/* <button onClick={deleteAlbumCard(album.id)}>Delete</button> */}
                     </div>
+
                 )
 
             })}
