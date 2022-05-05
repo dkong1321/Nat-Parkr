@@ -1,5 +1,4 @@
 import './imageCard.css'
-import style from './imageCard.css'
 import { Link } from "react-router-dom"
 import { deleteImage } from '../../store/image';
 import { getAlbums } from '../../store/album';
@@ -12,7 +11,6 @@ function ImageCard({image}) {
     const user = useSelector(state => state.session.user);
 
     const deleteImageCard = ()=>{
-        console.log("hello")
         dispatch(deleteImage(image.id))
         .then(() => dispatch(getAlbums()))
 
@@ -20,7 +18,10 @@ function ImageCard({image}) {
 
     return(
         <div>
-            <img className='imageShow' src={`${image.imageURL}`}></img>
+            <div>{image.id}</div>
+            <Link to={`/images/${image.id}`}><img className='imageShow' src={`${image.imageURL}`}></img></Link>
+            {/* <img className='imageShow' src={`${image.imageURL}`}></img> */}
+
             {/* <h3 className='image_card_title'>{image.title}</h3> */}
             {/* <div className={style.test}>{image.description}</div> */}
             { (user.id === image.userId) ? <Link to={`/editimage/${image.id}`}><button>Edit</button></Link> :<></>}

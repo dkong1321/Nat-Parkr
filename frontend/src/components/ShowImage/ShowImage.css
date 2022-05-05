@@ -1,0 +1,23 @@
+.my_image {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+
+}
+
+.my_image_title{
+    color: White;
+}
+
+.my_image_container {
+    width: 1200px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.my_image_body {
+    display: flex;
+    justify-content: center;
+}

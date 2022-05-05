@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useHistory, useParams } from "react-router-dom"
 import { deleteAlbumImage, deleteAlbums, getAlbums } from "../../store/album"
 
-function EditAlbum(){
+function EditAlbumCard({image}){
     const {albumId} = useParams()
     const dispatch = useDispatch()
     const history = useHistory()
@@ -13,9 +13,8 @@ function EditAlbum(){
         history.push('/albums')
     }
 
-    const removeImageCard = (image)=>{
-        const payload = {albumId, image}
-        dispatch(deleteAlbumImage(payload))
+    const removeImageCard = ()=>{
+        dispatch(deleteAlbumImage(albumId))
         .then(() => dispatch(getAlbums()))
     }
     return (
@@ -27,7 +26,7 @@ function EditAlbum(){
                     <div className='album_image_container'>
                         <h1>{image.title}</h1>
                         <div className="album_image_overlay">
-                            <button className='album_image_button' onClick={(e)=>removeImageCard(image)}>Remove from Album</button>
+                            <button className='album_image_button' onClick={removeImageCard}>Remove from Album</button>
                         </div>
                         <img className='album_image_show' src={`${image.imageURL}`}></img>
                     </div>
