@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from "react-redux"
+import { Link } from "react-router-dom"
 import { deleteAlbums } from "../../store/album"
 import AlbumImageCards from "./AlbumImageCards"
 
@@ -27,6 +28,8 @@ const AlbumBrowser = () => {
                                 </div>
                             )
                         })}
+                    <Link to={`/editalbum/${album.id}`}><button>Edit</button></Link>
+
                      {/* <button onClick={deleteAlbumCard(album.id)}>Delete</button> */}
                     </div>
 

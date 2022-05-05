@@ -4,7 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 import { getAlbums } from '../../store/album';
 import { deleteImage, editImage } from '../../store/image';
 
-function EditImageCard(id){
+function EditImageCard(){
     const {imageId} = useParams()
 
     const image = useSelector(state=> state.images[imageId])
@@ -34,7 +34,6 @@ function EditImageCard(id){
                 <button type="submit">Edit</button>
             </form>
             <Link to={`/images`}><button>Cancel</button></Link>
-
 
             {/* <button onClick={deleteImage}>Delete</button> */}
         </div>

@@ -62,7 +62,7 @@ export const postAlbums = (data) => async dispatch => {
 export const deleteAlbums = (id) => async dispatch => {
     console.log("hello from delete album thunk")
 
-    const response = await csrfFetch(`/api/images/${id}`, {
+    const response = await csrfFetch(`/api/albums/${id}`, {
         method: 'DELETE'
     });
 
@@ -82,10 +82,12 @@ const albumReducer = (state = initialState, action) =>{
             albumArr.albums.forEach(album => {
                 newState[album.id] = album
             })
-            console.log("hello from the load",newState)
             return newState
         case ADD:
             newState[action.album.id] = action.album
+            return newState
+        case DELETE:
+            delete(newState[action.id])
             return newState
         default:
             return newState
