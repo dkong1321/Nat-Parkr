@@ -14,19 +14,19 @@ module.exports = {
     */
       return queryInterface.bulkInsert('AlbumImages', [
         {
-        albumId: 2,
+        albumId: 3,
         imageId: 1,
         createdAt:new Date(),
         updatedAt: new Date()
         },
         {
-        albumId: 2,
+        albumId: 3,
         imageId: 2,
         createdAt:new Date(),
         updatedAt: new Date()
         },
         {
-        albumId: 2,
+        albumId: 3,
         imageId: 3,
         createdAt:new Date(),
         updatedAt: new Date()

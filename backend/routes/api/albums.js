@@ -19,6 +19,7 @@ router.post('/', asyncHandler(async(req,res)=>{
     res.json(album)
 }))
 
+// edit album name
 router.put('/editalbum/:id', asyncHandler(async(req,res)=>{
     const albumId = req.params.userId
     const {title} =req.body;
@@ -31,7 +32,19 @@ router.put('/editalbum/:id', asyncHandler(async(req,res)=>{
     res.json(
         albumToUpdate
     )
+}))
 
+router.delete('/:id', asyncHandler(async(req,res)=>{
+    console.log("hello from delete album route")
+    const albumId = req.params.id;
+    const albumToDelete = db.image.findByPk(albumId)
+    if (albumToDelete) {
+        await albumToDelete.destroy();
+    }
+
+    res.json({
+        message:"successfully deleted album"
+    })
 }))
 
 module.exports = router;

@@ -3,7 +3,8 @@ import rfdc from 'rfdc';
 const clone = rfdc();
 
 const LOAD = 'albums/LOAD';
-const ADD = ''
+const ADD = 'albums/ADD';
+const DELETE = 'albums/DELETE'
 
 export const load = albums => {
     return {
@@ -12,10 +13,17 @@ export const load = albums => {
     }
 }
 
-export const add = album => {
+export const addAlbum = album => {
     return {
         type:ADD,
         album
+    }
+}
+
+export const removeAlbum = id => {
+    return {
+        type:DELETE,
+        id
     }
 }
 
@@ -44,12 +52,24 @@ export const postAlbums = (data) => async dispatch => {
         headers:{'Content-Type': 'application/json'},
         body: JSON.stringify(newAlbum)
     })
-    console.log("this my fetch happended")
 
     if(response.ok){
         const newAlbum = await response.json();
-        dispatch(add(newAlbum))
+        dispatch(addAlbum(newAlbum))
     }
+}
+
+export const deleteAlbums = (id) => async dispatch => {
+    console.log("hello from delete album thunk")
+
+    const response = await csrfFetch(`/api/images/${id}`, {
+        method: 'DELETE'
+    });
+
+    if(response.ok){
+        dispatch(removeAlbum(id))
+    }
+    return response
 }
 
 const initialState = {}

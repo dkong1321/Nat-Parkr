@@ -20,7 +20,7 @@ function EditImageCard(id){
     const submitEdit = async(event)=>{
         event.preventDefault();
         const locationId =1
-        const data = {title,description,imageId,albumId,locationId}
+        const data = {title,description,imageId,locationId}
         await dispatch(editImage(data)).then(()=> dispatch(getAlbums()))
     }
 
@@ -31,12 +31,6 @@ function EditImageCard(id){
             <form onSubmit = {submitEdit}>
                 <input value={title} onChange={e=> setTitle(e.target.value)} type="text" placeholder='title'></input>
                 <input value={description} onChange={e=> setDescription(e.target.value)} type="text" placeholder='description'></input>
-                <select onChange={e=> setAlbumId(e.target.value)}>
-                    <option value="">Add to Albums</option>
-                    {currentUserAlbums.map((album)=>{
-                        return(<option value={album.id}>{album.title}</option>)
-                    })}
-                </select>
                 <button type="submit">Edit</button>
             </form>
             <Link to={`/images`}><button>Cancel</button></Link>

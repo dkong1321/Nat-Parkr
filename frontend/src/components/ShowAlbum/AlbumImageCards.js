@@ -12,11 +12,12 @@ function AlbumImageCards({image}) {
     const history = useHistory()
     const user = useSelector(state => state.session.user);
 
-    const deleteImageCard = ()=>{
+    const deleteImageCard = (e)=>{
+        e.stopPropogation()
         dispatch(deleteImage(image.id))
         .then(() => dispatch(getAlbums()))
-
     }
+
 
     const edit = () => {
         history.push(`/editimage/${image.id}`)

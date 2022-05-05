@@ -24,11 +24,13 @@ router.post('/', singleMulterUpload('image'),asyncHandler(async(req, res)=>{
     const newImage = { title, imageURL, description, userId, locationId}
     const image = await db.Image.build(newImage)
     const createdImage = await image.save();
+    if(albumId !=="null"){
+        const albumRelation = {imageId:createdImage.id, albumId}
+        const newAlbumImage = await db.AlbumImage.build(albumRelation)
 
-    const albumRelation = {imageId:createdImage.id, albumId}
-    const newAlbumImage = await db.AlbumImage.build(albumRelation)
+        await newAlbumImage.save();
+    }
 
-    await newAlbumImage.save();
     res.json(image)
 }));
 
@@ -43,17 +45,11 @@ router.put('/editimage/:id', asyncHandler(async(req,res)=>{
             }
         })
 
-        const albumImageToUpdate = await db.AlbumImage.findByPk(albumImage.id)
         await imageToUpdate.update({
             title,
             description,
             locationId
         });
-
-        await albumImageToUpdate.update({
-            imageId,
-            albumId
-        })
 
         res.json(
             imageToUpdate
@@ -64,20 +60,23 @@ router.put('/editimage/:id', asyncHandler(async(req,res)=>{
 router.delete('/:id', asyncHandler(async(req,res)=>{
     const imageId = req.params.id;
     const imageToDelete = await db.Image.findByPk(imageId);
-    const albumImage =  await db.AlbumImage.findOne({
+    const albumImageRelation =  await db.AlbumImage.findAll({
             where:{
                 imageId
             }
         })
-    const albumImageToUpdate = await db.AlbumImage.findByPk(albumImage.id)
-    console.log(albumImageToUpdate)
-    if(imageToDelete !==undefined){
-        await albumImageToUpdate.destroy()
+
+    albumImageRelation.forEach((imageAssociation)=>{
+        imageAssociation.destroy()
+    })
+
+    if(imageToDelete !==undefined || imageToDelete !== null){
         await imageToDelete.destroy();
     }
     res.json({
-        message:"successfully deleted"
+        message:"successfully deleted image"
     })
+
 }))
 
 
