@@ -2,7 +2,7 @@ import {useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useHistory, useParams } from 'react-router-dom';
 import { getAlbums } from '../../store/album';
-import { deleteImage, editImage } from '../../store/image';
+import { deleteImage, editImage, getImages } from '../../store/image';
 
 function EditImageCard(){
     const {imageId} = useParams()
@@ -22,7 +22,7 @@ function EditImageCard(){
         // const locationId =1
         setErrors([])
         const data = {title,description,imageId}
-        const updatedImage = await dispatch(editImage(data)).then(()=> dispatch(getAlbums()))
+        const updatedImage = await dispatch(editImage(data)).then(()=> dispatch(getAlbums())).then(()=>dispatch(getImages()))
         .catch (
             async (res) => {
                 const data = await res.json();

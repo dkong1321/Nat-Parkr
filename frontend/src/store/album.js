@@ -48,7 +48,6 @@ export const removeAlbum = id => {
 
 export const getAlbums = () => async dispatch => {
     const response = await csrfFetch('/api/albums');
-    console.log(response)
     if(response.ok) {
         const albums = await response.json()
         dispatch(load(albums));
