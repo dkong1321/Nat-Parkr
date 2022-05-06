@@ -10,11 +10,11 @@ import { getImages } from "./store/image";
 import CreateImage from "./components/CreateImage";
 import EditImage from "./components/EditImage";
 import { getAlbums } from "./store/album";
-import CreateAlbum from "./components/CreateAlbum";
 import AlbumBrowser from "./components/ShowAlbum";
 import EditAlbum from "./components/EditAlbum";
 import ShowImage from "./components/ShowImage"
 import UserImages from "./components/UserImage";
+import { getComments } from "./store/comment";
 
 function App() {
   const dispatch = useDispatch();
@@ -23,6 +23,7 @@ function App() {
     dispatch(sessionActions.restoreUser())
     .then(() => dispatch(getImages()))
     .then(() => dispatch(getAlbums()))
+    .then(() => dispatch(getComments()))
     .then(() => setIsLoaded(true));
 
   }, [dispatch]);
@@ -56,6 +57,7 @@ function App() {
           <Route path="/editalbum/:albumId">
             <EditAlbum/>
           </Route>
+
 
         </Switch>
       )}

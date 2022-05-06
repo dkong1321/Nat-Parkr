@@ -41,6 +41,9 @@ function Navigation({ isLoaded }){
                 <div>
                     <NavLink to="/albums" className="nav_buttons">Your Albums</NavLink>
                 </div>
+                <div>
+                    <NavLink to="/myimages" className>My Images</NavLink>
+                </div>
                 <CreateImageModal user={sessionUser} />
                 <CreateAlbumModal user={sessionUser} />
         </div>

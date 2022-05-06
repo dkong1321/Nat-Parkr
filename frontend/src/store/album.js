@@ -66,7 +66,7 @@ export const postAlbums = (data) => async dispatch => {
         body: JSON.stringify(newAlbum)
     })
 
-    if(response.ok){
+    if(response.ok) {
         const newAlbum = await response.json();
         dispatch(addAlbum(newAlbum))
     }
@@ -107,7 +107,7 @@ export const deleteAlbums = (id) => async dispatch => {
         method: 'DELETE'
     });
 
-    if(response.ok){
+    if(response.ok) {
         dispatch(removeAlbum(id))
     }
     return response

@@ -1,6 +1,6 @@
 import {useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useHistory, useParams } from 'react-router-dom';
 import { getAlbums } from '../../store/album';
 import { deleteImage, editImage } from '../../store/image';
 
@@ -14,7 +14,7 @@ function EditImageCard(){
     const [title, setTitle] = useState(image.title)
     const [description, setDescription] = useState(image.description)
     const [albumId, setAlbumId] = useState()
-
+    const history = useHistory()
     const dispatch = useDispatch()
 
     const submitEdit = async(event)=>{
@@ -22,6 +22,7 @@ function EditImageCard(){
         const locationId =1
         const data = {title,description,imageId,locationId}
         await dispatch(editImage(data)).then(()=> dispatch(getAlbums()))
+        history.push('/myimages')
     }
 
     return (
@@ -33,7 +34,7 @@ function EditImageCard(){
                 <input value={description} onChange={e=> setDescription(e.target.value)} type="text" placeholder='description'></input>
                 <button type="submit">Edit</button>
             </form>
-            <Link to={`/images`}><button>Cancel</button></Link>
+            <Link to={`/myimages`}><button>Cancel</button></Link>
 
             {/* <button onClick={deleteImage}>Delete</button> */}
         </div>

@@ -5,11 +5,13 @@ const sessionRouter = require('./session.js');
 const usersRouter = require('./users.js');
 const imagesRouter = require('./images.js')
 const albumRouter = require('./albums.js')
+const commentRouter = require('./comments.js')
 
 router.use('/session', sessionRouter);
 router.use('/images', imagesRouter)
 router.use('/users', usersRouter);
 router.use('/albums', albumRouter);
+router.use('/comments', commentRouter)
 
 
 //used for testing

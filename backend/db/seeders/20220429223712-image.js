@@ -14,7 +14,7 @@ module.exports = {
     */
          return queryInterface.bulkInsert('Images', [
            { title:'Arches at Sunset',
-             imageURL: 'https://national-park-img.s3.amazonaws.com/1651692046137.jpg',
+             imageURL: 'https://national-park-img.s3.amazonaws.com/1651806356207.jpg',
            description: 'First time seeing the Arches it. Breathtaking view',
            userId:2,
            locationId:null,
@@ -22,14 +22,14 @@ module.exports = {
 
            updatedAt: new Date()},
            { title:'Sweet View of the Arches',
-             imageURL: 'https://national-park-img.s3.amazonaws.com/1651692250031.jpg',
+             imageURL: 'https://national-park-img.s3.amazonaws.com/arches_2.jpg',
            description: 'Wonderful day at the Arches National Park',
            userId:2,
            locationId:null,
            createdAt:new Date(),
            updatedAt: new Date()},
            { title:'Wild Flowers in Desert',
-             imageURL: 'https://national-park-img.s3.amazonaws.com/1651692309345.jpg',
+             imageURL: 'https://national-park-img.s3.amazonaws.com/arches_3.jpg',
            description: 'Saw these flowers on a hike at Arches national park',
            userId:2,
            locationId:null,

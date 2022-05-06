@@ -10,8 +10,9 @@ const db = require ('../../db/models')
 // -------------------get all images---------------------------//
 router.get('/', asyncHandler(async(req,res,next)=>{
 
-    const images = await db.Image.findAll({});
-
+    const images = await db.Image.findAll({
+        include: {model:db.User}
+    });
     res.json(
         {images}
     )
@@ -19,7 +20,9 @@ router.get('/', asyncHandler(async(req,res,next)=>{
 
 router.get('/:id', asyncHandler(async(req,res,next)=>{
     const imageId = req.params.id
-    const image = await db.Image.findByPk(imageId);
+    const image = await db.Image.findByPk(imageId,
+        {include: {model:db.user}}
+        );
     res.json(
         {image}
     )
@@ -85,6 +88,9 @@ router.delete('/:id', asyncHandler(async(req,res)=>{
     })
 
 }))
+
+//comments routes
+
 
 
 // downloads file from s3
