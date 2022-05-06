@@ -32,7 +32,7 @@ module.exports = {
         updatedAt: new Date()
         },
         {
-        albumId: 1,
+        albumId: 3,
         imageId: 4,
         createdAt:new Date(),
         updatedAt: new Date()

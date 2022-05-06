@@ -41,27 +41,29 @@ export const getComments = () => async dispatch => {
 }
 
 export const postComments = (data) => async dispatch => {
+    console.log("we reached the think")
     const {comment, userId, imageId} = data
     const newComment = {comment, userId, imageId}
-    const response = csrfFetch('/api/comments',{
+    const response = await csrfFetch('/api/comments',{
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(newComment)
     })
 
-    if(response.ok) {
-        const newComment = await response.json();
-        dispatch(addComment(response))
-    }
+    // if(response.ok) {
+    //     const myNewComment = await response.json();
+    //     dispatch(addComment(myNewComment))
+    // }
 }
 
 export const deleteComment = (id) => async dispatch => {
-    const response = await csrfFetch(`/api/comment/${id}`, {
+    console.log("reached the thunk")
+    const response = await csrfFetch(`/api/comments/${id}`, {
         method: 'DELETE'
     });
 
     if (response.ok) {
-        dispatch(removeAlbum(id))
+        dispatch(removeComment(id))
     }
     return response
 }
@@ -76,11 +78,13 @@ const commentReducer = (state = initialState, action) => {
         commentArr.comments.forEach(comment =>{
             newState[comment.id] = comment
         })
+        return newState
         case ADD:
-            // newState[action.comment.id] = action.comment
+            console.log("hello", action.comment)
+            newState[action.comment.id] = action.comment
             return newState
         case DELETE:
-            delete newState[action.id]
+            delete newState[action.comment]
             return newState
         default:
             return newState
