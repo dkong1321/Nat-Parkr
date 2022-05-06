@@ -21,7 +21,7 @@ router.get('/', asyncHandler(async(req,res,next)=>{
 router.get('/:id', asyncHandler(async(req,res,next)=>{
     const imageId = req.params.id
     const image = await db.Image.findByPk(imageId,
-        {include: {model:db.user}}
+        {include: {model:db.User}}
         );
     res.json(
         {image}
@@ -88,10 +88,6 @@ router.delete('/:id', asyncHandler(async(req,res)=>{
     })
 
 }))
-
-//comments routes
-
-
 
 // downloads file from s3
 

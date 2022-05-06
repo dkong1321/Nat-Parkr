@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom"
 import { useEffect, useState } from 'react';
 import { getAlbums, postAlbumImage } from '../../store/album';
 import { getComments } from '../../store/comment';
-
+import ShowComments from './Comment';
 function ShowImage () {
     const {imageId} = useParams()
     console.log(typeof imageId)
@@ -17,13 +17,16 @@ function ShowImage () {
     const [albumId, setAlbumId] = useState(null)
     const dispatch = useDispatch()
 
+    const comments = Object.values(useSelector(state => state.comments))
+    const currentImageComments = comments.filter((comment)=>comment.imageId===myImage.id)
+    console.log(currentImageComments)
+
     const addAlbum = (event) => {
         event.preventDefault()
         const data = {albumId, imageId}
         dispatch(postAlbumImage(data))
         .then(() => dispatch(getAlbums()))
     }
-
 
     return (
         <div className='my_image_body'>
@@ -36,11 +39,12 @@ function ShowImage () {
                     <select onChange={e=> setAlbumId(e.target.value)}>
                         <option value={null}>Add to Albums</option>
                         {currentUserAlbums.map((album)=>{
-                            return(<option value={album.id}>{album.title}</option>)
+                            return(<option key={album.id} value={album.id}>{album.title}</option>)
                         })}
                     </select>
                     <button type="submit">Add to Album</button>
                 </form>
+                <ShowComments myImage={myImage}></ShowComments>
             </div>
 
         </div>

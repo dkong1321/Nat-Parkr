@@ -16,7 +16,7 @@ module.exports = {
       imageId: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        references:{model:'Albums'}
+        references:{model:'Images'}
       },
       comment: {
         type: Sequelize.TEXT,

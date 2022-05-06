@@ -24,7 +24,7 @@ router.delete('/:id', asyncHandler(async(req,res)=>{
     const commentToDelete = await db.Comment.findByPk(commentId)
 
     if(commentToDelete) {
-        await commentToDelete.destory();
+        await commentToDelete.destroy();
     }
 
     res.json({

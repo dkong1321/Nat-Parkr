@@ -128,7 +128,7 @@ const albumReducer = (state = initialState, action) =>{
             newState[action.album.id] = action.album
             return newState
         case ADDALBUMIMAGE:
-            newState [action.albumImage.albumId].Images.push(action.song)
+            newState[action.albumImage.albumId].Images.push(action.song)
             return newState
         case DELETE:
             delete(newState[action.id])

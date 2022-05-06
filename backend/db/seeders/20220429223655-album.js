@@ -17,7 +17,7 @@ module.exports = {
         {title: 'Seeder Album', userId: 1, createdAt:new Date(),updatedAt: new Date()},
         {title: 'Shower Shirt', userId: 1, createdAt:new Date(),updatedAt: new Date()},
         {title: 'Propane Prince Pics', userId: 2, createdAt:new Date(),updatedAt: new Date()},
-        {title: 'My first album', userId: 2, createdAt:new Date(),updatedAt: new Date()}
+        // {title: 'My first album', userId: 2, createdAt:new Date(),updatedAt: new Date()}
     ], {});
   },
 
