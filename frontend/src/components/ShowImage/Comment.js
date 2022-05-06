@@ -24,7 +24,10 @@ function ShowComments ({myImage}) {
                 if(data && data.errors) {setErrors(data.errors)}
             }
         )
-        if (newComment) setErrors([])
+        if (newComment) {
+            setErrors([])
+            setComment("")
+        }
     }
 
     const deleteMyComment = async (comment) => {

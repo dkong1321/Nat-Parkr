@@ -11,6 +11,7 @@ function EditImageCard(){
     const user = useSelector(state => state.session.user);
     const albums = Object.values(useSelector(state => state.albums))
     const [title, setTitle] = useState(image.title)
+    const [myUpdatedImage, setMyUpdatedImage] = useState()
     const [description, setDescription] = useState(image.description)
     const history = useHistory()
     const dispatch = useDispatch()
@@ -22,14 +23,17 @@ function EditImageCard(){
         // const locationId =1
         setErrors([])
         const data = {title,description,imageId}
-        const updatedImage = await dispatch(editImage(data)).then(()=> dispatch(getAlbums())).then(()=>dispatch(getImages()))
+        const myErrors = await dispatch(editImage(data)).then(()=> dispatch(getAlbums())).then(()=>dispatch(getImages()))
         .catch (
             async (res) => {
                 const data = await res.json();
+                console.log(data)
                 if(data && data.errors) setErrors(data.errors);
             }
         )
-        if(updatedImage) history.push('/myimages')
+        console.log(errors)
+        console.log(myErrors)
+        if(!errors) history.push('/images')
     }
 
     return (
@@ -44,7 +48,7 @@ function EditImageCard(){
                 </ul>
                 <input  value={title} onChange={e=> setTitle(e.target.value)} type="text" placeholder='title'></input>
                 <input  value={description} onChange={e=> setDescription(e.target.value)} type="text" placeholder='description'></input>
-                <button type="submit">Edit</button>
+                <button type="submit">Submit Your Edit</button>
             </form>
             <Link to={`/myimages`}><button>Cancel</button></Link>
 
