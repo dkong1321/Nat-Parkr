@@ -63,6 +63,7 @@ export const postImage = (data) => async dispatch => {
         const newImage = await response.json();
         dispatch(addImage(newImage))
         }
+
     }
 
 export const editImage = (data) => async dispatch => {

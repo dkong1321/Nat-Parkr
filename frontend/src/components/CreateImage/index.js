@@ -16,23 +16,31 @@ function CreateImage({setShowModal}){
     const [albumId, setAlbumId] = useState(null)
     const userId = user.id
     const dispatch = useDispatch();
+    const [errors, setErrors] = useState([]);
 
     //for modal
 
 
     const submit = async(event) =>{
         event.preventDefault()
-
+        setErrors([])
         const data = {image, description,userId,title, albumId}
-        await dispatch(postImage(data))
-        .then(()=> dispatch(getAlbums()))
-        .then(()=> setShowModal(false))
-        .then(()=> history.push('/images'));
+        const newImage = await dispatch(postImage(data)).then(()=> dispatch(getAlbums()))
+        .catch (
+            async (res) => {
+                const data = await res.json();
+                if(data && data.errors) setErrors(data.errors);
+            }
+        )
 
-        // take out to mass seed
-        setDescription("")
-        setTitle("")
-        setImage()
+        if(newImage) {
+            history.push('/images');
+            setShowModal(false)
+            // take out to mass seed
+            setDescription("")
+            setTitle("")
+            setImage()
+        }
     }
 
     const imageSelected = event => {
@@ -45,9 +53,14 @@ function CreateImage({setShowModal}){
 
             <h3>Add an Image</h3>
             <form onSubmit ={submit}>
+                <ul>
+                    {errors.map((error, idx) => (
+                        <li key={idx}>{error}</li>
+                    ))}
+                </ul>
                 <input required onChange={imageSelected} type="file" accept="image/*" name="image"></input>
-                <input required value={title} onChange={e=> setTitle(e.target.value)} type="text" placeholder='title'></input>
-                <input required value={description} onChange={e=> setDescription(e.target.value)} type="text" placeholder='description'></input>
+                <input  value={title} onChange={e=> setTitle(e.target.value)} type="text" placeholder='title'></input>
+                <input  value={description} onChange={e=> setDescription(e.target.value)} type="text" placeholder='description'></input>
                 <select onChange={e=> setAlbumId(e.target.value)}>
                     <option value={null}>Add to Albums</option>
                     {currentUserAlbums.map((album)=>{

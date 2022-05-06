@@ -6,13 +6,13 @@ const db = require('../../db/models')
 const {check} = require('express-validator')
 const { handleValidationErrors } = require('../../utils/validation');
 
-// validateComment = [
-//     check('check')
-//         .exists({checkFalsy:true})
-//         .isLength({min:10})
-//         .withMessage('Please provide a comment with at least 10 characters'),
-//         handleValidationErrors
-// ]
+validateComment = [
+    check('comment')
+        .exists({checkFalsy:true})
+        .isLength({min:1, max: 255})
+        .withMessage('Please provide a comment between 1 to 255 characters'),
+        handleValidationErrors
+]
 
 router.get('/', asyncHandler(async(req,res,next)=>{
     const comments = await db.Comment.findAll({
@@ -22,12 +22,14 @@ router.get('/', asyncHandler(async(req,res,next)=>{
     res.json({comments})
 }))
 
-router.post('/', asyncHandler(async(req,res)=>{
+router.post('/', validateComment, asyncHandler(async(req,res)=>{
     const {userId, imageId, comment} = req.body;
     const newComment = {comment, userId, imageId};
     const myComment = await db.Comment.build(newComment);
-    await myComment.save();
-    res.json(myComment)
+    if(myComment) {
+        await myComment.save();
+        return res.json(myComment)
+    }
 }))
 
 router.delete('/:id', asyncHandler(async(req,res)=>{
