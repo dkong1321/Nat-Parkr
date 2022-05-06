@@ -11,12 +11,20 @@ function ShowComments ({myImage}) {
     const imageId = myImage.id
     const dispatch = useDispatch()
 
+    const [errors, setErrors] = useState([]);
+
     const submit= (e) => {
         e.preventDefault()
-        console.log("heloo")
         const data = {userId, comment, imageId }
-        console.log(data)
-        dispatch(postComments(data)).then(()=>dispatch(getComments()))
+        const newComment = dispatch(postComments(data))
+        .then(()=>dispatch(getComments()))
+        .catch(
+            async (res) => {
+                const data = await res.json();
+                if(data && data.errors) {setErrors(data.errors)}
+            }
+        )
+        if (newComment) setErrors([])
     }
 
     const deleteMyComment = async (comment) => {
@@ -27,7 +35,12 @@ function ShowComments ({myImage}) {
     return (
         <div>
             <form onSubmit={submit}>
-            <input required value={comment} onChange={e=> setComment(e.target.value)} type="text" placeholder='Enter Comment'></input>
+                <ul>
+                    {errors.map((error, idx) => (
+                        <li key={idx}>{error}</li>
+                    ))}
+                </ul>
+            <input value={comment} onChange={e=> setComment(e.target.value)} type="text" placeholder='Enter Comment'></input>
             <button >Post Comment</button>
             </form>
                 <div>

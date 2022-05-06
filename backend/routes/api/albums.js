@@ -6,7 +6,7 @@ const db = require('../../db/models')
 const {check} = require('express-validator')
 const { handleValidationErrors } = require('../../utils/validation');
 
-const validateAlbum = [
+const validateComment = [
     check('title')
         .exists({checkFalsy: true})
         .isLength({min:4, max:50})
@@ -20,7 +20,7 @@ router.get('/', asyncHandler(async(req,res,next)=>{
 
 }))
 
-router.post('/', validateAlbum, asyncHandler(async(req,res)=>{
+router.post('/', validateComment, asyncHandler(async(req,res)=>{
     const {title, userId} = req.body;
     const newAlbum = {title, userId};
     const album = await db.Album.build(newAlbum)

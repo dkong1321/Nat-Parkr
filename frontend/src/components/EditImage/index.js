@@ -10,19 +10,26 @@ function EditImageCard(){
     const image = useSelector(state=> state.images[imageId])
     const user = useSelector(state => state.session.user);
     const albums = Object.values(useSelector(state => state.albums))
-    const currentUserAlbums = albums.filter((album)=>album.userId === user.id)
     const [title, setTitle] = useState(image.title)
     const [description, setDescription] = useState(image.description)
-    const [albumId, setAlbumId] = useState()
     const history = useHistory()
     const dispatch = useDispatch()
 
+    const [errors, setErrors] = useState([]);
+
     const submitEdit = async(event)=>{
         event.preventDefault();
-        const locationId =1
-        const data = {title,description,imageId,locationId}
-        await dispatch(editImage(data)).then(()=> dispatch(getAlbums()))
-        history.push('/myimages')
+        // const locationId =1
+        setErrors([])
+        const data = {title,description,imageId}
+        const updatedImage = await dispatch(editImage(data)).then(()=> dispatch(getAlbums()))
+        .catch (
+            async (res) => {
+                const data = await res.json();
+                if(data && data.errors) setErrors(data.errors);
+            }
+        )
+        if(updatedImage) history.push('/myimages')
     }
 
     return (
@@ -30,8 +37,13 @@ function EditImageCard(){
             <div>Edit Image</div>
             <div>{`Hello ${user.username} what would you like to edit on this image`}</div>
             <form onSubmit = {submitEdit}>
-                <input required value={title} onChange={e=> setTitle(e.target.value)} type="text" placeholder='title'></input>
-                <input required value={description} onChange={e=> setDescription(e.target.value)} type="text" placeholder='description'></input>
+                <ul>
+                    {errors.map((error, idx) => (
+                        <li key={idx}>{error}</li>
+                    ))}
+                </ul>
+                <input  value={title} onChange={e=> setTitle(e.target.value)} type="text" placeholder='title'></input>
+                <input  value={description} onChange={e=> setDescription(e.target.value)} type="text" placeholder='description'></input>
                 <button type="submit">Edit</button>
             </form>
             <Link to={`/myimages`}><button>Cancel</button></Link>
