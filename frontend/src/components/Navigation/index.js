@@ -23,7 +23,6 @@ function Navigation({ isLoaded }){
         sessionLinks = (
             <>
                 <LoginFormModal />
-                <NavLink to="/signup">Sign Up</NavLink>
                 <SignupFormModal/>
             </>
         );
@@ -35,17 +34,15 @@ function Navigation({ isLoaded }){
                     <NavLink exact to="/" className="nav_buttons">Home</NavLink>
                     {isLoaded && sessionLinks}
                 </div>
-                <div>
-                    <NavLink to="/images" className="nav_buttons">Discover</NavLink>
-                </div>
-                <div>
-                    <NavLink to="/albums" className="nav_buttons">Your Albums</NavLink>
-                </div>
-                <div>
-                    <NavLink to="/myimages" className>My Images</NavLink>
-                </div>
-                <CreateImageModal user={sessionUser} />
-                <CreateAlbumModal user={sessionUser} />
+
+                     <NavLink to="/images" className="nav_buttons">Discover</NavLink>
+                    {sessionUser ? <NavLink to="/albums" className="nav_buttons">Your Albums</NavLink> : <></>}
+
+
+                    {sessionUser ? <NavLink to="/myimages" className>My Images</NavLink>: <></>}
+
+                {sessionUser?<CreateImageModal user={sessionUser} />:<></>}
+                {sessionUser?<CreateAlbumModal user={sessionUser} />:<></>}
         </div>
 
     )

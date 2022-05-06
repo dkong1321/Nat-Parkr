@@ -49,7 +49,7 @@ function ShowComments ({myImage}) {
                             <div>
                                 <h3>{comment.User.username}</h3>
                                 <div>{comment.comment}</div>
-                                <button onClick={(e)=>deleteMyComment(comment)}>Delete</button>
+                                {comment.userId === userId ? <button onClick={(e)=>deleteMyComment(comment)}>Delete</button> : <></>}
                             </div>
                         )
                     })}
