@@ -9,20 +9,36 @@ function CreateAlbum({setShowModal}){
     const [title, setTitle] = useState("")
     const dispatch = useDispatch()
     const history = useHistory()
+
+    const [errors, setErrors] = useState([]);
+
     const submit = async(event) => {
         event.preventDefault()
         const data = {title, userId}
-        await dispatch(postAlbums(data))
+        setErrors([])
+        const newAlbum = await dispatch(postAlbums(data))
         .then(()=>setShowModal(false))
         .then(()=> dispatch(getAlbums()))
-        history.push('/albums')
+        .catch(
+            async (res) => {
+                const data = await res.json();
+                if (data && data.errors) setErrors(data.errors);
+            }
+
+        )
+
 
     }
     return (
         <div>
             <h3>Add an Album</h3>
             <form onSubmit ={submit}>
-                <input value={title} onChange={e=> setTitle(e.target.value)} type="text" placeholder='title'></input>
+                <ul>
+                    {errors.map((error, idx) => (
+                        <li key={idx}>{error}</li>
+                    ))}
+                </ul>
+                <input required value={title} onChange={e=> setTitle(e.target.value)} type="text" placeholder='title'></input>
                 <button type="submit">Submit</button>
             </form>
             <button onClick={e => setShowModal(false)}>Cancel</button>
