@@ -3,6 +3,17 @@ const router = express()
 const asyncHandler = require('express-async-handler')
 const db = require('../../db/models')
 
+const {check} = require('express-validator')
+const { handleValidationErrors } = require('../../utils/validation');
+
+validateComment = [
+    check('check')
+        .exists({checkFalsy:true})
+        .isLength({min:10})
+        .withMessage('Please provide a comment with at least 10 characters'),
+        handleValidationErrors
+]
+
 router.get('/', asyncHandler(async(req,res,next)=>{
     const comments = await db.Comment.findAll({
         include: db.User
@@ -11,7 +22,7 @@ router.get('/', asyncHandler(async(req,res,next)=>{
     res.json({comments})
 }))
 
-router.post('/', asyncHandler(async(req,res)=>{
+router.post('/', validateComment, asyncHandler(async(req,res)=>{
     const {userId, imageId, comment} = req.body;
     const newComment = {comment, userId, imageId};
     const myComment = await db.Comment.build(newComment);

@@ -36,7 +36,10 @@ module.exports = (sequelize, DataTypes) => {
     Image.belongsToMany(models.Album, columnMapping)
 
     // Image had many comments
-    Image.hasMany(models.Comment, {foreignKey:"imageId"})
+    Image.hasMany(models.Comment, {foreignKey:"imageId",
+    onDelete: 'CASCADE',
+    hooks: true
+  })
 
     //image belongs to a location
     Image.belongsTo(models.Location, {foreignKey:"locationId"})

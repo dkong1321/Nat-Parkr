@@ -37,7 +37,7 @@ module.exports = {
            updatedAt: new Date()},
 
            { title:'Clouds over Big Bend',
-             imageURL: 'https://national-park-img.s3.amazonaws.com/1651692681794.jpg',
+             imageURL: 'https://national-park-img.s3.amazonaws.com/big_bend_1.jpg',
            description: 'Blue sky with clouds over Big Bend',
            userId:1,
            locationId:null,
@@ -45,7 +45,7 @@ module.exports = {
            updatedAt: new Date()},
 
            { title:'Big Bend River',
-             imageURL: 'https://national-park-img.s3.amazonaws.com/1651692702048.jpg',
+             imageURL: 'https://national-park-img.s3.amazonaws.com/big_bend_2.jpg',
            description: 'Rushing waters at Big Bend',
            userId:1,
            locationId:null,
@@ -53,7 +53,7 @@ module.exports = {
            updatedAt: new Date()},
 
            { title:'Under the Shade at Canyonlands',
-             imageURL: 'https://national-park-img.s3.amazonaws.com/1651692780743.jpg',
+             imageURL: 'https://national-park-img.s3.amazonaws.com/canyon_lands_1.jpg',
            description: 'Nice view out of the heat!',
            userId:1,
            locationId:null,
@@ -61,7 +61,7 @@ module.exports = {
            updatedAt: new Date()},
 
            { title:'Stars at Crater Link',
-             imageURL: 'https://national-park-img.s3.amazonaws.com/1651692826255.jpg',
+             imageURL: 'https://national-park-img.s3.amazonaws.com/creater_lake_1.jpg',
            description: 'Camping out at crater lake',
            userId:1,
            locationId:null,
@@ -69,7 +69,7 @@ module.exports = {
            updatedAt: new Date()},
 
            { title:'Majest Mountains in Denali',
-             imageURL: 'https://national-park-img.s3.amazonaws.com/1651692899847.jpg',
+             imageURL: 'https://national-park-img.s3.amazonaws.com/denali_1.jpg',
            description: 'Sitting by the river',
            userId:1,
            locationId:null,
@@ -77,7 +77,7 @@ module.exports = {
            updatedAt: new Date()},
 
            { title:'Goats at Denali',
-             imageURL: 'https://national-park-img.s3.amazonaws.com/1651692926797.jpg',
+             imageURL: 'https://national-park-img.s3.amazonaws.com/denali_2.jpg',
            description: 'Wide shot of goats',
            userId:1,
            locationId:null,
@@ -85,7 +85,7 @@ module.exports = {
            updatedAt: new Date()},
 
            { title:'Glacier Lake',
-             imageURL: 'https://national-park-img.s3.amazonaws.com/1651692985389.jpg',
+             imageURL: 'https://national-park-img.s3.amazonaws.com/glavier_1.jpg',
            description: 'Reflective waters at the lake',
            userId:1,
            locationId:null,
@@ -93,7 +93,7 @@ module.exports = {
            updatedAt: new Date()},
 
            { title:'Glacier Mountains',
-             imageURL: 'https://national-park-img.s3.amazonaws.com/1651693042760.jpg',
+             imageURL: 'https://national-park-img.s3.amazonaws.com/glacier_2.jpg',
            description: 'cloudy day at glacier',
            userId:1,
            locationId:null,
@@ -101,7 +101,7 @@ module.exports = {
            updatedAt: new Date()},
 
            { title:'Clouds over Mountains',
-             imageURL: 'https://national-park-img.s3.amazonaws.com/1651693082370.jpg',
+             imageURL: 'https://national-park-img.s3.amazonaws.com/glacier_3.jpg',
            description: 'Shade over the mountains',
            userId:1,
            locationId:null,
