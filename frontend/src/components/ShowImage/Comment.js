@@ -27,7 +27,7 @@ function ShowComments ({myImage}) {
     return (
         <div>
             <form onSubmit={submit}>
-            <input value={comment} onChange={e=> setComment(e.target.value)} type="text" placeholder='Enter Comment'></input>
+            <input required value={comment} onChange={e=> setComment(e.target.value)} type="text" placeholder='Enter Comment'></input>
             <button >Post Comment</button>
             </form>
                 <div>

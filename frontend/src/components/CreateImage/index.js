@@ -45,9 +45,9 @@ function CreateImage({setShowModal}){
 
             <h3>Add an Image</h3>
             <form onSubmit ={submit}>
-                <input onChange={imageSelected} type="file" accept="image/*" name="image"></input>
-                <input value={title} onChange={e=> setTitle(e.target.value)} type="text" placeholder='title'></input>
-                <input value={description} onChange={e=> setDescription(e.target.value)} type="text" placeholder='description'></input>
+                <input required onChange={imageSelected} type="file" accept="image/*" name="image"></input>
+                <input required value={title} onChange={e=> setTitle(e.target.value)} type="text" placeholder='title'></input>
+                <input required value={description} onChange={e=> setDescription(e.target.value)} type="text" placeholder='description'></input>
                 <select onChange={e=> setAlbumId(e.target.value)}>
                     <option value={null}>Add to Albums</option>
                     {currentUserAlbums.map((album)=>{

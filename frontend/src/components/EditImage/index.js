@@ -30,8 +30,8 @@ function EditImageCard(){
             <div>Edit Image</div>
             <div>{`Hello ${user.username} what would you like to edit on this image`}</div>
             <form onSubmit = {submitEdit}>
-                <input value={title} onChange={e=> setTitle(e.target.value)} type="text" placeholder='title'></input>
-                <input value={description} onChange={e=> setDescription(e.target.value)} type="text" placeholder='description'></input>
+                <input required value={title} onChange={e=> setTitle(e.target.value)} type="text" placeholder='title'></input>
+                <input required value={description} onChange={e=> setDescription(e.target.value)} type="text" placeholder='description'></input>
                 <button type="submit">Edit</button>
             </form>
             <Link to={`/myimages`}><button>Cancel</button></Link>
