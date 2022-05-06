@@ -35,7 +35,7 @@ function Navigation({ isLoaded }){
                     {isLoaded && sessionLinks}
                 </div>
 
-                     <NavLink to="/images" className="nav_buttons">Discover</NavLink>
+                    {sessionUser ? <NavLink to="/images" className="nav_buttons">Discover</NavLink> :<></>}
                     {sessionUser ? <NavLink to="/albums" className="nav_buttons">Your Albums</NavLink> : <></>}
 
 

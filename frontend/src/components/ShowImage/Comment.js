@@ -1,5 +1,5 @@
 import { deleteComment, getComments, postComments } from '../../store/comment';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 function ShowComments ({myImage}) {
@@ -46,7 +46,7 @@ function ShowComments ({myImage}) {
                 <div>
                     {currentImageComments.map((comment)=>{
                         return(
-                            <div>
+                            <div key={comment.title}>
                                 <h3>{comment.User.username}</h3>
                                 <div>{comment.comment}</div>
                                 {comment.userId === userId ? <button onClick={(e)=>deleteMyComment(comment)}>Delete</button> : <></>}

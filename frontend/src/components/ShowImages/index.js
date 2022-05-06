@@ -19,7 +19,7 @@ const ImageBrowser = ()=>{
             <div className="item_content">
                 {images.map((image)=>{
                     return(
-                        <div className="image_container">
+                        <div key={image.id} className="image_container">
                             <ImageCard image={image}></ImageCard>
                             <div classsName='text_overlay'>
                                 <div className='image_card_title'>{image.title}</div>
