@@ -73,6 +73,7 @@ export const editAlbum = (data) => async dispatch => {
     if(response.ok) {
         const editedAlbum = await response.json();
         dispatch(putAlbum)
+        return editedAlbum
     }
 }
 

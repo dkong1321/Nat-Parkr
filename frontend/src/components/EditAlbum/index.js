@@ -26,15 +26,18 @@ function EditAlbum(){
         event.preventDefault();
         setErrors([])
         const data = {title, albumId}
-        await dispatch(editAlbum(data))
+        const newAlbumTitle = await dispatch(editAlbum(data))
         .catch(
             async (res) => {
                 const data = await res.json();
                 if(data && data.errors) setErrors(data.errors);
             }
         )
-        dispatch(getAlbums())
-        history.push('/albums')
+        console.log(newAlbumTitle)
+        if(newAlbumTitle){
+            dispatch(getAlbums())
+            history.push('/albums')
+        }
     }
 
     const cancel = ()=>{

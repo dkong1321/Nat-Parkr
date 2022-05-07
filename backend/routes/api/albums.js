@@ -37,13 +37,15 @@ router.put('/:id', validateAlbum, asyncHandler(async(req,res)=>{
     const {title} =req.body;
     const albumToUpdate = await db.Album.findByPk(albumId);
 
-    await albumToUpdate.update({
+    const newTitle = await albumToUpdate.update({
         title
     });
-
-    res.json(
-        albumToUpdate
-    )
+    if(newTitle){
+        res.json(
+            albumToUpdate
+        )
+    }
+    return true
 }))
 
 // add images to album (AlbumImage)
