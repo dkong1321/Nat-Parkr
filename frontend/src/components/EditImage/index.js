@@ -23,16 +23,23 @@ function EditImageCard(){
         // const locationId =1
         setErrors([])
         const data = {title,description,imageId}
-        await dispatch(editImage(data))
+        const newImage = await dispatch(editImage(data))
         .catch (
             async (res) => {
                 const data = await res.json();
                 console.log(data)
-                if(data && data.errors) setErrors(data.errors);
+                if(data && data.errors) {
+                    setErrors(data.errors);
+                }
             }
         )
-        history.push("/myimages")
-        dispatch(getAlbums()).then(()=>dispatch(getImages()))
+        console.log(newImage)
+        if(newImage) {
+                console.log("my errors are here", errors)
+                history.push("/myimages")
+                dispatch(getAlbums()).then(()=>dispatch(getImages()))
+
+        }
     }
 
     return (
