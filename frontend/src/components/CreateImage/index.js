@@ -1,8 +1,8 @@
 import {useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { getAlbums } from '../../store/album';
-import { load, postImage } from '..//../store/image';
+import { postImage } from '..//../store/image';
 
 function CreateImage({setShowModal}){
     const user = useSelector(state => state.session.user);

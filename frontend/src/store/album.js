@@ -5,6 +5,7 @@ const clone = rfdc();
 const LOAD = 'albums/LOAD';
 const ADD = 'albums/ADD';
 const DELETE = 'albums/DELETE'
+const PUT = 'albums/PUT'
 const ADDALBUMIMAGE = '/albums/ADDIMAGE'
 const DELETEALBUMIMAGE = '/albums/DELETEIMAGE'
 
@@ -31,6 +32,13 @@ export const addAlbumImage = (albumImage, image) =>{
     }
 }
 
+export const  putAlbum = (id) => {
+        return {
+            type:PUT,
+            id
+        }
+}
+
 export const removeAlbumImage = (albumImage, image) =>{
     return {
         type: DELETEALBUMIMAGE,
@@ -55,6 +63,18 @@ export const getAlbums = () => async dispatch => {
     return response
 }
 
+export const editAlbum = (data) => async dispatch => {
+    const response = await csrfFetch(`/api/albums/${data.imageId}`, {
+        method: "PUT",
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify(data)
+    })
+    if(response.ok) {
+        const editedAlbum = await response.json();
+        dispatch(putAlbum)
+    }
+}
+
 export const postAlbums = (data) => async dispatch => {
 
     const {title, userId } =data
@@ -70,6 +90,7 @@ export const postAlbums = (data) => async dispatch => {
         dispatch(addAlbum(newAlbum))
     }
 }
+
 
 export const postAlbumImage = (data) => async dispatch => {
     const {albumId, imageId} = data
@@ -129,6 +150,8 @@ const albumReducer = (state = initialState, action) =>{
         case ADDALBUMIMAGE:
             newState[action.albumImage.albumId].Images.push(action.song)
             return newState
+        case PUT:
+            newState[action.image.id] = action.image
         case DELETE:
             delete(newState[action.id])
             return newState

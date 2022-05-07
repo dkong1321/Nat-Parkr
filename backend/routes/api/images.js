@@ -46,7 +46,6 @@ router.get('/:id', asyncHandler(async(req,res,next)=>{
 }))
 
 router.post('/', singleMulterUpload('image'), validateImage, asyncHandler(async(req, res)=>{
-    console.log("this is req.body from api route", req.body)
     const { title, description, userId, albumId, locationId} = req.body
     const imageURL = await singlePublicFileUpload(req.file)
     const newImage = { title, imageURL, description, userId, locationId}

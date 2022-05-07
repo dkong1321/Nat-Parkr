@@ -6,7 +6,7 @@ const db = require('../../db/models')
 const {check} = require('express-validator')
 const { handleValidationErrors } = require('../../utils/validation');
 
-const validateComment = [
+const validateAlbum = [
     check('title')
         .exists({checkFalsy: true})
         .isLength({min:4, max:50})
@@ -20,7 +20,7 @@ router.get('/', asyncHandler(async(req,res,next)=>{
 
 }))
 
-router.post('/', validateComment, asyncHandler(async(req,res)=>{
+router.post('/', validateAlbum, asyncHandler(async(req,res)=>{
     const {title, userId} = req.body;
     const newAlbum = {title, userId};
     const album = await db.Album.build(newAlbum)
@@ -32,19 +32,19 @@ router.post('/', validateComment, asyncHandler(async(req,res)=>{
 }))
 
 // edit album name not used
-// router.put('/editalbum/:id', validateAlbum, asyncHandler(async(req,res)=>{
-//     const albumId = req.params.id
-//     const {title} =req.body;
-//     const albumToUpdate = await db.Album.findByPk(albumId);
+router.put('/:id', validateAlbum, asyncHandler(async(req,res)=>{
+    const albumId = req.params.id
+    const {title} =req.body;
+    const albumToUpdate = await db.Album.findByPk(albumId);
 
-//     await albumToUpdate.update({
-//         title
-//     });
+    await albumToUpdate.update({
+        title
+    });
 
-//     res.json(
-//         albumToUpdate
-//     )
-// }))
+    res.json(
+        albumToUpdate
+    )
+}))
 
 // add images to album (AlbumImage)
 router.post(`/addimage/:id`, asyncHandler(async(req,res)=>{

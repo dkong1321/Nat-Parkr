@@ -23,7 +23,7 @@ function EditImageCard(){
         // const locationId =1
         setErrors([])
         const data = {title,description,imageId}
-        const myErrors = await dispatch(editImage(data)).then(()=> dispatch(getAlbums())).then(()=>dispatch(getImages()))
+        await dispatch(editImage(data))
         .catch (
             async (res) => {
                 const data = await res.json();
@@ -31,9 +31,8 @@ function EditImageCard(){
                 if(data && data.errors) setErrors(data.errors);
             }
         )
-        console.log(errors)
-        console.log(myErrors)
-        if(!errors) history.push('/images')
+        history.push("/myimages")
+        dispatch(getAlbums()).then(()=>dispatch(getImages()))
     }
 
     return (

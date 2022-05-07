@@ -72,7 +72,6 @@ export const editImage = (data) => async dispatch => {
         headers: {'Content-Type':'application/json'},
         body: JSON.stringify(data)
         })
-        console.log("in edit image thunk")
         if(response.ok){
             const editedImage = await response.json();
             dispatch(putImage(editedImage))
