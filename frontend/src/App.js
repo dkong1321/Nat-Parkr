@@ -15,7 +15,7 @@ import EditAlbum from "./components/EditAlbum";
 import ShowImage from "./components/ShowImage"
 import UserImages from "./components/UserImage";
 import { getComments } from "./store/comment";
-
+import {Helmet} from "react-helmet"
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -30,6 +30,12 @@ function App() {
 
   return isLoaded &&(
     <>
+      <Helmet>
+          <meta charSet="utf-8" />
+          <title>Nat-Parkr</title>
+          <link rel="canonical" href="http://mysite.com/example" />
+          <meta name="description" content="Title and Icon" />
+      </Helmet>
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
@@ -57,8 +63,6 @@ function App() {
           <Route path="/editalbum/:albumId">
             <EditAlbum/>
           </Route>
-
-
         </Switch>
       )}
     </>
