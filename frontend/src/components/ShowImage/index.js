@@ -4,6 +4,8 @@ import { useParams } from "react-router-dom"
 import { useState } from 'react';
 import { getAlbums, postAlbumImage } from '../../store/album';
 import ShowComments from './Comment';
+import CreateAlbumModal from '../Modals/CreateModalAlbum';
+
 function ShowImage () {
     const {imageId} = useParams()
     const user = useSelector(state => state.session.user)
@@ -23,6 +25,7 @@ function ShowImage () {
         const data = {albumId, imageId}
         dispatch(postAlbumImage(data))
         .then(() => dispatch(getAlbums()))
+        alert(`Added to your album!`)
     }
 
     return (
@@ -34,6 +37,7 @@ function ShowImage () {
                 <div>{`submitted by ${myImage.User?.username} `}</div>
                 <h2>description:</h2>
                 <div className='show_image_description'>{myImage.description}</div>
+                {currentUserAlbums.length ?
                 <form onSubmit ={addAlbum}>
                     <select onChange={e=> setAlbumId(e.target.value)}>
                         <option value={null}>Add to Albums</option>
@@ -43,6 +47,8 @@ function ShowImage () {
                     </select>
                     <button type="submit">Add to Album</button>
                 </form>
+                : user?<CreateAlbumModal user={user} />:<></>}
+
                 <ShowComments myImage={myImage}></ShowComments>
             </div>
 

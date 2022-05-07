@@ -64,7 +64,8 @@ export const getAlbums = () => async dispatch => {
 }
 
 export const editAlbum = (data) => async dispatch => {
-    const response = await csrfFetch(`/api/albums/${data.imageId}`, {
+    console.log("data in my thunk", data)
+    const response = await csrfFetch(`/api/albums/${data.albumId}`, {
         method: "PUT",
         headers: {'Content-Type':'application/json'},
         body: JSON.stringify(data)

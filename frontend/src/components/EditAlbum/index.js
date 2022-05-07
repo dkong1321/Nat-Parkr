@@ -36,6 +36,10 @@ function EditAlbum(){
         dispatch(getAlbums())
         history.push('/albums')
     }
+
+    const cancel = ()=>{
+        history.push('/albums')
+    }
     return (
         <div>
             <h1>hello</h1>
@@ -61,6 +65,7 @@ function EditAlbum(){
                 )
             })}
             <button onClick={deleteMyAlbum}>Delete Album</button>
+            <button onClick={cancel}>Cancel</button>
 
         </div>
     )
