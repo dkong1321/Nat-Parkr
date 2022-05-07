@@ -1,20 +1,61 @@
 .album_image_show {
     width: auto;
     height: 200px;
-    border-radius: 20px;
+    border-radius: 35px;
+    border: 5px rgba(105, 37, 31, .6) solid;
 }
 
 .album_image_container {
-    border: 4px black solid;
     width: 200px;
     display: flex;
     flex-direction: column;
-    border-radius: 25px;
-    margin: 5px;
+    margin: 2px;
+
 }
 
+.my_albums_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* border: 5px red solid; */
+}
 
 .album_card_container{
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    width: 1100px;
+    height: 400px;
+    overflow-y: auto;
+    border-bottom: 5px black solid;
+    border-top: 5px black solid;
+    border-radius: 10px;
+}
+
+.my_album_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 1200px;
+    border: 5px black solid;
+    background-color: rgb(56, 78, 107);
+    border-radius: 15px;
+    margin: 10px;
+    padding: 5px;
+}
+
+.my_album_edit_button {
+    position: relative;
+    margin-left: 5px;
+    top: 50px;
+    left: 570px;
+
+}
+
+
+.my_album_title_container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }

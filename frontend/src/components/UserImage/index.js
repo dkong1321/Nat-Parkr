@@ -18,29 +18,27 @@ function UserImage () {
 
     }
     return(
-        <div className="user_image_container">
-            <h1>hELLO</h1>
-            <h3 className="test">{user.username} Photos</h3>
-            <div>
+        <div className="my_image_body">
+            <h3 className="main_page_title">{user.username} Images</h3>
+            <div className="my_image_container">
                 {currentUserImages.map((image=>{
                 return(
                     <div>
-                        <h3>{image.title}</h3>
-                        <Link to={`/images/${image.id}`}><img className='imageShow' src={`${image.imageURL}`}></img></Link>
-                        {/* <FontAwesomeIcon icon="fa-thin fa-trash-can" /> */}
-                        <button>
-                        <i className="fas fa-user-circle" />
-                        </button>
-                        <i className="fas fa-user-circle" />
-                        <i class="fa-regular fa-trash-can"></i>
-                        <i className="fa-thin fa-trash-can"></i>
-
-                        <i class="fa-thin fa-face-icicles"></i>
-                        { (user.id === image.userId) ? <button onClick={()=>deleteImageCard(image)}><i class="fa-solid fa-trash-can"></i></button> : <></>}
-                        { (user.id === image.userId) ? <Link to={`/editimage/${image.id}`}><button>Edit</button></Link> :<></>}
+                        <div className="my_image_cards_container">
+                        <div className="my_image_title">{image.title}</div>
+                        <div className="my_image_holder">
+                            <Link to={`/images/${image.id}`}><img className='my_image_show' src={`${image.imageURL}`}></img></Link>
+                            <div className="my_image_button_container">
+                                { (user.id === image.userId) ? <button onClick={()=>deleteImageCard(image)}><i class="fa-solid fa-trash-can"></i></button> : <></>}
+                                { (user.id === image.userId) ? <Link to={`/editimage/${image.id}`}><button><i class="fas fa-edit"></i></button></Link> :<></>}
+                            </div>
+                        </div>
+                        <div>Description</div>
+                        <div className="my_image_descript">{image.description}</div>
+                        </div>
                     </div>
                     )
-            }))}
+                }))}
             </div>
 
         </div>

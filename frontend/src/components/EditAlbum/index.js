@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useHistory, useParams } from "react-router-dom"
 import { deleteAlbumImage, deleteAlbums, editAlbum, getAlbums } from "../../store/album"
 import {useState} from 'react'
+import './EditAlbum.css'
 function EditAlbum(){
     const {albumId} = useParams()
     const dispatch = useDispatch()
@@ -33,7 +34,6 @@ function EditAlbum(){
                 if(data && data.errors) setErrors(data.errors);
             }
         )
-        console.log(newAlbumTitle)
         if(newAlbumTitle){
             dispatch(getAlbums())
             history.push('/albums')
@@ -45,8 +45,7 @@ function EditAlbum(){
     }
     return (
         <div>
-            <h1>hello</h1>
-            <h1>{albumId}</h1>
+            <h1 className=".my_album_title">{myAlbum.title}</h1>
             <form onSubmit={editAlbumTitle}>
                 <ul>
                     {errors?.map((error, idx) => (

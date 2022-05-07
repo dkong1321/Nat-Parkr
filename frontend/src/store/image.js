@@ -36,7 +36,6 @@ export const removeImage = id => {
 }
 
 export const getImages = () => async dispatch => {
-    console.log("hello from getimages")
     const response = await csrfFetch('/api/images');
     if(response.ok) {
         const images = await response.json();
