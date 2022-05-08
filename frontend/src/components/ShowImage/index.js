@@ -29,11 +29,11 @@ function ShowImage () {
     }
 
     return (
+        <div className='view_image_main_container'>
         <div className='view_image_body'>
-
+            <div className='view_image_title'>{myImage.title}</div>
             <div className='view_image_container'>
                 <div>
-                    <div className='view_image_title'>{myImage.title}</div>
                     {currentUserAlbums.length ?
                     <form onSubmit ={addAlbum}>
                     <select onChange={e=> setAlbumId(e.target.value)}>
@@ -47,14 +47,21 @@ function ShowImage () {
                     : user?<CreateAlbumModal user={user} />:<></>}
                     <img className="view_image" src={`${myImage.imageURL}`} alt={myImage.title}></img>
                     <div>{`Submitted by ${myImage.User?.username} `}</div>
-                    <div className='show_image_description'>{myImage.description}</div>
+                </div>
+                <div className='view_image_side_bar'>
+                    <div className='heading_description'>Description:</div>
+                    <div className='view_image_description'>
+                        {myImage.description}
+                    </div>
+                    <div className='view_image_comment_container'>
+                        <ShowComments myImage={myImage}></ShowComments>
+                    </div>
                 </div>
 
-                <ShowComments myImage={myImage}></ShowComments>
             </div>
 
         </div>
-
+    </div>
     )
 }
 

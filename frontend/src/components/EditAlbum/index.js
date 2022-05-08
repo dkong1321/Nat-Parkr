@@ -47,7 +47,7 @@ function EditAlbum(){
     return (
         <div className="my_edit_album_container">
             <div className="my_edit_album_title_container">
-                <h1 className="my_edit_album_title">{myAlbum.title}</h1>
+                <h1 className="my_edit_album_title">Editing {myAlbum.title}</h1>
                 <form onSubmit={editAlbumTitle}>
                     <ul>
                         {errors?.map((error, idx) => (

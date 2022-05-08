@@ -1,7 +1,7 @@
 import { deleteComment, getComments, postComments } from '../../store/comment';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
+import moment from 'moment'
 function ShowComments ({myImage}) {
     const comments = Object.values(useSelector(state => state.comments))
     const currentImageComments = comments.filter((comment)=>comment.imageId===myImage.id)
@@ -37,22 +37,25 @@ function ShowComments ({myImage}) {
     }
     return (
         <div>
-            <form onSubmit={submit}>
+            <form onSubmit={submit} className="comment_form">
                 <ul>
                     {errors.map((error, idx) => (
                         <li key={idx}>{error}</li>
                     ))}
                 </ul>
             <input value={comment} onChange={e=> setComment(e.target.value)} type="text" placeholder='Enter Comment'></input>
-            <button >Post Comment</button>
+            <button>Post Comment</button>
             </form>
-                <div>
+                <div className='all_comment_container'>
                     {currentImageComments.map((comment)=>{
                         return(
-                            <div key={comment.title}>
-                                <h3>{comment.User.username}</h3>
-                                <div>{comment.comment}</div>
-                                {comment.userId === userId ? <button onClick={(e)=>deleteMyComment(comment)}>Delete</button> : <></>}
+                            <div className='single_comment_container'>
+                                <div className='comment_text' key={comment.title}>
+                                    <div className='comment_text' >{comment.User.username}:</div>
+                                    <div className='comment_text' >{comment.comment}</div>
+                                    <div className='comment_text' >{moment(comment.createdAt).format("ddd MMM D YYYY h:mm")}</div>
+                                    {comment.userId === userId ? <button onClick={(e)=>deleteMyComment(comment)}><i class="fa-solid fa-trash-can"></i></button> : <></>}
+                                </div>
                             </div>
                         )
                     })}
