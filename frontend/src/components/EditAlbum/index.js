@@ -3,6 +3,7 @@ import { useHistory, useParams } from "react-router-dom"
 import { deleteAlbumImage, deleteAlbums, editAlbum, getAlbums } from "../../store/album"
 import {useState} from 'react'
 import './EditAlbum.css'
+
 function EditAlbum(){
     const {albumId} = useParams()
     const dispatch = useDispatch()
@@ -44,31 +45,33 @@ function EditAlbum(){
         history.push('/albums')
     }
     return (
-        <div>
-            <h1 className=".my_album_title">{myAlbum.title}</h1>
-            <form onSubmit={editAlbumTitle}>
-                <ul>
-                    {errors?.map((error, idx) => (
-                        <li key={idx}>{error}</li>
-                    ))}
-                </ul>
-                <input  value={title} onChange={e=> setTitle(e.target.value)} type="text" placeholder='title'></input>
-                <button type="submit">Submit New Title</button>
-            </form>
-            {myAlbum.Images.map((image)=>{
-                return (
-                    <div className='album_image_container'>
-                        <h1>{image.title}</h1>
-                        <div className="album_image_overlay">
-                            <button className='album_image_button' onClick={(e)=>removeImageCard(image)}>Remove from Album</button>
+        <div className="my_edit_album_container">
+            <div className="my_edit_album_title_container">
+                <h1 className="my_edit_album_title">{myAlbum.title}</h1>
+                <form onSubmit={editAlbumTitle}>
+                    <ul>
+                        {errors?.map((error, idx) => (
+                            <li key={idx}>{error}</li>
+                        ))}
+                    </ul>
+                    <input  value={title} onChange={e=> setTitle(e.target.value)} type="text" placeholder={myAlbum.title}></input>
+                    <button type="submit">Submit New Title</button>
+                </form>
+            </div>
+            <div className="my_edit_album_image_container">
+                {myAlbum.Images.map((image)=>{
+                    return (
+                        <div className='album_image_container'>
+                            <div className="album_image_overlay">
+                                <button className='album_image_button' onClick={(e)=>removeImageCard(image)}><i class="fa-solid fa-trash-can"></i></button>
+                            </div>
+                            <img className='album_image_show' src={`${image.imageURL}`}></img>
                         </div>
-                        <img className='album_image_show' src={`${image.imageURL}`}></img>
-                    </div>
-                )
-            })}
+                    )
+                })}
+            </div>
             <button onClick={deleteMyAlbum}>Delete Album</button>
-            <button onClick={cancel}>Cancel</button>
-
+            <button onClick={cancel}>Cancel Edit</button>
         </div>
     )
 }
