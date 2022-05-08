@@ -18,7 +18,7 @@ function CreateAlbum({setShowModal}){
         const data = {title, userId}
         setErrors([])
         const newAlbum = await dispatch(postAlbums(data))
-        .then(()=>setShowModal(false))
+        .then(()=> setShowModal(false))
         .then(()=> dispatch(getAlbums()))
         .catch(
             async (res) => {

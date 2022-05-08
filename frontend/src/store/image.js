@@ -45,13 +45,11 @@ export const getImages = () => async dispatch => {
 
 export const postImage = (data) => async dispatch => {
     const formData = new FormData();
-    console.log(data)
     formData.append("image", data.image)
     formData.append("description", data.description)
     formData.append("userId", data.userId)
     formData.append("title", data.title)
     formData.append("albumId", data.albumId)
-    console.log(formData)
     const response = await csrfFetch('/api/images',{
         method: 'POST',
         headers: {'Content-Type': 'multipart/form-data'},
@@ -83,7 +81,6 @@ export const deleteImage = (id) =>async dispatch =>{
         const response = await csrfFetch(`/api/images/${id}`,{
             method: 'DELETE'
         });
-        console.log(response)
         if(response.ok){
             dispatch(removeImage(id))
         }

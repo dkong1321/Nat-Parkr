@@ -26,10 +26,9 @@ function SignupForm({setShowModal}) {
           const data = await res.json();
           if (data && data.errors) setErrors(data.errors);
         });
-        if(newSignIn){
-          history.push('/images')
-          setShowModal(false)
-        }
+        // if(newSignIn){
+        //   setShowModal(false)
+        // }
     }
     return setErrors(['Confirm Password field must be the same as the Password field']);
   };

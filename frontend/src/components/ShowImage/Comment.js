@@ -31,7 +31,6 @@ function ShowComments ({myImage}) {
     }
 
     const deleteMyComment = async (comment) => {
-        console.log(comment)
         const payload = comment.id
         await dispatch(deleteComment(payload)).then(()=> dispatch(getComments()))
     }
@@ -49,12 +48,12 @@ function ShowComments ({myImage}) {
                 <div className='all_comment_container'>
                     {currentImageComments.map((comment)=>{
                         return(
-                            <div className='single_comment_container'>
+                            <div className='single_comment_container' key={comment.id}>
                                 <div className='comment_text' key={comment.title}>
                                     <div className='comment_text' >{comment.User.username}:</div>
                                     <div className='comment_text' >{comment.comment}</div>
                                     <div className='comment_text' >{moment(comment.createdAt).format("ddd MMM D YYYY h:mm")}</div>
-                                    {comment.userId === userId ? <button onClick={(e)=>deleteMyComment(comment)}><i class="fa-solid fa-trash-can"></i></button> : <></>}
+                                    {comment.userId === userId ? <button onClick={(e)=>deleteMyComment(comment)}><i className="fa-solid fa-trash-can"></i></button> : <></>}
                                 </div>
                             </div>
                         )

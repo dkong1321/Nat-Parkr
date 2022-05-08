@@ -64,7 +64,6 @@ export const getAlbums = () => async dispatch => {
 }
 
 export const editAlbum = (data) => async dispatch => {
-    console.log("data in my thunk", data)
     const response = await csrfFetch(`/api/albums/${data.albumId}`, {
         method: "PUT",
         headers: {'Content-Type':'application/json'},
@@ -96,7 +95,6 @@ export const postAlbums = (data) => async dispatch => {
 
 export const postAlbumImage = (data) => async dispatch => {
     const {albumId, imageId} = data
-    console.log(data)
     const albumImage ={albumId,imageId}
     const image = await csrfFetch(`/api/images/${imageId}`)
     const response = await csrfFetch(`/api/albums/addimage/${albumId}`,{
@@ -112,8 +110,6 @@ export const postAlbumImage = (data) => async dispatch => {
 }
 
 export const deleteAlbumImage = (payload) => async dispatch => {
-    console.log("hello from thunk")
-    console.log(payload)
     const {albumId, image} = payload
     const response = await csrfFetch(`/api/albums/removeimage/${albumId}`,{
         method: 'DELETE',

@@ -26,8 +26,9 @@ router.post('/', validateAlbum, asyncHandler(async(req,res)=>{
     const album = await db.Album.build(newAlbum)
     if(album) {
         await album.save();
-        return res.json(album)
     }
+
+    return res.json(album)
 
 }))
 
@@ -86,17 +87,13 @@ router.delete('/removeimage/:id', asyncHandler(async(req,res)=>{
 
 //delete album
 router.delete('/:id', asyncHandler(async(req,res)=>{
-    // console.log("hello from delete album route")
     const albumId = req.params.id;
     const albumToDelete = await db.Album.findByPk(albumId)
-    // console.log("albumId", albumId)
-    // console.log("album object to be deleted", albumToDelete)
     const albumImageRelation = await db.AlbumImage.findAll({
         where:{
             albumId
         }
     })
-    console.log("items from the join table", albumImageRelation)
 
     if(albumImageRelation) {
         albumImageRelation.forEach((imageAssociation)=>{

@@ -41,7 +41,6 @@ export const getComments = () => async dispatch => {
 }
 
 export const postComments = (data) => async dispatch => {
-    console.log("we reached the think")
     const {comment, userId, imageId} = data
     const newComment = {comment, userId, imageId}
     const response = await csrfFetch('/api/comments',{
@@ -57,7 +56,6 @@ export const postComments = (data) => async dispatch => {
 }
 
 export const deleteComment = (id) => async dispatch => {
-    console.log("reached the thunk")
     const response = await csrfFetch(`/api/comments/${id}`, {
         method: 'DELETE'
     });
@@ -80,7 +78,6 @@ const commentReducer = (state = initialState, action) => {
         })
         return newState
         case ADD:
-            console.log("hello", action.comment)
             newState[action.comment.id] = action.comment
             return newState
         case DELETE:

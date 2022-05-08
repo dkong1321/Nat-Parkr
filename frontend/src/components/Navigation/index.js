@@ -21,6 +21,7 @@ function Navigation({ isLoaded }){
             </div> */}
             </>
         );
+
     } else {
         sessionLinks = (
             <>
@@ -35,6 +36,8 @@ function Navigation({ isLoaded }){
                 <div>
                     {isLoaded && sessionLinks}
                 </div>
+                {/* <img src='../../images/NatParkr.svg'></img> */}
+                {/* img(src='/images/Logo.svg' id='nav__logo') */}
                 <div className='nav_links_container'>
                     {sessionUser ? <NavLink to="/images" className="nav_buttons">Discover</NavLink> :<></>}
                     {sessionUser ? <NavLink to="/albums" className="nav_buttons">My Albums</NavLink> : <></>}

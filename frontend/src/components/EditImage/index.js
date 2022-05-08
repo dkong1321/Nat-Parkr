@@ -25,15 +25,12 @@ function EditImageCard(){
         .catch (
             async (res) => {
                 const data = await res.json();
-                console.log(data)
                 if(data && data.errors) {
                     setErrors(data.errors);
                 }
             }
         )
-        console.log(newImage)
         if(newImage) {
-                console.log("my errors are here", errors)
                 history.push("/myimages")
                 dispatch(getAlbums()).then(()=>dispatch(getImages()))
 
