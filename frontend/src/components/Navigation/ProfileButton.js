@@ -38,9 +38,6 @@ function ProfileButton ({user}) {
             <ul className="profile-dropdown">
             <li>{user.username}</li>
             <li>{user.email}</li>
-            <li>
-                <button onClick={logout} className='button_reg'>Log Out</button>
-            </li>
             </ul>
         )}
         </>
