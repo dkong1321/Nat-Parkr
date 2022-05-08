@@ -43,7 +43,7 @@ function SignupForm() {
               {errors.map((error, idx) => <li key={idx}>{error}</li>)}
           </ul>
 
-          <div className="sign_up_header">Sign up for "blank"</div>
+          <div className="form_title">Join our Site!</div>
             <input
             type="text"
             value={email}
@@ -73,10 +73,10 @@ function SignupForm() {
             required
             />
 
-          <button type="submit">Sign Up</button>
+          <button type="submit" className='button_reg'>Sign Up</button>
           </form>
           <form onSubmit={demoSubmit} className="demo_form_container">
-            <button type="submit">Demo User</button>
+            <button type="submit" className='button_reg'>Demo User</button>
           </form>
         </div>
       </div>

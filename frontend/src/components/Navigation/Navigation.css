@@ -1,5 +1,5 @@
 .nav_bar {
-    background-color: #8C2B4F ;
+    background-color: #2F3E52 ;
     display: flex;
     justify-content: space-evenly;
     height: 100px;
@@ -8,5 +8,4 @@
 .nav_buttons {
     color: aliceblue;
     font-size: 20px;
-
 }

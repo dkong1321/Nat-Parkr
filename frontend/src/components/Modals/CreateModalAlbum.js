@@ -6,7 +6,7 @@ function CreateAlbumModal () {
     const [showModal, setShowModal] = useState(false);
     return (
         <>
-            <button className='add_image_button' onClick={()=> setShowModal(true)}>Add Album</button>
+            <button onClick={()=> setShowModal(true)} className='button_reg'>Add Album</button>
             {showModal && (
                 <Modal onClose={()=> setShowModal(false)}>
                     < CreateAlbum setShowModal={setShowModal}/>

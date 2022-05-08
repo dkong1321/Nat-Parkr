@@ -36,10 +36,8 @@ function Navigation({ isLoaded }){
                 </div>
 
                     {sessionUser ? <NavLink to="/images" className="nav_buttons">Discover</NavLink> :<></>}
-                    {sessionUser ? <NavLink to="/albums" className="nav_buttons">Your Albums</NavLink> : <></>}
-
-
-                    {sessionUser ? <NavLink to="/myimages" className>My Images</NavLink>: <></>}
+                    {sessionUser ? <NavLink to="/albums" className="nav_buttons">My Albums</NavLink> : <></>}
+                    {sessionUser ? <NavLink to="/myimages" className="nav_buttons">My Images</NavLink>: <></>}
 
                 {sessionUser?<CreateImageModal user={sessionUser} />:<></>}
                 {sessionUser?<CreateAlbumModal user={sessionUser} />:<></>}
