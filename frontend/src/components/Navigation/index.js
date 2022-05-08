@@ -7,6 +7,7 @@ import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
 import CreateImageModal from '../Modals/CreateModalImage';
 import CreateAlbumModal from '../Modals/CreateModalAlbum';
+import LogOut from './LogOut';
 import './Navigation.css';
 function Navigation({ isLoaded }){
     const sessionUser = useSelector(state => state.session.user);
@@ -14,9 +15,10 @@ function Navigation({ isLoaded }){
     if(sessionUser){
         sessionLinks = (
             <>
-            <div>
+            {/* <div>
                 <ProfileButton user={sessionUser} />
-            </div>
+                <div>{sessionUser.name}</div>
+            </div> */}
             </>
         );
     } else {
@@ -31,16 +33,18 @@ function Navigation({ isLoaded }){
     return (
         <div className='nav_bar'>
                 <div>
-                    <NavLink exact to="/" className="nav_buttons">Home</NavLink>
                     {isLoaded && sessionLinks}
                 </div>
-
+                <div className='nav_links_container'>
                     {sessionUser ? <NavLink to="/images" className="nav_buttons">Discover</NavLink> :<></>}
                     {sessionUser ? <NavLink to="/albums" className="nav_buttons">My Albums</NavLink> : <></>}
                     {sessionUser ? <NavLink to="/myimages" className="nav_buttons">My Images</NavLink>: <></>}
-
+                </div>
+                <div className='add_modal_buttons'>
                 {sessionUser?<CreateImageModal user={sessionUser} />:<></>}
                 {sessionUser?<CreateAlbumModal user={sessionUser} />:<></>}
+                {sessionUser?<LogOut user={sessionUser} />:<></>}
+                </div>
         </div>
 
     )

@@ -6,7 +6,7 @@ function CreateImageModal () {
     const [showModal, setShowModal] = useState(false);
     return (
         <>
-            <button onClick={()=> setShowModal(true)} className='button_reg'>Add Image</button>
+            <button onClick={()=> setShowModal(true)}><i class="fa-solid fa-arrow-up-from-bracket"> Image</i></button>
             {showModal && (
                 <Modal onClose={()=> setShowModal(false)}>
                     < CreateImage setShowModal={setShowModal}/>
