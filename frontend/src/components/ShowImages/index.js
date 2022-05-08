@@ -9,7 +9,7 @@ const { useSelector } = require("react-redux");
 const ImageBrowser = ()=>{
 
     const images = Object.values(useSelector(state => state.images));
-
+    const revImages = images.reverse()
     if(!images){
         return null
     }
@@ -17,7 +17,7 @@ const ImageBrowser = ()=>{
     return (
         <div className="masonary">
             <div className="item_content">
-                {images.map((image)=>{
+                {revImages.map((image)=>{
                     return(
                         <div key={image.id} className="image_container">
                             <ImageCard image={image}></ImageCard>

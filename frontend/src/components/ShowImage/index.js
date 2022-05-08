@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { getAlbums, postAlbumImage } from '../../store/album';
 import ShowComments from './Comment';
 import CreateAlbumModal from '../Modals/CreateModalAlbum';
-
+import moment from "moment"
 function ShowImage () {
     const {imageId} = useParams()
     const user = useSelector(state => state.session.user)
@@ -46,7 +46,9 @@ function ShowImage () {
                     </form>
                     : user?<CreateAlbumModal user={user} />:<></>}
                     <img className="view_image" src={`${myImage.imageURL}`} alt={myImage.title}></img>
-                    <div>{`Submitted by ${myImage.User?.username} `}</div>
+                    <div>{`Submitted by ${myImage.User?.username}`}</div>
+                    <div>{moment(myImage.createdAt).format("MMM D YYYY")}</div>
+
                 </div>
                 <div className='view_image_side_bar'>
                     <div className='heading_description'>Description:</div>

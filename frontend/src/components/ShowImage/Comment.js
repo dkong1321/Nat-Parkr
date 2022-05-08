@@ -43,7 +43,7 @@ function ShowComments ({myImage}) {
                         <li key={idx}>{error}</li>
                     ))}
                 </ul>
-            <input value={comment} onChange={e=> setComment(e.target.value)} type="text" placeholder='Enter Comment'></input>
+            <input value={comment} onChange={e => setComment(e.target.value)} type="text" placeholder='Enter Comment'></input>
             <button>Post Comment</button>
             </form>
                 <div className='all_comment_container'>
