@@ -1,3 +1,4 @@
+import { useReducer } from "react";
 import ImageCard from "./ImageCard";
 import './imageCard.css'
 
@@ -7,7 +8,7 @@ const { useSelector } = require("react-redux");
 
 
 const ImageBrowser = ()=>{
-
+    const user = (useSelector(state => state.session.user))
     const images = Object.values(useSelector(state => state.images));
     const revImages = images.reverse()
     if(!images){
@@ -15,7 +16,10 @@ const ImageBrowser = ()=>{
     }
 
     return (
+        <div className="main_splash_container">
+            <div className="welcome_text">Welcome {user.username}</div>
         <div className="masonary">
+
             <div className="item_content">
                 {revImages.map((image)=>{
                     return(
@@ -30,6 +34,8 @@ const ImageBrowser = ()=>{
                 }
             </div>
         </div>
+        </div>
+
     )
 }
 

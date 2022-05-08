@@ -1,10 +1,11 @@
 // frontend/src/components/SignupFormPage/index.js
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import * as sessionActions from "../../store/session";
+
 import './SignupForm.css'
-function SignupForm() {
+function SignupForm({setShowModal}) {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
   const [email, setEmail] = useState("");
@@ -12,6 +13,7 @@ function SignupForm() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState([]);
+  const history = useHistory()
 
   if (sessionUser) return <Redirect to="/" />;
 
@@ -19,11 +21,15 @@ function SignupForm() {
     e.preventDefault();
     if (password === confirmPassword) {
       setErrors([]);
-      return dispatch(sessionActions.signup({ email, username, password }))
+      const newSignIn = dispatch(sessionActions.signup({ email, username, password }))
         .catch(async (res) => {
           const data = await res.json();
           if (data && data.errors) setErrors(data.errors);
         });
+        if(newSignIn){
+          history.push('/images')
+          setShowModal(false)
+        }
     }
     return setErrors(['Confirm Password field must be the same as the Password field']);
   };
@@ -32,7 +38,7 @@ function SignupForm() {
     e.preventDefault();
     const credential = "PropanePrince"
     const password = "password1"
-    return dispatch(sessionActions.login({credential,password}))
+    return dispatch(sessionActions.login({credential,password})).then(()=>history.push('/images'))
   }
 
   return (

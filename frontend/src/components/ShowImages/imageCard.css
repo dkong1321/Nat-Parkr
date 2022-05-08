@@ -17,7 +17,20 @@
     justify-content: center;
 }
 
+.welcome_text {
+    font-size: 50px;
+    color: whitesmoke;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
 
+.main_splash_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
 .image_card_title {
     color: white;
     position: relative;

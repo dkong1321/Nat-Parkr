@@ -9,7 +9,7 @@ function SignupFormModal () {
             <button onClick={()=> setShowModal(true)} className='button_reg'>Sign-Up</button>
             {showModal && (
                 <Modal onClose={()=> setShowModal(false)}>
-                    <SignupForm />
+                    <SignupForm setShowModal={setShowModal}/>
                 </Modal>
             )}
         </>
