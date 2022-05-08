@@ -26,7 +26,7 @@ function CreateAlbum({setShowModal}){
                 if (data && data.errors) setErrors(data.errors);
             }
         )
-
+        if(newAlbum) history.push('/albums')
     }
     return (
         <div className='add_album_form_container'>
