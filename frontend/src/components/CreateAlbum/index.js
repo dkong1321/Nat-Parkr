@@ -2,6 +2,7 @@ import {useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { getAlbums, postAlbums } from '../../store/album'
+import "./CreateAlbum.css"
 
 function CreateAlbum({setShowModal}){
     const user = useSelector(state => state.session.user)
@@ -28,18 +29,20 @@ function CreateAlbum({setShowModal}){
 
     }
     return (
-        <div>
-            <h3>Add an Album</h3>
-            <form onSubmit ={submit}>
-                <ul>
+        <div className='add_album_form_container'>
+            <div className='form_title'>Add an Album</div>
+                <div className='error_list'>
+                    <ul>
                     {errors.map((error, idx) => (
                         <li key={idx}>{error}</li>
                     ))}
-                </ul>
+                    </ul>
+                </div>
+            <form onSubmit ={submit} className="test">
                 <input required value={title} onChange={e=> setTitle(e.target.value)} type="text" placeholder='title'></input>
-                <button type="submit">Submit</button>
+                <button type="submit" className='button_reg'>Submit</button>
+                <button onClick={e => setShowModal(false)} className='button_reg'>Cancel</button>
             </form>
-            <button onClick={e => setShowModal(false)}>Cancel</button>
         </div>
 
     )

@@ -35,7 +35,7 @@ function LoginForm() {
             <li key={idx}>{error}</li>
           ))}
         </ul>
-        <div>Log in to See Your Photos</div>
+        <div className="form_title">Log in to See Your Photos</div>
           <input
             type="text"
             value={credential}
@@ -50,10 +50,10 @@ function LoginForm() {
             placeholder="password"
             required
           />
-        <button type="submit">Log In</button>
+        <button type="submit" className='button_reg'>Log In</button>
       </form>
       <form onSubmit={demoSubmit} className="demo_form_container">
-        <button type="submit">Demo User</button>
+        <button type="submit" className='button_reg'>Demo User</button>
       </form>
     </div>
   );

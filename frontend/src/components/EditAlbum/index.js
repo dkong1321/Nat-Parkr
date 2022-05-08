@@ -70,8 +70,8 @@ function EditAlbum(){
                     )
                 })}
             </div>
-            <button onClick={deleteMyAlbum}>Delete Album</button>
-            <button onClick={cancel}>Cancel Edit</button>
+            <button onClick={deleteMyAlbum} className='button_reg'>Delete Album</button>
+            <button onClick={cancel} className='button_reg'>Return to Albums</button>
         </div>
     )
 }

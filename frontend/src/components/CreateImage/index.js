@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { getAlbums } from '../../store/album';
 import { getImages, postImage } from '..//../store/image';
+import "./CreateImage.css"
 
 function CreateImage({setShowModal}){
     const user = useSelector(state => state.session.user);
@@ -37,7 +38,6 @@ function CreateImage({setShowModal}){
             history.push('/images');
             setShowModal(false)
             dispatch(getImages())
-            // take out to mass seed
             setDescription("")
             setTitle("")
             setImage()
@@ -50,27 +50,30 @@ function CreateImage({setShowModal}){
     }
 
     return (
-        <div className="test">
+        <div className="create_image_container">
+            <div className='form_title'>Add an Image</div>
+            <form onSubmit ={submit} className="create_image_form">
+                    <div className='error_list'>
+                        <ul>
+                            {errors.map((error, idx) => (
+                                <li key={idx}>{error}</li>
+                            ))}
+                        </ul>
+                    </div>
 
-            <h3>Add an Image</h3>
-            <form onSubmit ={submit}>
-                <ul>
-                    {errors.map((error, idx) => (
-                        <li key={idx}>{error}</li>
-                    ))}
-                </ul>
-                <input required onChange={imageSelected} type="file" accept="image/*" name="image"></input>
-                <input  value={title} onChange={e=> setTitle(e.target.value)} type="text" placeholder='title'></input>
-                <input  value={description} onChange={e=> setDescription(e.target.value)} type="text" placeholder='description'></input>
-                <select onChange={e=> setAlbumId(e.target.value)}>
+
+                <input className="create_image_form_inputs" required onChange={imageSelected} type="file" accept="image/*" name="image"></input>
+                <input  className="create_image_form_inputs" value={title} onChange={e=> setTitle(e.target.value)} type="text" placeholder='title'></input>
+                <input  className="create_image_form_inputs" value={description} onChange={e=> setDescription(e.target.value)} type="text" placeholder='description'></input>
+                <select className="create_image_form_inputs" onChange={e=> setAlbumId(e.target.value)}>
                     <option value={null}>Add to Albums</option>
                     {currentUserAlbums.map((album)=>{
                         return(<option value={album.id}>{album.title}</option>)
                     })}
                 </select>
-                <button type="submit">Submit</button>
+                <button type="submit" className='button_reg' >Submit</button>
+                <button onClick={e => setShowModal(false)} className='button_reg'>Cancel</button>
             </form>
-            <button onClick={e => setShowModal(false)}>Cancel</button>
         </div>
     )
 }

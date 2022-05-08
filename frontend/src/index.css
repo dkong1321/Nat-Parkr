@@ -4,6 +4,31 @@
 }
 
 body {
-    background-color: #69878f;
+    background-color: rgb(54, 79, 133);
     margin: 0;
+}
+
+.button_reg {
+    text-decoration: none;
+    background-color: transparent;
+    border: 5px solid #a15e38;
+    color: white;
+    padding: 10px 30px;
+    text-align: center;
+    font-size: 13px;
+    margin: 5px;
+    transition: background-color 1s;
+    width: fit-content;
+}
+
+.button_reg:hover{
+    background-color: #a15e38;
+    color: black;
+    border: #161e27 5px solid;
+}
+
+.form_title{
+    margin-top: 20px;
+    font-size: 30px;
+    color: whitesmoke;
 }

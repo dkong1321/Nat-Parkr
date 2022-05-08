@@ -1,0 +1,27 @@
+.edit_image_container {
+    display: flex;
+    justify-content: center;
+}
+
+.form_container {
+    border: #2F3E52 5px solid;
+    width: 500px;
+    background-color: rgba(47, 62, 82, .5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+input{
+    background-color: rgb(146, 172, 180);
+
+}
+
+textarea {
+    background-color: rgb(146, 172, 180);
+    color: #2F3E52;
+}

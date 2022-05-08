@@ -3,7 +3,6 @@
 .sign_up_form_container {
     padding-bottom: 20px;
     display: flex;
-    background-color: #4b8f8c;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -16,7 +15,6 @@
 
 .sign_up_form {
     display: flex;
-    background-color: #4b8f8c;
     flex-direction: column;
     justify-content: center;
     align-items: center;

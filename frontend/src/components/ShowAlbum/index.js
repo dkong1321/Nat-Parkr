@@ -34,7 +34,7 @@ const AlbumBrowser = () => {
                                 )
                             })}
                         </div>
-                        : <div>Must have Images in this Album to Edit Images</div>}
+                        : <div className="my_album_title">Must have Images in this Album to Edit Images</div>}
                     </div>
                     </>
                 )
