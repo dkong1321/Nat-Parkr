@@ -30,12 +30,6 @@ function App() {
 
   return isLoaded &&(
     <>
-      <Helmet>
-          <meta charSet="utf-8" />
-          <title>Nat-Parkr</title>
-          <link rel="canonical" href="http://mysite.com/example" />
-          <meta name="description" content="Title and Icon" />
-      </Helmet>
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>

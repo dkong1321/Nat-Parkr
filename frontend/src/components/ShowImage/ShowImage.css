@@ -1,23 +1,91 @@
-.my_image {
-    width: 100%;
-    height: 100%;
+.view_image {
+    width: auto;
+    height: 70vh;
     border-radius: 10px;
+    border: 7px solid #2F3E52 ;
 
 }
 
-.my_image_title{
+.view_image_title{
     color: White;
+    font-size: 40px;
+    border-bottom:5px solid white;
+    width: fit-content;
 }
 
-.my_image_container {
-    width: 1200px;
-    height: auto;
+.view_image_main_container {
+    display: flex;
+    justify-content: center;
+}
+
+.view_image_container {
+    width: fit-content;
+    height: 80vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /* border: red solid 4px; */
+
+
+}
+
+.view_image_body {
     display: flex;
     justify-content: center;
     flex-direction: column;
 }
 
-.my_image_body {
-    display: flex;
-    justify-content: center;
+.view_image_comment_container{
+    /* border: red 2px solid; */
+    width: 500px;
+    height: 500px;
+    overflow-wrap: break-word;
+    /* overflow-y: scroll; */
+}
+
+.view_image_description {
+    border-bottom: #2F3E52 5px solid;
+    width: 500px;
+    color: whitesmoke;
+}
+
+.heading_description {
+    font-size: 30px;
+    color: whitesmoke;
+    /* border: red 2px solid; */
+}
+
+.view_image_side_bar {
+    border: #2F3E52 5px solid;
+    border-radius: 5px;
+    position: relative;
+    width: fit-content;
+    top: 20px;
+    height: fit-content;
+    margin-left: 50px;
+    background-color: rgba(47, 62, 82,.5);
+}
+
+/* comments */
+.comment_text {
+    color: whitesmoke;
+}
+
+.single_comment_container {
+    border-bottom: #2F3E52 3px solid;
+    background-color: rgba(47, 62, 82,0);
+    transition: background-color .45s;
+}
+
+.single_comment_container:hover {
+    background-color: rgba(92, 122, 160,.7);
+}
+
+.all_comment_container{
+    overflow-y: scroll;
+    height: 467px;
+}
+
+.comment_form {
+    border-bottom: 5px #2F3E52 solid;
 }

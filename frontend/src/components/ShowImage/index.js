@@ -29,31 +29,39 @@ function ShowImage () {
     }
 
     return (
-        <div className='my_image_body'>
-
-            <div className='my_image_container'>
-                <h3 className='my_image_title'>{myImage.title}</h3>
-                <img className="my_image" src={`${myImage.imageURL}`} alt={myImage.title}></img>
-                <div>{`submitted by ${myImage.User?.username} `}</div>
-                <h2>description:</h2>
-                <div className='show_image_description'>{myImage.description}</div>
-                {currentUserAlbums.length ?
-                <form onSubmit ={addAlbum}>
+        <div className='view_image_main_container'>
+        <div className='view_image_body'>
+            <div className='view_image_title'>{myImage.title}</div>
+            <div className='view_image_container'>
+                <div>
+                    {currentUserAlbums.length ?
+                    <form onSubmit ={addAlbum}>
                     <select onChange={e=> setAlbumId(e.target.value)}>
                         <option value={null}>Add to Albums</option>
                         {currentUserAlbums.map((album)=>{
                             return(<option key={album.id} value={album.id}>{album.title}</option>)
                         })}
                     </select>
-                    <button type="submit">Add to Album</button>
-                </form>
-                : user?<CreateAlbumModal user={user} />:<></>}
+                    <button type="submit"><i class="fa-solid fa-plus"></i></button>
+                    </form>
+                    : user?<CreateAlbumModal user={user} />:<></>}
+                    <img className="view_image" src={`${myImage.imageURL}`} alt={myImage.title}></img>
+                    <div>{`Submitted by ${myImage.User?.username} `}</div>
+                </div>
+                <div className='view_image_side_bar'>
+                    <div className='heading_description'>Description:</div>
+                    <div className='view_image_description'>
+                        {myImage.description}
+                    </div>
+                    <div className='view_image_comment_container'>
+                        <ShowComments myImage={myImage}></ShowComments>
+                    </div>
+                </div>
 
-                <ShowComments myImage={myImage}></ShowComments>
             </div>
 
         </div>
-
+    </div>
     )
 }
 
