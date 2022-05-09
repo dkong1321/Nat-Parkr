@@ -21,7 +21,7 @@ module.exports = {
         },
         {
         userId: 2,
-        imageId: 1,
+        imageId: 8,
         comment: "Thanks for sharing",
         createdAt:new Date(),updatedAt: new Date()
         },
@@ -30,22 +30,32 @@ module.exports = {
         imageId: 2,
         comment: "Great shot!",
         createdAt:new Date(),updatedAt: new Date()
-        },        {
+        },
+        {
         userId: 1,
         imageId: 2,
         comment: "What a nice picture",
         createdAt:new Date(),updatedAt: new Date()
-        },        {
+        },
+        {
         userId: 1,
         imageId: 4,
         comment: "Great clouds!",
         createdAt:new Date(),updatedAt: new Date()
-        },        {
-        userId: 1,
+        },
+        {
+        userId: 2,
         imageId: 2,
         comment: "Amazing!",
         createdAt:new Date(),updatedAt: new Date()
         },
+        {
+        userId: 2,
+        imageId: 2,
+        comment: "I wish I could go some day!",
+        createdAt:new Date(),updatedAt: new Date()
+        },
+
 
     ], {});
   },

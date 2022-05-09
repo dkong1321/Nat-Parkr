@@ -97,6 +97,30 @@ module.exports = {
         createdAt:new Date(),
         updatedAt: new Date()
         },
+        {
+        albumId: 3,
+        imageId: 14,
+        createdAt:new Date(),
+        updatedAt: new Date()
+        },
+        {
+        albumId: 3,
+        imageId: 11,
+        createdAt:new Date(),
+        updatedAt: new Date()
+        },
+        {
+        albumId: 3,
+        imageId: 15,
+        createdAt:new Date(),
+        updatedAt: new Date()
+        },
+        {
+        albumId: 4,
+        imageId: 1,
+        createdAt:new Date(),
+        updatedAt: new Date()
+        },
 
     ], {});
   },
