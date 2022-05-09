@@ -1,6 +1,6 @@
 # Nat-Parkr
 
-Nat-Parkr Live Link: https://nat-parkr.herokuapp.com/
+Nat-Parkr Live Link: https://github.com/dkong1321/Nat-Parkr
 
 Git wiki : https://github.com/ChrisThreadgill/TaskBeaver
 
@@ -23,7 +23,7 @@ Nat-Park is a clone of Flickr with an emphasis on sharing images of national par
 
 1. You will need to download the repo and open it in VScode
 2. Cd into the backend folder and run `npm install` to install all required dependencies for backend server. Cd into frontend folder and `npm install` to install all required dependencies for the frontend sever.
-3. In the root folder, create a '.env' file and use the '.env.example' file as a reference (you may copy and paste and use your own data)
+3. In the backend folder, create a '.env' file and use the '.env.example' file as a reference (you may copy and paste and use your own data)
 4. Once set up your postgress user and db migrate all tables and seeders
 5. In your terminal, run `npm start` on the back end and then run `npm start` in your front end at the same time.
 
