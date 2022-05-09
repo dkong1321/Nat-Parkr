@@ -17,7 +17,7 @@ module.exports = {
         {title: 'Seeder Album', userId: 1, createdAt:new Date(),updatedAt: new Date()},
         {title: 'Shower Shirt', userId: 1, createdAt:new Date(),updatedAt: new Date()},
         {title: 'Propane Prince Pics', userId: 2, createdAt:new Date(),updatedAt: new Date()},
-        {title: 'Mountains', userId: 2, createdAt:new Date(),updatedAt: new Date()},
+        {title: 'My Favorites', userId: 2, createdAt:new Date(),updatedAt: new Date()},
         {title: 'Desert', userId: 2, createdAt:new Date(),updatedAt: new Date()},
 
 
