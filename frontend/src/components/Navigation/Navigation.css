@@ -1,9 +1,17 @@
+.logo {
+    position: absolute;
+    top: -30px;
+    left: 100px;
+    width: 170px;
+    height: auto;
+
+}
 .nav_bar {
-    background-color: #1f1f1f ;
+    background-color: #202020 ;
     display: flex;
     align-items: center;
     justify-content: space-around;
-    height: 70px;
+    height: 90px;
 }
 
 .nav_buttons {

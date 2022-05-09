@@ -33,10 +33,10 @@ function Navigation({ isLoaded }){
 
     return (
         <div className='nav_bar'>
+                <img src='/images/NatParkr.svg' className='logo'></img>
                 <div>
                     {isLoaded && sessionLinks}
                 </div>
-                {/* <img src='../../images/NatParkr.svg'></img> */}
                 {/* img(src='/images/Logo.svg' id='nav__logo') */}
                 <div className='nav_links_container'>
                     {sessionUser ? <NavLink to="/images" className="nav_buttons">Discover</NavLink> :<></>}
