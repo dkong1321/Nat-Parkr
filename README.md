@@ -2,7 +2,7 @@
 
 Nat-Parkr Live Link: https://github.com/dkong1321/Nat-Parkr
 
-Git wiki : https://github.com/ChrisThreadgill/TaskBeaver
+Git wiki : https://github.com/dkong1321/Nat-Parkr
 
 ### Contact
 
