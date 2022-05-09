@@ -1,68 +1,80 @@
-# Task Beaver
+# Nat-Parkr
 
-Task Beaver demo: https://task-beaver.herokuapp.com/
+Nat-Parkr Live Link: https://nat-parkr.herokuapp.com/
 
 Git wiki : https://github.com/ChrisThreadgill/TaskBeaver
 
-## Group Memberss:
+### Contact
 
-### Chris Threadgill
+<a href="https://www.linkedin.com/in/darren-kong-06b47013b/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" /></a>
+<a href="https://github.com/dkong1321"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" /></a>
 
-### Darren Kong
-
-### Joshua Raphael Bautista
-
-### Vernyoon Chao
-
-#
-
-## Task Beaver
+## Nat-Parkr
 
 ---
 
-Task Beaver
+NatPark
 
-We are a software engineering oriented project planning application, with the versatility to tackle any of your day to day tasks as well as plan and execute your next full stack application!.
+Nat-Park is a clone of Flickr with an emphasis on sharing images of national parks. Logged users can upload images, create albums for images as well as add comments to other users images.
 
-## How to Run
+## Build Instructions
 
 ---
 
 1. You will need to download the repo and open it in VScode
-2. Install node_modules using 'npm install'
+2. Cd into the backend folder and run `npm install` to install all required dependencies for backend server. Cd into frontend folder and `npm install` to install all required dependencies for the frontend sever.
 3. In the root folder, create a '.env' file and use the '.env.example' file as a reference (you may copy and paste and use your own data)
-4. In your terminal use the following commands in this order:
-   - psql-create user taskbeaver_app with password 'password' createdb
-   - npx dotenv sequelize init
-     ** data models,seed data, and associations have been completed for you **
-   - npx dotenv sequelize db:create
-   - npx dotenv sequelize db:migrate
-   - npx dotenv sequelize db:seed:all
-5. In your terminal, type "npm start" to begin the server
-6. In your browser navigate to "http://localhost:8080/"
-
-## Languages and FrameWorks
-
----
-
-We used PUG, a front-end framework along with an Express.JS back-end. PostgresSQL was utilized for our database.
+4. Once set up your postgress user and db migrate all tables and seeders
+5. In your terminal, run `npm start` on the back end and then run `npm start` in your front end at the same time.
 
 ## Technologies Used
 
+---
+
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
-![Pug](https://img.shields.io/badge/Pug-FFF?style=for-the-badge&logo=pug&logoColor=A86454)
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
 ![Sequelize](https://img.shields.io/badge/Sequelize-52B0E7?style=for-the-badge&logo=Sequelize&logoColor=white)
 ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
 ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
+![Heroku](https://img.shields.io/badge/heroku-%23430098.svg?style=for-the-badge&logo=heroku&logoColor=white)
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white)
+![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white)
 
-### Where we plan to go from here
+## Nat-Parkr Features
 
-Although we are proud of the application we have created there are a few additional improvements we feel can be added to the site:
+##
 
-- Be able to add contacts for each project
-- Implement a comment system to each task
-- Add a dynamic search feature for the task
-- To be able to add a different Task Beaver user to the task list
-- User profile page with a custom user image
+### Login and Sign-up form
+
+![Login](readme-images/nat-login.jpg "a title")
+![Sign up](readme-images/nat-login.jpg "a title")
+
+### Image Discover Page
+
+![Discover](readme-images/discover-page.jpg "a title")
+
+### Image upload and Album creation
+
+![Add Image](readme-images/image-upload.png "a title")
+![Add Album](readme-images/add-album-page.png "a title")
+
+### Edit Image and Edit Album
+
+![Edit Image](readme-images/edit-image-page.png "a title")
+![Edit Album](readme-images/edit-album-page.png "a title")
+
+### Single Image Show with Comments
+
+![Show Image](readme-images/image-show-page.png "a title")
+
+## Future Features
+
+---
+
+- Implement location tag feature
+- Implement search feature with ability to search picture titles or locations
+- Implement map feature to display location on each park
+- Implement user profiles
+- Implement navigation between pictures
