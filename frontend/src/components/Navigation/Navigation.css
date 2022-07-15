@@ -1,9 +1,7 @@
 .logo {
-    position: absolute;
-    top: -30px;
-    left: 100px;
-    width: 170px;
-    height: auto;
+    /* position: absolute; */
+
+
 
 }
 .nav_bar {
@@ -12,6 +10,7 @@
     align-items: center;
     justify-content: space-around;
     height: 90px;
+    width: 100vw;
 }
 
 .nav_buttons {

@@ -10,10 +10,21 @@ const { useSelector } = require("react-redux");
 const ImageBrowser = ()=>{
     const user = (useSelector(state => state.session.user))
     const images = Object.values(useSelector(state => state.images));
+
     const revImages = images.reverse()
     if(!images){
         return null
     }
+
+    // function shuffleArray(array) {
+    //     for (let i = array.length -1; i>0; i--){
+    //         const j = Math.floor(Math.random() * (i+1));
+    //         [array[i], array[j]] = [array[j], array[i]]
+    //     }
+    //     return array
+    // }
+
+
 
     return (
         <div className="main_splash_container">
