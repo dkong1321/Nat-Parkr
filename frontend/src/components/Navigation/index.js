@@ -9,6 +9,7 @@ import CreateImageModal from '../Modals/CreateModalImage';
 import CreateAlbumModal from '../Modals/CreateModalAlbum';
 import LogOut from './LogOut';
 import './Navigation.css';
+
 function Navigation({ isLoaded }){
     const sessionUser = useSelector(state => state.session.user);
     let sessionLinks;
@@ -33,7 +34,6 @@ function Navigation({ isLoaded }){
 
     return (
         <div className='nav_bar'>
-                <img src='/images/NatParkr.svg' className='logo'></img>
                 <div>
                     {isLoaded && sessionLinks}
                 </div>
