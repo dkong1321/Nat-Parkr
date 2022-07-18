@@ -8,6 +8,7 @@ import SignupFormModal from '../SignupFormModal';
 import CreateImageModal from '../Modals/CreateModalImage';
 import CreateAlbumModal from '../Modals/CreateModalAlbum';
 import UserProfileDropdown from '../UserProfile';
+import Search from "../Search"
 import LogOut from './LogOut';
 import './Navigation.css';
 
@@ -42,6 +43,7 @@ function Navigation({ isLoaded }){
                 <div className='nav_bar_right'>
                 {sessionUser?<NavLink to="/images" className="nav_buttons">Discover</NavLink>:<></>}
                 {sessionUser?<UserProfileDropdown/>:<></>}
+                <Search/>
                 </div>
         </div>
 
