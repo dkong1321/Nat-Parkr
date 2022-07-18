@@ -29,8 +29,8 @@ function UserImage () {
                         <div className="my_image_holder">
                             <Link to={`/images/${image.id}`}><img className='my_image_show' src={`${image.imageURL}`}></img></Link>
                             <div className="my_image_button_container">
-                                { (user.id === image.userId) ? <button onClick={()=>deleteImageCard(image)}><i class="fa-solid fa-trash-can"></i></button> : <></>}
-                                { (user.id === image.userId) ? <Link to={`/editimage/${image.id}`}><button><i class="fas fa-edit"></i></button></Link> :<></>}
+                                { (user.id === image.userId) ? <button onClick={()=>deleteImageCard(image)}><i className="fa-solid fa-trash-can"></i></button> : <></>}
+                                { (user.id === image.userId) ? <Link to={`/editimage/${image.id}`}><button><i className="fas fa-edit"></i></button></Link> :<></>}
                             </div>
                         </div>
                         <div>Description</div>

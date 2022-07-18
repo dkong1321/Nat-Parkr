@@ -63,7 +63,7 @@ function EditAlbum(){
                     return (
                         <div className='album_image_container'>
                             <div className="album_image_overlay">
-                                <button className='album_image_button' onClick={(e)=>removeImageCard(image)}><i class="fa-solid fa-trash-can"></i></button>
+                                <button className='album_image_button' onClick={(e)=>removeImageCard(image)}><i className="fa-solid fa-trash-can"></i></button>
                             </div>
                             <img className='album_image_show' src={`${image.imageURL}`}></img>
                         </div>

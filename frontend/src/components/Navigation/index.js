@@ -7,6 +7,7 @@ import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
 import CreateImageModal from '../Modals/CreateModalImage';
 import CreateAlbumModal from '../Modals/CreateModalAlbum';
+import UserProfileDropdown from '../UserProfile';
 import LogOut from './LogOut';
 import './Navigation.css';
 
@@ -37,16 +38,10 @@ function Navigation({ isLoaded }){
                 <div>
                     {isLoaded && sessionLinks}
                 </div>
-                {/* img(src='/images/Logo.svg' id='nav__logo') */}
-                <div className='nav_links_container'>
-                    {sessionUser ? <NavLink to="/images" className="nav_buttons">Discover</NavLink> :<></>}
-                    {sessionUser ? <NavLink to="/albums" className="nav_buttons">My Albums</NavLink> : <></>}
-                    {sessionUser ? <NavLink to="/myimages" className="nav_buttons">My Images</NavLink>: <></>}
-                </div>
-                <div className='add_modal_buttons'>
-                {sessionUser?<CreateImageModal user={sessionUser} />:<></>}
-                {sessionUser?<CreateAlbumModal user={sessionUser} />:<></>}
-                {sessionUser?<LogOut user={sessionUser} />:<></>}
+
+                <div className='nav_bar_right'>
+                {sessionUser?<NavLink to="/images" className="nav_buttons">Discover</NavLink>:<></>}
+                {sessionUser?<UserProfileDropdown/>:<></>}
                 </div>
         </div>
 

@@ -12,7 +12,7 @@ function LogOut ({}) {
     };
 
     return (
-        <button onClick={logout} className="button_reg">Sign Out</button>
+        <div onClick={logout} className="dropdown_buttons">Sign Out</div>
     )
 }
 

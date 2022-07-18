@@ -42,7 +42,7 @@ function ShowImage () {
                             return(<option key={album.id} value={album.id}>{album.title}</option>)
                         })}
                     </select>
-                    <button type="submit"><i class="fa-solid fa-plus"></i></button>
+                    <button type="submit"><i className="fa-solid fa-plus"></i></button>
                     </form>
                     : user?<CreateAlbumModal user={user} />:<></>}
                     <img className="view_image" src={`${myImage.imageURL}`} alt={myImage.title}></img>

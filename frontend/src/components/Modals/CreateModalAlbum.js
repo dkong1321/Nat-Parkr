@@ -6,10 +6,10 @@ function CreateAlbumModal () {
     const [showModal, setShowModal] = useState(false);
     return (
         <>
-            <button onClick={()=> setShowModal(true)}><i class="fa-solid fa-arrow-up-from-bracket">Album</i></button>
+            <div className="dropdown_buttons" onClick={()=> setShowModal(true)}>+ Album</div>
             {showModal && (
                 <Modal onClose={()=> setShowModal(false)}>
-                    < CreateAlbum setShowModal={setShowModal}/>
+                    <CreateAlbum setShowModal={setShowModal}/>
                 </Modal>
             )}
         </>
