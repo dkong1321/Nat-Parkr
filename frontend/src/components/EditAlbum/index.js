@@ -61,7 +61,7 @@ function EditAlbum(){
             <div className="my_edit_album_image_container">
                 {myAlbum.Images.map((image)=>{
                     return (
-                        <div className='album_image_container'>
+                        <div>
                             <div className="album_image_overlay">
                                 <button className='album_image_button' onClick={(e)=>removeImageCard(image)}><i className="fa-solid fa-trash-can"></i></button>
                             </div>

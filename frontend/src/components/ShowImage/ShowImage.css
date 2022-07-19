@@ -48,14 +48,14 @@
 .view_image_description {
     border-bottom: #2F3E52 5px solid;
     width: 500px;
-    color: whitesmoke;
+    color: black;
     /* border-left: #2F3E52 5px solid;
     border-right: #2F3E52 5px solid; */
 }
 
 .heading_description {
     font-size: 30px;
-    color: whitesmoke;
+    color: black;
     /* border: red 2px solid; */
     /* border-left: #2F3E52 5px solid;
     border-right: #2F3E52 5px solid; */
@@ -74,7 +74,7 @@
 
 /* comments */
 .comment_text {
-    color: whitesmoke;
+    color: black;
 }
 
 .single_comment_container {
