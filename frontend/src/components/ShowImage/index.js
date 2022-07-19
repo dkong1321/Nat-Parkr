@@ -17,9 +17,6 @@ function ShowImage () {
     const [albumId, setAlbumId] = useState(null)
     const dispatch = useDispatch()
 
-    // const comments = Object.values(useSelector(state => state.comments))
-    // const currentImageComments = comments.filter((comment)=>comment.imageId===myImage.id)
-
     const addAlbum = (event) => {
         event.preventDefault()
         const data = {albumId, imageId}

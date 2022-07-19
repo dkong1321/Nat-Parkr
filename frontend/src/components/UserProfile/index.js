@@ -27,7 +27,6 @@ function UserProfileDropdown () {
 
     return(
         <>
-            <CreateImageModal className="user_dropdown_button" user={user} />
             <div className='user_dropdown_button' onClick={openDropdown}>
                 {user.username}
             </div>
@@ -37,7 +36,7 @@ function UserProfileDropdown () {
                         <NavLink to="/albums" className="dropdown_buttons">My Albums</NavLink>
                         <NavLink to="/myimages" className="dropdown_buttons">My Images</NavLink>
                         {/* <CreateImageModal className="dropdown_buttons" user={user} /> */}
-                        <CreateAlbumModal className="dropdown_buttons" user={user} showModal={showModal} setShowModal={setShowModal} />
+                        {/* <CreateAlbumModal className="dropdown_buttons" user={user} showModal={showModal} setShowModal={setShowModal} /> */}
                         <LogOut user={user} />
 
                 </div>

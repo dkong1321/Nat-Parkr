@@ -9,7 +9,6 @@ function CreateImage({setShowModal}){
     const user = useSelector(state => state.session.user);
     const albums = Object.values(useSelector(state => state.albums))
     const currentUserAlbums = albums.filter((album) => album.userId === user.id)
-
     const history = useHistory()
     const [image,setImage] = useState()
     const [description, setDescription] = useState("")
@@ -72,8 +71,8 @@ function CreateImage({setShowModal}){
                     })}
                 </select>
                 <button type="submit" className='button_reg' >Submit</button>
-                <button onClick={e => setShowModal(false)} className='button_reg'>Cancel</button>
             </form>
+            <button onClick={e => setShowModal(false)} className='button_reg'>Cancel</button>
         </div>
     )
 }

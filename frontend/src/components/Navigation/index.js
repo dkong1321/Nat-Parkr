@@ -35,17 +35,21 @@ function Navigation({ isLoaded }){
     }
 
     return (
+        <>
         <div className='nav_bar'>
                 <div>
                     {isLoaded && sessionLinks}
                 </div>
 
+                <Search/>
+
                 <div className='nav_bar_right'>
                 {sessionUser?<NavLink to="/images" className="nav_buttons">Discover</NavLink>:<></>}
+                <CreateImageModal className="user_dropdown_button" {...sessionUser} />
                 {sessionUser?<UserProfileDropdown/>:<></>}
-                <Search/>
                 </div>
         </div>
+        </>
 
     )
 }

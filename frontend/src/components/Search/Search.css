@@ -1,0 +1,29 @@
+.search_input{
+    width: 800px;
+    /* position: absolute; */
+}
+
+.search_result_container{
+    display: flex;
+    flex-direction: column;
+    /* border: 4px red solid; */
+    position: fixed;
+    background-color: white;
+    width: 800px;
+    max-height: 400px;
+    overflow-y: scroll;
+    padding-left: 5px;
+}
+
+.search_links{
+    text-decoration: none;
+    color: black;
+    font-size: large;
+    margin: 3px 0px;
+    padding: 3px;
+}
+
+.search_links:hover{
+    background-color: rgb(30, 100, 186);
+    color: goldenrod;
+}

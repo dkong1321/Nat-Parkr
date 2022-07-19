@@ -3,14 +3,13 @@ import {Modal} from '../../context/Modal'
 import CreateImage from '../CreateImage';
 
 function CreateImageModal () {
-    const [showImageModal, setShowImageModal] = useState(false);
-    console.log("hello")
+    const [showModal, setShowModal] = useState(false);
     return (
         <>
-            <div className="dropdown_buttons" onClick={()=> setShowImageModal(true)}>+ Image</div>
-            {showImageModal && (
-                <Modal onClose={()=> setShowImageModal(false)}>
-                    < CreateImage setShowImageModal={setShowImageModal}/>
+            <div className="dropdown_buttons" onClick={()=> setShowModal(true)}>+ Image</div>
+            {showModal && (
+                <Modal onClose={()=> setShowModal(false)}>
+                    < CreateImage setShowModal={setShowModal}/>
                 </Modal>
             )}
         </>

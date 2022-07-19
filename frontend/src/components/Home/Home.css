@@ -1,10 +1,11 @@
 .splash_container {
     width: 100vw;
-    height: 90.30vh;
+    height: 90.2vh;
     background-image: linear-gradient(rgba(0, 0, 0, 0.6), transparent),
         url(../../images/background1.jpg);
     background-size: cover;
     background-position: center;
+    /* overflow: hidden; */
 }
 
 .large_home_text {
