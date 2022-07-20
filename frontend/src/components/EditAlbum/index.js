@@ -11,7 +11,7 @@ function EditAlbum(){
     const albums = Object.values(useSelector(state => state.albums))
     const myAlbum = albums.filter((album)=> album.id === +albumId )[0]
     const [errors, setErrors] = useState()
-    const [title, setTitle] = useState()
+    const [title, setTitle] = useState(myAlbum.title)
 
     const deleteMyAlbum = () =>{
         dispatch(deleteAlbums(albumId))
@@ -45,33 +45,39 @@ function EditAlbum(){
         history.push('/albums')
     }
     return (
-        <div className="my_edit_album_container">
-            <div className="my_edit_album_title_container">
-                <h1 className="my_edit_album_title">Editing {myAlbum.title}</h1>
-                <form onSubmit={editAlbumTitle}>
-                    <ul>
-                        {errors?.map((error, idx) => (
-                            <li key={idx}>{error}</li>
-                        ))}
-                    </ul>
-                    <input  value={title} onChange={e=> setTitle(e.target.value)} type="text" placeholder={myAlbum.title}></input>
-                    <button type="submit">Submit New Title</button>
-                </form>
-            </div>
-            <div className="my_edit_album_image_container">
-                {myAlbum.Images.map((image)=>{
-                    return (
-                        <div>
-                            <div className="album_image_overlay">
-                                <button className='album_image_button' onClick={(e)=>removeImageCard(image)}><i className="fa-solid fa-trash-can"></i></button>
+        <div className="main_page_container">
+            <div className="my_edit_album_container">
+                <div className="my_edit_album_title_container">
+                    <div className="return_albums">
+                        <button onClick={cancel} className='button_reg'>Return to Albums</button>
+                    </div>
+                    <h1 className="my_edit_album_title">Editing {myAlbum.title}</h1>
+                    <form className = "edit_album_form" onSubmit={editAlbumTitle}>
+                        <ul>
+                            {errors?.map((error, idx) => (
+                                <li key={idx}>{error}</li>
+                            ))}
+                        </ul>
+                        <label className="edit_album_label">Album Title</label>
+                        <input className="edit_album_title_input" value={title} onChange={e=> setTitle(e.target.value)} type="text" placeholder={myAlbum.title}></input>
+                        <button type="submit" className="submit_album_title">Submit Album Title</button>
+                    </form>
+
+                    <div className="return_albums">
+                        <button onClick={deleteMyAlbum} className='button_reg'><i className="fa-solid fa-trash-can"></i> Delete Album</button>
+                    </div>
+                </div>
+                <div className="my_edit_album_image_container">
+                    {myAlbum.Images.map((image)=>{
+                        return (
+                            <div>
+                                <div className='album_delete_image' onClick={(e)=>removeImageCard(image)}><i className="fa-solid fa-x"></i></div>
+                                <img className='edit_album_image_show' src={`${image.imageURL}`}></img>
                             </div>
-                            <img className='album_image_show' src={`${image.imageURL}`}></img>
-                        </div>
-                    )
-                })}
+                        )
+                    })}
+                </div>
             </div>
-            <button onClick={deleteMyAlbum} className='button_reg'>Delete Album</button>
-            <button onClick={cancel} className='button_reg'>Return to Albums</button>
         </div>
     )
 }

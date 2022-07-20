@@ -6,28 +6,27 @@
 }
 
 body {
-    background-color: #e8e8e8;
+    background-color: #e8ebec;
     margin: 0;
 }
 
-.button_reg {
+button {
     text-decoration: none;
-    background-color: transparent;
-    border: 5px solid #a15e38;
+    border: 3px solid #325dba;
+    background-color: rgb(50, 93, 186);
     color: white;
-    padding: 10px 30px;
-    text-align: center;
-    font-size: 13px;
-    margin: 5px;
-    transition: background-color 1s;
-    width: fit-content;
+    padding: 5px;
+    transition: .5s;
 }
 
-.button_reg:hover{
-    background-color: #a15e38;
-    color: black;
-    border: #161e27 5px solid;
+button:hover {
+    border: 3px solid rgb(0, 0, 0);
+    cursor: pointer;
 }
+
+input {}
+
+textarea {}
 
 .form_title{
     margin-top: 20px;

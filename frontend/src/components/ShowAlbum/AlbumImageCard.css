@@ -1,18 +1,10 @@
 .album_image_show {
     width: 100%;
     height: 100%;
-    border-radius: 10px;
+    border-radius: 4px;
     object-fit: cover;
     /* border: 5px rgba(105, 37, 31, .6) solid; */
 }
-
-/* .album_image_container {
-    width: 200px;
-    display: grid;
-    flex-direction: column;
-    margin: 2px;
-
-} */
 
 .my_albums_container{
     display: flex;
@@ -27,34 +19,79 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: red 4px solid;
+    /* border: red 4px solid; */
 }
+
 .album_profile_image{
-    width: 75px;
-    height: 75px;
+    width: 65px;
+    height: 65px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid black;
+    /* border: 3px solid black; */
 }
 
 .album_link_container{
     display: grid;
     grid-gap: 10px;
     grid-template-columns: repeat(7, minmax(100px, 1fr));
-    grid-auto-rows: 150px;
+    grid-auto-rows: 125px;
     grid-auto-flow: dense;
     width: auto;
+    border: 2px solid grey;
+    padding: 10px;
+    margin: 10px 0px;
 }
 
+.add_album_button_container{
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+
+}
+
+.album_hide_button{
+    display: flex;
+    justify-content: center;
+    transition: .6s;
+
+}
+
+.album_hide_button:hover{
+    color: white;
+    background-color: #325dba;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.new_album_button {
+    border: 3px solid rgb(50, 93, 186);
+    background-color: rgb(50, 93, 186);
+    color: white;
+    padding: 5px;
+    transition: .5s;
+}
+
+.new_album_button:hover {
+    border: 3px solid rgb(147, 174, 233);
+    cursor: pointer;
+}
 
 .my_album_container {
-    /* display: grid; */
     margin: 10px;
     padding: 5px;
     border-radius: 5px;
     border: 2px solid grey;
     padding: 15px;
     width: 1000px;
+    background-color: #f3f3f3;
+}
+
+.my_album_edit_button {
+    color: #746c6c;
+}
+
+.my_album_edit_button:hover {
+    color: #325dba;
 }
 
 .my_album_title_container{
@@ -63,13 +100,9 @@
     margin-bottom: 15px;
 }
 
-.my_album_edit_button {
-    position: relative;
-    margin-left: 5px;
-}
-
 
 .my_album_title {
     color: rgb(0, 0, 0);
     margin: 0px 10px;
+    font-size: 20px;
 }

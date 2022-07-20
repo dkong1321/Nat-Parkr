@@ -17,10 +17,9 @@ function AlbumImageCards({album}) {
                                         <img className='album_profile_image' src={`${album.Images[0].imageURL}`}></img>
                                     </>:<></>}
                                     <h1 className="my_album_title">{album.title}</h1>
-                                    <Link to={`/editalbum/${album.id}`} className="my_album_edit_button"><div><i className="fa-solid fa-gear"></i></div></Link>
+                                    <Link to={`/editalbum/${album.id}`} className="my_album_edit_button"><i className="fa-solid fa-gear"></i></Link>
                                 </div>
-                                {album.Images?.length > 0 ? <div onClick={e=>hideImages()}><i className="fa-solid fa-circle-chevron-down"></i></div> : <></>}
-                                {/* <button onClick={e=>hideImages()}>Show Images</button> */}
+                                {album.Images?.length > 0 ? <div className='album_hide_button' onClick={e=>hideImages()}><i className="fa-solid fa-chevron-down"></i></div> : <></>}
                                 {
                                     showAlbum ?
                                     <>
