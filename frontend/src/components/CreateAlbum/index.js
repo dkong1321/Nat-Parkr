@@ -38,10 +38,15 @@ function CreateAlbum({setShowModal}){
                     ))}
                     </ul>
                 </div>
-            <form onSubmit ={submit} className="test">
-                <input required value={title} onChange={e=> setTitle(e.target.value)} type="text" placeholder='title'></input>
-                <button type="submit" className='button_reg'>Submit</button>
-                <button onClick={e => setShowModal(false)} className='button_reg'>Cancel</button>
+            <form onSubmit ={submit} className="add_album_form">
+                <div>
+                    <div>Title</div>
+                    <input className='add_album_inputs' required value={title} onChange={e=> setTitle(e.target.value)} type="text" placeholder='title'></input>
+                </div>
+                <div className='button_submit_container'>
+                    <button type="submit" className='button_reg'>Submit</button>
+                    <button onClick={e => setShowModal(false)} className='button_reg'>Cancel</button>
+                </div>
             </form>
         </div>
 

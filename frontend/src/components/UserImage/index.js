@@ -12,11 +12,11 @@ function UserImage () {
 
     const dispatch = useDispatch()
 
-    const deleteImageCard = (image)=>{
-        dispatch(deleteImage(image.id))
-        .then(() => dispatch(getAlbums()))
+    // const deleteImageCard = (image)=>{
+    //     dispatch(deleteImage(image.id))
+    //     .then(() => dispatch(getAlbums()))
 
-    }
+    // }
     return(
         <div className="my_image_body">
             <h3 className="main_page_title">{user.username} Images</h3>
@@ -26,15 +26,17 @@ function UserImage () {
                     <div>
                         <div className="my_image_cards_container">
                         <div className="my_image_title">{image.title}</div>
+                            <div className="my_image_button_container">
+                                {/* { (user.id === image.userId) ? <button onClick={()=>deleteImageCard(image)}><i className="fa-solid fa-trash-can"></i></button> : <></>} */}
+                                { (user.id === image.userId) ? <EditImageModal image={image}/> :<></>}
+                            </div>
                         <div className="my_image_holder">
                             <Link to={`/images/${image.id}`}><img className='my_image_show' src={`${image.imageURL}`}></img></Link>
-                            <div className="my_image_button_container">
-                                { (user.id === image.userId) ? <button onClick={()=>deleteImageCard(image)}><i className="fa-solid fa-trash-can"></i></button> : <></>}
-                                { (user.id === image.userId) ? <Link to={`/editimage/${image.id}`}><button><i className="fas fa-edit"></i></button></Link> :<></>}
+                            <div>
+                                <div className="label_regular_white">Description</div>
+                                <div className="my_image_descript">{image.description}</div>
                             </div>
                         </div>
-                        <div>Description</div>
-                        <div className="my_image_descript">{image.description}</div>
                         </div>
                     </div>
                     )

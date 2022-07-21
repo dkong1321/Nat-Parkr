@@ -51,7 +51,7 @@ function EditAlbum(){
                     <div className="return_albums">
                         <button onClick={cancel} className='button_reg'>Return to Albums</button>
                     </div>
-                    <h1 className="my_edit_album_title">Editing {myAlbum.title}</h1>
+                    <div className="my_edit_album_title">Editing {myAlbum.title}</div>
                     <form className = "edit_album_form" onSubmit={editAlbumTitle}>
                         <ul>
                             {errors?.map((error, idx) => (
