@@ -19,26 +19,25 @@ function AlbumImageCards({album}) {
                                     <h1 className="my_album_title">{album.title}</h1>
                                     <Link to={`/editalbum/${album.id}`} className="my_album_edit_button"><i className="fa-solid fa-gear"></i></Link>
                                 </div>
-                                {album.Images?.length > 0 ? <div className='album_hide_button' onClick={e=>hideImages()}><i className="fa-solid fa-chevron-down"></i></div> : <></>}
-                                {
-                                    showAlbum ?
+                                {/* {album.Images?.length > 0 ? <div className='album_hide_button' onClick={e=>hideImages()}><i className="fa-solid fa-chevron-down"></i></div> : <></>} */}
+
                                     <>
                                         {album.Images?.length>0 ?
                                         <div className="album_link_container">
                                             {album.Images?.map((image)=>{
                                                 return(
-                                                        <Link to={`/images/${image.id}`} >
-                                                            <img className='album_image_show' src={`${image.imageURL}`}></img>
-                                                        </Link>
+                                                    <Link to={`/images/${image.id}`} >
+                                                        <img className='album_image_show' src={`${image.imageURL}`}></img>
+                                                    </Link>
                                                 )
                                             })}
                                         </div>
                                         : <div className="my_album_title">Add an Image in this Album to Edit Images</div>}
 
-                                    </> : <>
+
 
                                     </>
-                                }
+
                         </div>
     )
 }

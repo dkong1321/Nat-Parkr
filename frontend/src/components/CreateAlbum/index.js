@@ -38,7 +38,7 @@ function CreateAlbum({setShowModal}){
                     ))}
                     </ul>
                 </div>
-            <form onSubmit ={submit} className="add_album_form">
+            <form onSubmit ={submit}>
                 <div>
                     <div>Title</div>
                     <input className='add_album_inputs' required value={title} onChange={e=> setTitle(e.target.value)} type="text" placeholder='title'></input>

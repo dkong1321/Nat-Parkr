@@ -59,8 +59,6 @@ function CreateImage({setShowModal}){
                             ))}
                         </ul>
                     </div>
-
-
                 <input className="create_image_form_inputs" required onChange={imageSelected} type="file" accept="image/*" name="image"></input>
                 <input  className="create_image_form_inputs" value={title} onChange={e=> setTitle(e.target.value)} type="text" placeholder='title'></input>
                 <input  className="create_image_form_inputs" value={description} onChange={e=> setDescription(e.target.value)} type="text" placeholder='description'></input>
@@ -70,9 +68,11 @@ function CreateImage({setShowModal}){
                         return(<option value={album.id}>{album.title}</option>)
                     })}
                 </select>
-                <button type="submit" className='button_reg' >Submit</button>
+                <div className='button_submit_container'>
+                    <button type="submit" className='button_reg' >Submit</button>
+                    <button onClick={e => setShowModal(false)} className='button_reg'>Cancel</button>
+                </div>
             </form>
-            <button onClick={e => setShowModal(false)} className='button_reg'>Cancel</button>
         </div>
     )
 }

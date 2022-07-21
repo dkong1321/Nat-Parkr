@@ -36,18 +36,3 @@ export function Modal({ onClose, children }) {
     modalNode
   );
 }
-
-export function ZoomModal({ onClose, children }) {
-  const modalNode = useContext(ModalContext);
-  if (!modalNode) return null;
-
-  return ReactDOM.createPortal(
-    <div className='zoom_modal'>
-      <div id="modal-background" onClick={onClose} />
-      <div className='zoom_modal_content'>
-        {children}
-      </div>
-    </div>,
-    modalNode
-  );
-}

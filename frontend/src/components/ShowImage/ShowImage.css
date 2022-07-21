@@ -1,47 +1,83 @@
 .view_image {
-    width: 800px;
-    height: auto;
-    border-radius: 10px;
-    border: 7px solid #2F3E52 ;
+    width: auto;
+    height: 65vh;
+    margin: 20px 0px;
+    cursor: zoom-in;
+}
+
+.view_image_zoom{
+    width: auto;
+    max-height: 90vh;
+    z-index: 1001;
+    cursor: zoom-out;
+}
+
+.add_album_form{
+    height: 25px;
+    font-size: 20px;
+}
+
+.album_plus_button{
+    width: 25px;
+    height: 25px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.image_info{
+    color: rgb(3, 3, 3);
+    font-size: 20px;
+}
+
+.image_info_container{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
 
 }
 
 .view_image_title{
-    color: White;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: rgb(0, 0, 0);
     font-size: 40px;
-    border-bottom:5px solid white;
     width: fit-content;
+}
+
+.add_album_info{
+    margin-top: 10px;
+    display: flex;
+    /* border: red 1px solid; */
 }
 
 .view_image_main_container {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
 }
 
 .view_image_container {
-    width: fit-content;
-    height: 80vh;
+    width: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
-    /* border: red solid 4px; */
+    margin-bottom: 10px;
 
 }
 
 .view_image_body {
     display: flex;
     justify-content: center;
+    align-items:center ;
     flex-direction: column;
+    width: 100%;
+    background-color: #1c1a1a;
 }
 
 .view_image_comment_container{
-    /* border: red 2px solid; */
-    /* border-left: #2F3E52 5px solid;
-    border-right: #2F3E52 5px solid; */
     width: 500px;
-    /* height: 500px; */
     overflow-wrap: break-word;
-    /* overflow-y: scroll; */
 
 }
 
@@ -49,16 +85,11 @@
     border-bottom: #2F3E52 5px solid;
     width: 500px;
     color: black;
-    /* border-left: #2F3E52 5px solid;
-    border-right: #2F3E52 5px solid; */
 }
 
 .heading_description {
     font-size: 30px;
     color: black;
-    /* border: red 2px solid; */
-    /* border-left: #2F3E52 5px solid;
-    border-right: #2F3E52 5px solid; */
 }
 
 .view_image_side_bar {
