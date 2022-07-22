@@ -8,6 +8,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 1000;
 }
 
 #modal-background {
@@ -27,6 +28,7 @@
     justify-content: center;
     height: fit-content;
     border-radius: 10px;
+    z-index: 1000;
     border: 5px solid #000000;
 }
 
@@ -52,6 +54,33 @@
     height: fit-content;
     z-index: 1000;
     border-radius: 10px;
+    /* border: 5px solid #000000; */
+
+}
+
+.comment_modal {
+    position: fixed;
+    /* top: 100px; */
+    right: 0;
+    left: 0;
+    bottom: 0px;
+    display: flex;
+    justify-content: flex-end;
+    /* align-items: center; */
+    /* margin-top: 30px; */
+    z-index: 300;
+
+}
+
+.comment_modal_content {
+    position: sticky;
+    background-color: #d9dfde;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: fit-content;
+    /* z-index: 1000; */
+    /* border-radius: 10px; */
     /* border: 5px solid #000000; */
 
 }

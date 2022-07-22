@@ -2,7 +2,7 @@ import { deleteComment, getComments, postComments } from '../../store/comment';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import moment from 'moment'
-function ShowComments ({myImage}) {
+function ShowComments ({myImage, setShowModal}) {
     const comments = Object.values(useSelector(state => state.comments))
     const currentImageComments = comments.filter((comment)=>comment.imageId===myImage.id)
     const [comment, setComment] = useState()
@@ -35,25 +35,27 @@ function ShowComments ({myImage}) {
         await dispatch(deleteComment(payload)).then(()=> dispatch(getComments()))
     }
     return (
-        <div>
+        <div className='comment_container'>
+            <div className='close_comment_sidebar' onClick={()=>setShowModal(false)}><i className="fa-solid fa-x"></i></div>
             <form onSubmit={submit} className="comment_form">
                 <ul>
                     {errors.map((error, idx) => (
-                        <li key={idx}>{error}</li>
+                        <li className='form_errors' key={idx}>{error}</li>
                     ))}
                 </ul>
-            <input value={comment} onChange={e => setComment(e.target.value)} type="text" placeholder='Enter Comment'></input>
-            <button>Post Comment</button>
+            <div>Enter A Comment</div>
+            <textarea className="comment_input" value={comment} onChange={e => setComment(e.target.value)} type="text" placeholder='Enter Comment' cols="5" rows="5"></textarea >
+            <button className='submit_comment_button'>Post Comment</button>
             </form>
                 <div className='all_comment_container'>
                     {currentImageComments.map((comment)=>{
                         return(
                             <div className='single_comment_container' key={comment.id}>
                                 <div className='comment_text' key={comment.title}>
-                                    <div className='comment_text' >{comment.User.username}:</div>
-                                    <div className='comment_text' >{comment.comment}</div>
-                                    <div className='comment_text' >{moment(comment.createdAt).format("ddd MMM D YYYY h:mm")}</div>
-                                    {comment.userId === userId ? <button onClick={(e)=>deleteMyComment(comment)}><i className="fa-solid fa-trash-can"></i></button> : <></>}
+                                    {comment.userId === userId ? <div className='delete_comment_button' onClick={(e)=>deleteMyComment(comment)}><i className="fa-solid fa-trash-can"></i></div> : <></>}
+                                    <div className='comment_text comment_info' >{comment.User.username}:</div>
+                                    <div className='comment_text comment_content' >{comment.comment}</div>
+                                    <div className='comment_text comment_date' >{moment(comment.createdAt).format("ddd MMM D YYYY h:mm")}</div>
                                 </div>
                             </div>
                         )

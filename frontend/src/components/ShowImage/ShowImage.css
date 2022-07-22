@@ -1,6 +1,6 @@
 .view_image {
     width: auto;
-    height: 65vh;
+    height: 55vh;
     margin: 20px 0px;
     cursor: zoom-in;
 }
@@ -13,20 +13,32 @@
 }
 
 .add_album_form{
-    height: 25px;
-    font-size: 20px;
+    height: 20px;
+    font-size: 15px;
+    margin-bottom: 5px;
 }
 
 .album_plus_button{
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
     margin: 0px;
     padding: 0px;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .image_info{
     color: rgb(3, 3, 3);
-    font-size: 20px;
+    font-size: 15px;
+}
+
+.image_info_top{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5px;
+    /* align-items: baseline; */
 }
 
 .image_info_container{
@@ -37,8 +49,7 @@
 }
 
 .view_image_title{
-    margin-top: 20px;
-    margin-bottom: 10px;
+    margin-top: 10px;
     color: rgb(0, 0, 0);
     font-size: 40px;
     width: fit-content;
@@ -82,7 +93,7 @@
 }
 
 .view_image_description {
-    border-bottom: #2F3E52 5px solid;
+    border-top: #2F3E52 5px solid;
     width: 500px;
     color: black;
 }
@@ -100,7 +111,7 @@
     height: fit-content;
     top: 20px;
     margin-left: 50px;
-    background-color: rgb(74, 98, 129);
+    background-color: #4a6281;
 }
 
 /* comments */
@@ -108,11 +119,74 @@
     color: black;
 }
 
+.comment_container{
+    width: 500px;
+    height: 90vh;
+    background-color: #bccbdd;
+    border: #4a6281 2px solid;
+
+}
+
+.close_comment_sidebar{
+    position: relative;
+    right: -460px;
+    font-size: 25px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.comment_form{
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    margin: 15px;
+    /* resize: none; */
+}
+
+.comment_input{
+    margin: 10px 0px;
+    width: 400px;
+    resize: none;
+}
+
 .single_comment_container {
     border-bottom: #2F3E52 3px solid;
     background-color: rgba(47, 62, 82,0);
     transition: background-color .45s;
+    overflow-wrap: break-word;
+    padding: 5px;
 
+}
+
+.submit_comment_button{
+    width: fit-content;
+    margin: 10px 0px;
+}
+
+.delete_comment_button{
+    position: relative;
+    /* width: 10px; */
+    height: 0px;
+    right: -455px;
+    z-index: 1000px;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.single_comment_container:hover .delete_comment_button{
+    opacity: 1;
+}
+
+.comment_info{
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+.comment_content{
+    font-size: 18px;
+}
+.comment_date{
+    font-weight: 600;
+    font-size: 13px;
 }
 
 .single_comment_container:hover {
@@ -120,13 +194,12 @@
 }
 
 .all_comment_container{
-    /* overflow-y: scroll; */
-    height: 400px;
-    /* border-bottom: #2F3E52 5px solid; */
-    border-radius: 5px;
     overflow-y: scroll;
-}
-
-.comment_form{
-    border-bottom: #2F3E52 5px solid;
+    overflow-x: hidden;
+    /* best way to do this? CK */
+    width: 500px;
+    height: 610px;
+    border-top: #2F3E52 5px solid;
+    /* border-radius: 5px; */
+    /* overflow-y: scroll; */
 }

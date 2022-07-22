@@ -21,10 +21,10 @@
     align-items: center;
     margin: 30px;
     padding: 25px;
-    border: 5px solid black;
+    border: 1px solid rgb(48, 44, 44);
     border-radius: 10px;
     background-color: #f3f3f3;
-    box-shadow: 12px 12px 2px 1px rgba(47, 62, 82, 0);
+    box-shadow: 12px 12px 2px 1px rgba(47, 62, 82, 0.358);
     transition: background-color .5s, box-shadow .5s;
 }
 
@@ -68,7 +68,7 @@
 
 .my_image_title {
     color: black;
-    font-size: 40px;
+    font-size: 30px;
     font-weight: 400;
 }
 

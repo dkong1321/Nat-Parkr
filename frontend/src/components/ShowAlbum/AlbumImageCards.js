@@ -3,24 +3,19 @@ import { Link } from 'react-router-dom'
 import './AlbumImageCard.css'
 
 function AlbumImageCards({album}) {
-    const [showAlbum, setShowAlbum] = useState(false)
-
-    const hideImages = () => {
-        setShowAlbum(!showAlbum)
-    }
 
     return(
         <div key={album.id} className="my_album_container">
                                 <div className="my_album_title_container">
                                     {album.Images?.length > 0 ?
-                                    <>
-                                        <img className='album_profile_image' src={`${album.Images[0].imageURL}`}></img>
-                                    </>:<></>}
+                                        <>
+                                            <img className='album_profile_image' src={`${album.Images[0].imageURL}`}></img>
+                                        </>:
+                                        <></>
+                                    }
                                     <h1 className="my_album_title">{album.title}</h1>
                                     <Link to={`/editalbum/${album.id}`} className="my_album_edit_button"><i className="fa-solid fa-gear"></i></Link>
                                 </div>
-                                {/* {album.Images?.length > 0 ? <div className='album_hide_button' onClick={e=>hideImages()}><i className="fa-solid fa-chevron-down"></i></div> : <></>} */}
-
                                     <>
                                         {album.Images?.length>0 ?
                                         <div className="album_link_container">
@@ -33,9 +28,6 @@ function AlbumImageCards({album}) {
                                             })}
                                         </div>
                                         : <div className="my_album_title">Add an Image in this Album to Edit Images</div>}
-
-
-
                                     </>
 
                         </div>

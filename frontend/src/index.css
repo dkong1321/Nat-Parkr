@@ -25,10 +25,9 @@ button:hover {
     cursor: pointer;
 }
 
-input {}
-
-textarea {}
-
+.form_errors{
+    color: rgb(202, 69, 69);
+}
 .form_title{
     /* margin-top: 20px; */
     font-size: 30px;

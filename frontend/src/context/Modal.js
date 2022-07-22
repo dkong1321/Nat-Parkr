@@ -51,3 +51,18 @@ export function ZoomModal({ onClose, children }) {
     modalNode
   );
 }
+
+export function SidebarModal({ onClose, children }) {
+  const modalNode = useContext(ModalContext);
+  if (!modalNode) return null;
+
+  return ReactDOM.createPortal(
+    <div className='comment_modal'>
+      <div id="modal-background" onClick={onClose} />
+      <div className='comment_modal_content'>
+        {children}
+      </div>
+    </div>,
+    modalNode
+  );
+}
