@@ -6,7 +6,7 @@ function CommentModal ({myImage}) {
     const [showModal, setShowModal] = useState(false);
     return (
         <>
-            <div className = "new_album_button" onClick={()=> setShowModal(true)}>Comments</div>
+            <div className = "comments_button" onClick={()=> setShowModal(true)}>View Comments</div>
             {showModal && (
                 <SidebarModal onClose={()=> setShowModal(false)}>
                     <ShowComments myImage={myImage} setShowModal={setShowModal}/>

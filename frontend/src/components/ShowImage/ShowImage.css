@@ -122,7 +122,7 @@
 .comment_container{
     width: 500px;
     height: 90vh;
-    background-color: #bccbdd;
+    background-color: #e0e4e9;
     border: #4a6281 2px solid;
 
 }
@@ -140,7 +140,15 @@
     flex-direction: column;
     justify-content: baseline;
     margin: 15px;
-    /* resize: none; */
+}
+
+.comments_button{
+    border: 3px solid rgb(50, 93, 186);
+    background-color: rgb(50, 93, 186);
+    color: white;
+    padding: 5px 10px;
+    transition: .5s;
+    width: fit-content;
 }
 
 .comment_input{
@@ -194,12 +202,18 @@
 }
 
 .all_comment_container{
-    overflow-y: scroll;
+    overflow-y: scroll hidden;
     overflow-x: hidden;
     /* best way to do this? CK */
     width: 500px;
     height: 610px;
     border-top: #2F3E52 5px solid;
-    /* border-radius: 5px; */
-    /* overflow-y: scroll; */
+    -ms-overflow-style: none;
+        /* IE and Edge */
+        scrollbar-width: none;
+        /* Firefox */
+}
+
+.all_comment_container::-webkit-scrollbar{
+    display: none;
 }

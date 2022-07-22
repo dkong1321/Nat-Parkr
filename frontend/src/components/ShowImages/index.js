@@ -12,7 +12,6 @@ const ImageBrowser = ()=>{
     const user = (useSelector(state => state.session.user))
     const images = Object.values(useSelector(state => state.images));
     const history = useHistory()
-    const revImages = images.reverse()
     if(!images){
         return null
     }

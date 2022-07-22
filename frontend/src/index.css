@@ -9,6 +9,8 @@ body {
     /* background-color: #e8ebec; */
     background-color: #d9dfde;
     margin: 0;
+    /* weird? CK */
+    overflow-x: hidden;
 }
 
 button {

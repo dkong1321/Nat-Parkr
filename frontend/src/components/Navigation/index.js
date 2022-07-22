@@ -37,17 +37,17 @@ function Navigation({ isLoaded }){
     return (
         <>
         <div className='nav_bar'>
-                <div>
-                    {isLoaded && sessionLinks}
-                </div>
 
+                <img className='nav_logo' src="./images/NatParkr.svg"></img>
                 <Search/>
-
                 <div className='nav_bar_right'>
+                {!sessionUser?<LoginFormModal />:<></>}
+                {!sessionUser?<SignupFormModal/>:<></>}
                 {sessionUser?<NavLink to="/images" className="nav_buttons">Discover</NavLink>:<></>}
-                <CreateImageModal className="user_dropdown_button" {...sessionUser} />
+                {sessionUser?<CreateImageModal className="user_dropdown_button" {...sessionUser} />:<></>}
                 {sessionUser?<UserProfileDropdown/>:<></>}
                 </div>
+
         </div>
         </>
 

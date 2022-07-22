@@ -78,10 +78,8 @@ function ShowImage () {
                 <div className='view_image_description'>
                     {myImage.description}
                 </div>
-                {myComments.length === 1 ? <div>{myComments.length} comment</div>:<><div>{myComments.length} comments</div></>}
                 <CommentModal myImage={myImage} myComments />
                 </div>
-                {/* <ShowComments myImage={myImage}/> */}
         </div>
     </div>
     )

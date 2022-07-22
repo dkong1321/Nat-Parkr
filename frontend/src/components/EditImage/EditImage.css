@@ -14,7 +14,6 @@
 .delete_image_button{
     width: fit-content;
     margin-right: 10px;
-    /* position: relative; */
 }
 
 .form_container {
@@ -22,20 +21,17 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* align-items: center; */
     border-radius: 10px;
 }
 
 .edit_image_inputs{
     width: auto;
-    /* height: 200px; */
     resize: none;
     margin: 20px 50px;
 }
 
 .button_submit_edit{
     width: auto;
-    /* border: red 1px solid; */
     display: flex;
     justify-content: space-evenly;
 }

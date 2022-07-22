@@ -12,7 +12,8 @@
     top: 100px;
     right: 10px;
     background-color: grey;
-    width: 200px;
+    width: 189px;
+    /* margin-right: 10px; */
 }
 
 .dropdown_buttons{
@@ -28,7 +29,7 @@
 }
 
 .dropdown_buttons:hover{
-    background-color: blue;
-    color: goldenrod;
+    background-color: rgb(255, 255, 255);
+    color: rgb(22, 112, 223);
     cursor: pointer;
 }
