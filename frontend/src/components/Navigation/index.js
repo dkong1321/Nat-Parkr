@@ -14,32 +14,31 @@ import './Navigation.css';
 
 function Navigation({ isLoaded }){
     const sessionUser = useSelector(state => state.session.user);
-    let sessionLinks;
-    if(sessionUser){
-        sessionLinks = (
-            <>
-            {/* <div>
-                <ProfileButton user={sessionUser} />
-                <div>{sessionUser.name}</div>
-            </div> */}
-            </>
-        );
+    // let sessionLinks;
+    // if(sessionUser){
+    //     sessionLinks = (
+    //         <>
+    //         <div>
+    //             <ProfileButton user={sessionUser} />
+    //             <div>{sessionUser.name}</div>
+    //         </div>
+    //         </>
+    //     );
 
-    } else {
-        sessionLinks = (
-            <>
-                <LoginFormModal />
-                <SignupFormModal/>
-            </>
-        );
-    }
+    // } else {
+    //     sessionLinks = (
+    //         <>
+    //             <LoginFormModal />
+    //             <SignupFormModal/>
+    //         </>
+    //     );
+    // }
 
     return (
         <>
         <div className='nav_bar'>
-
                 <img className='nav_logo' src="./images/NatParkr.svg"></img>
-                <Search/>
+                {sessionUser ? <Search/>:<></>}
                 <div className='nav_bar_right'>
                 {!sessionUser?<LoginFormModal />:<></>}
                 {!sessionUser?<SignupFormModal/>:<></>}

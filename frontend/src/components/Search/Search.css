@@ -25,5 +25,24 @@
 
 .search_links:hover{
     background-color: rgb(30, 100, 186);
-    color: goldenrod;
+    color: white;
+}
+
+.not_search_term{
+    font-weight: 600;
+}
+
+.search_bar_container{
+    display: flex;
+}
+
+.search_icon{
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: auto;
+    padding: 10px;
+    background-color: rgb(32, 118, 187);
 }
