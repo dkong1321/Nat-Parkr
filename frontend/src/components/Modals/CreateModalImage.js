@@ -6,7 +6,7 @@ function CreateImageModal () {
     const [showModal, setShowModal] = useState(false);
     return (
         <>
-            <div className="nav_buttons" onClick={()=> setShowModal(true)}>+ Image</div>
+            <div className="nav_buttons" onClick={()=> setShowModal(true)}><i className="fa-solid fa-cloud-arrow-up"></i></div>
             {showModal && (
                 <Modal onClose={()=> setShowModal(false)}>
                     < CreateImage setShowModal={setShowModal}/>

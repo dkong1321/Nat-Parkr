@@ -3,17 +3,18 @@
 
 }
 
-
 .nav_bar {
     position: sticky;
     background-color: #202020 ;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    height: 90px;
+    justify-content: space-evenly;
+    height: 7vh;
+    min-height: 80px;
     width: 100vw;
     z-index: 500;
     top: 0;
+    max-width: 100%;
 }
 
 .nav_logo{
@@ -28,6 +29,8 @@
     align-items: center;
     height: 100%;
     margin-right: 15px;
+    width: auto;
+    /* background-color: blue; */
 }
 
 .nav_buttons {
@@ -36,7 +39,7 @@
     justify-content: center;
     align-items: center;
     color: whitesmoke;
-    font-size: 25px;
+    font-size: 20px;
     font-weight: 700px;
     padding: 0px 20px;
     width: 100%;
@@ -53,5 +56,4 @@
 .nav_links_container {
     display: flex;
     justify-content: space-evenly;
-    /* border: red 5px solid; */
 }

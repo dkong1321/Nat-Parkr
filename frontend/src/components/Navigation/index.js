@@ -2,14 +2,11 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
 import CreateImageModal from '../Modals/CreateModalImage';
-import CreateAlbumModal from '../Modals/CreateModalAlbum';
 import UserProfileDropdown from '../UserProfile';
 import Search from "../Search"
-import LogOut from './LogOut';
 import './Navigation.css';
 
 function Navigation({ isLoaded }){
@@ -37,7 +34,9 @@ function Navigation({ isLoaded }){
     return (
         <>
         <div className='nav_bar'>
+                <NavLink to="/">
                 <img className='nav_logo' src="./images/NatParkr.svg"></img>
+                </NavLink>
                 {sessionUser ? <Search/>:<></>}
                 <div className='nav_bar_right'>
                 {!sessionUser?<LoginFormModal />:<></>}

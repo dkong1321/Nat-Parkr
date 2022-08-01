@@ -1,6 +1,7 @@
 .splash_container {
-    width: 100vw;
-    height: 91.35vh;
+    width: 100%;
+    height: 93vh;
+    min-height: 900px;
     background-image: linear-gradient(rgba(0, 0, 0, 0.6), transparent),
         url(../../images/background1.jpg);
     background-size: cover;
@@ -8,13 +9,21 @@
     /* overflow: hidden; */
 }
 
-.large_home_text {
-    font-size: 120px;
-    /* font-family: 'Roboto Condensed', sans-serif; */
+.splash_text_container{
+    display: flex;
+    flex-direction: column;
     position: relative;
-    bottom:-600px;
+    bottom: -20vh;
+    background-color: rgba(37, 46, 46, 0.627);
+    width: 60%;
+    min-width: 900px
+}
+
+.large_home_text {
+    font-size: 10em;
     color: #ffffff;
     margin-left: 50px;
+
 }
 
 .splash_nav_logo{
@@ -24,17 +33,15 @@
 
 .small_home_text {
     font-size: 60px;
-    /* font-family: 'Roboto Condensed', sans-serif; */
-    position: relative;
-    bottom: -600px;
     color: #fff;
     -webkit-text-stroke: 1px black;
     margin-left: 50px;
 }
 
 .intro {
-    position: absolute;
-    width: 100vw;
+    position: relative;
+    width: 100%;
+    min-width: 1200px;
     height: 400px;
     border-radius: 15px;
     top: 200px;

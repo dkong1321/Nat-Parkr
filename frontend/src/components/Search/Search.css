@@ -1,5 +1,6 @@
 .search_input{
-    width: 800px;
+    width: 40vw;
+    min-width: 500px ;
     /* position: absolute; */
 }
 

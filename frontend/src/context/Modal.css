@@ -90,6 +90,7 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    padding: 15px 10px;
 }
 
 .login_form_container > input,
