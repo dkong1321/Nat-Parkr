@@ -11,25 +11,6 @@ import './Navigation.css';
 
 function Navigation({ isLoaded }){
     const sessionUser = useSelector(state => state.session.user);
-    // let sessionLinks;
-    // if(sessionUser){
-    //     sessionLinks = (
-    //         <>
-    //         <div>
-    //             <ProfileButton user={sessionUser} />
-    //             <div>{sessionUser.name}</div>
-    //         </div>
-    //         </>
-    //     );
-
-    // } else {
-    //     sessionLinks = (
-    //         <>
-    //             <LoginFormModal />
-    //             <SignupFormModal/>
-    //         </>
-    //     );
-    // }
 
     return (
         <>

@@ -27,7 +27,7 @@ function UserProfileDropdown () {
 
     return(
         <>
-            <div className='user_dropdown_button nav_buttons' onClick={openDropdown}>
+            <div className='nav_buttons' onClick={openDropdown}>
                 {user.username}
             </div>
 

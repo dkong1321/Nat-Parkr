@@ -11,26 +11,28 @@
     justify-content: space-evenly;
     height: 7vh;
     min-height: 80px;
-    width: 100vw;
+    /* width: 100vw; */
     z-index: 500;
     top: 0;
-    max-width: 100%;
 }
 
 .nav_logo{
-    width: 220px;
-    height: 300px;
+    width: 200px;
     position: relative;
     top: 45px;
+    margin-right: auto;
 }
 
 .nav_bar_right{
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     height: 100%;
-    margin-right: 15px;
-    width: auto;
-    /* background-color: blue; */
+    margin-left: auto;
+    /* position: relative; */
+    /* margin-left: 27.5vw; */
+    /* right: -24.5%; */
+    background-color: rgba(43, 43, 130, 0.469);
+    /* background-color: #202020; */
 }
 
 .nav_buttons {
@@ -39,10 +41,9 @@
     justify-content: center;
     align-items: center;
     color: whitesmoke;
-    font-size: 20px;
+    font-size: 1em;
     font-weight: 700px;
     padding: 0px 20px;
-    width: 100%;
     height: 100%;
     transition: .7s;
     cursor: pointer;
