@@ -14,7 +14,7 @@ function UserProfileDropdown () {
         if(menu) return
         setMenu(true);
     }
-    console.log(user)
+    // console.log(user)
     const closeMenu = () => {
         setMenu(false)
     }

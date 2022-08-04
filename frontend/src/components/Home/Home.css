@@ -1,6 +1,6 @@
 .splash_container {
-    height: 91.5vh;
-    min-height: 850px;
+    height: 92vh;
+    /* min-height: 850px; */
     background-image: linear-gradient(rgba(0, 0, 0, 0.6), transparent),
         url(../../images/background1.jpg);
     background-size: cover;
