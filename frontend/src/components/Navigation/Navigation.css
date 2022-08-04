@@ -16,24 +16,31 @@
     top: 0;
 }
 
-.nav_logo{
-    width: 200px;
-    position: relative;
-    top: 45px;
+.logo_container{
+    display: flex;
+    align-items: flex-end;
+    text-decoration: none;
     margin-right: auto;
+}
+
+.logo_text{
+    color: white;
+    font-size: 40px;
+}
+
+.nav_logo{
+    width: 120px;
+    position: relative;
+    /* top: 45px; */
+    margin-right: 10px;
 }
 
 .nav_bar_right{
     display: flex;
-    /* align-items: center; */
     height: 100%;
     margin-left: auto;
-    /* position: relative; */
-    /* margin-left: 27.5vw; */
-    /* right: -24.5%; */
-    background-color: rgba(43, 43, 130, 0.469);
-    /* background-color: #202020; */
 }
+
 
 .nav_buttons {
     display: flex;

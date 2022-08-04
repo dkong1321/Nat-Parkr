@@ -15,8 +15,13 @@ function Navigation({ isLoaded }){
     return (
         <>
         <div className='nav_bar'>
-                <NavLink to="/">
-                <img className='nav_logo' src="./images/NatParkr.svg"></img>
+                <NavLink to="/" className="logo_container">
+                {/* <img className='nav_logo' src="./images/NatParkr.svg"></img> */}
+
+                    <img className='nav_logo' src="./images/Nat_Parkr_Logo_v2.svg"></img>
+                    <div className='logo_text'>Nat-Parkr</div>
+
+
                 </NavLink>
                 {sessionUser ? <Search/>:<></>}
                 <div className='nav_bar_right'>
