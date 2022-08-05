@@ -18,7 +18,7 @@ function Navigation({ isLoaded }){
                 <NavLink to="/" className="logo_container">
                 {/* <img className='nav_logo' src="./images/NatParkr.svg"></img> */}
 
-                    <img className='nav_logo' src="./images/Nat_Parkr_Logo_v2.svg"></img>
+                    <img className='nav_logo' src="/images/Nat_Parkr_Logo_v2.svg"></img>
                     <div className='logo_text'>Nat-Parkr</div>
 
 
