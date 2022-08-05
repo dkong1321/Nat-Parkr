@@ -11,6 +11,7 @@
     justify-content: space-evenly;
     height: 9vh;
     min-height: 80px;
+    min-width: 900px;
     /* width: 100vw; */
     z-index: 500;
     top: 0;
