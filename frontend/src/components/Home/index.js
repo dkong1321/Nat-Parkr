@@ -17,6 +17,15 @@ function HomePage() {
                     Nat-Parkr
                 </div>
             </div>
+
+            <div className='footer_splash'>
+                <a href="https://github.com/dkong1321/PokeMart" target="blank">
+                    <img className="svg__logo__git" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" />
+                </a>
+                <a href="https://www.linkedin.com/in/darren-kong-06b47013b/" target="blank">
+                    <img className="svg__logo__linked" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" />
+                </a>
+            </div>
         </div>
     )
 }
