@@ -13,6 +13,7 @@
     right: 10px;
     background-color: grey;
     width: 189px;
+    z-index: 1000;
     /* margin-right: 10px; */
 }
 

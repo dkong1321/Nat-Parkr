@@ -10,6 +10,7 @@ import Search from "../Search"
 import './Navigation.css';
 
 function Navigation({ isLoaded }){
+
     const sessionUser = useSelector(state => state.session.user);
 
     return (
