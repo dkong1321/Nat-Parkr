@@ -70,7 +70,7 @@ function EditAlbum(){
                 <div className="my_edit_album_image_container">
                     {myAlbum.Images.map((image)=>{
                         return (
-                            <div>
+                            <div className="test_holder">
                                 <div className='album_delete_image' onClick={(e)=>removeImageCard(image)}><i className="fa-solid fa-x"></i></div>
                                 <img className='edit_album_image_show' src={`${image.imageURL}`}></img>
                             </div>
