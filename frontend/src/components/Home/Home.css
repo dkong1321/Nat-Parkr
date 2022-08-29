@@ -1,11 +1,12 @@
 .splash_container {
     height: 91vh;
+    /* width: auto; */
     /* min-height: 850px; */
     background-image: linear-gradient(rgba(0, 0, 0, 0.6), transparent),
         url(../../images/background1.jpg);
     background-size: cover;
     background-position: center;
-    min-width: 900px
+    /* min-width: 900px */
 }
 
 .splash_text_container{
@@ -20,8 +21,6 @@
 
 .profile_links {
     position: absolute;
-    bottom: 10px;
-    /* right: -20px; */
     margin-left: 20px;
 }
 
@@ -35,7 +34,6 @@
 .small_home_text {
     font-size: 4vh;
     color: #fff;
-    /* -webkit-text-stroke: 1px black; */
     margin-left: 50px;
 }
 
@@ -62,19 +60,6 @@
     color: white;
     z-index: 2;
 }
-
-
-/* .footer_splash {
-    display: flex;
-    background-color: #202020;
-    height: 60px;
-    width: 100%;
-    position: absolute;
-    bottom: 0px;
-    align-items: center;
-    justify-content: flex-end;
-    min-width: 900px
-} */
 
 .svg__logo__git {
     width: 30px;
